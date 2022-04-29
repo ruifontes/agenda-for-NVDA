@@ -1,0 +1,536 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Agenda\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2022-04-29 23:43+0100\n"
+"PO-Revision-Date: 2022-04-30 00:12+0100\n"
+"Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
+"Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes <ampa4374@gmail."
+"com> e Rui Fontes <Rui Fontes <rui.fontes@tiflotecnia.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ../../../globalPlugins\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "December"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "November"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "October"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "September"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "August"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "July"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "June"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "May"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "April"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "March"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "February"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "January"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Monday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "tuesday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Wednesday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Thursday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Friday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Saturday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Sunday"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:106
+msgid "You have the following appointment tomorrow:\n"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:115
+#: addon\globalPlugins\agenda\__init__.py:122
+#: addon\globalPlugins\agenda\__init__.py:129
+#: addon\globalPlugins\agenda\__init__.py:136
+#: addon\globalPlugins\agenda\__init__.py:150
+msgid "Reminder!"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:116
+msgid "You have the following appointment in one hour:\n"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:123
+msgid "You have the following appointment in 30 minutes:\n"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:130
+msgid "You have the following appointment in 15 minutes:\n"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:137
+msgid "You have now the following appointment:\n"
+msgstr ""
+
+#. Translators: Dialog title
+#. For translators: Name of the section in "Input gestures" dialog.
+#. Translators: Title of the Agenda settings dialog in the NVDA settings.
+#: addon\globalPlugins\agenda\__init__.py:194
+#: addon\globalPlugins\agenda\__init__.py:269
+#: addon\globalPlugins\agenda\__init__.py:277
+#: addon\globalPlugins\agenda\__init__.py:453
+#: addon\globalPlugins\agenda\__init__.py:835
+#: addon\globalPlugins\agenda\__init__.py:852
+#: addon\globalPlugins\agenda\__init__.py:856
+#: addon\globalPlugins\agenda\__init__.py:863
+#: addon\globalPlugins\agenda\__init__.py:1140
+#: addon\globalPlugins\agenda\__init__.py:1145
+#: addon\globalPlugins\agenda\__init__.py:1155
+#: addon\globalPlugins\agenda\__init__.py:1164
+#: addon\globalPlugins\agenda\__init__.py:1187
+#: addon\globalPlugins\agenda\__init__.py:1199
+#: addon\globalPlugins\agenda\__init__.py:1226
+#: addon\globalPlugins\agenda\__init__.py:1275
+#: addon\globalPlugins\agenda\__init__.py:1544
+#: addon\globalPlugins\agenda\__init__.py:1594
+#: addon\globalPlugins\agenda\__init__.py:1701
+#: addon\globalPlugins\agenda\__init__.py:1726
+#: addon\globalPlugins\agenda\__init__.py:1730
+#: addon\globalPlugins\agenda\__init__.py:1736
+#: addon\globalPlugins\agenda\__init__.py:1743
+#: addon\globalPlugins\agenda\__init__.py:1747
+#: addon\globalPlugins\agenda\__init__.py:1752
+msgid "Agenda"
+msgstr ""
+
+#. Translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\agenda\__init__.py:267
+msgid "Main window to access an accessible agenda"
+msgstr ""
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\agenda\__init__.py:283
+msgid "Show next appointments at startup"
+msgstr ""
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\agenda\__init__.py:288
+msgid "Check for updates at startup"
+msgstr ""
+
+#. Translators: Name of combobox with the agenda files path
+#: addon\globalPlugins\agenda\__init__.py:293
+msgid "Path of agenda files:"
+msgstr ""
+
+#. Translators: This is the label for the button used to add or change a agenda.db location
+#: addon\globalPlugins\agenda\__init__.py:306
+msgid "&Select or add a directory"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:317
+msgid "Choose where to save the agenda file"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:318
+msgid "Database files (*.db)"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:365
+msgid "Appointments for today and tomorrow"
+msgstr ""
+
+#. Label of the list were the itens found will land
+#: addon\globalPlugins\agenda\__init__.py:369
+#: addon\globalPlugins\agenda\__init__.py:1382
+#: addon\globalPlugins\agenda\__init__.py:1636
+msgid "Items found:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:373
+#: addon\globalPlugins\agenda\__init__.py:1386
+#: addon\globalPlugins\agenda\__init__.py:1610
+msgid "Date/Hour"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:374
+#: addon\globalPlugins\agenda\__init__.py:486
+#: addon\globalPlugins\agenda\__init__.py:763
+#: addon\globalPlugins\agenda\__init__.py:1611
+msgid "Appointment"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:380
+#: addon\globalPlugins\agenda\__init__.py:956
+msgid "&Ok"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:413
+#: addon\globalPlugins\agenda\__init__.py:1627
+#: addon\globalPlugins\agenda\__init__.py:1652
+#: addon\globalPlugins\agenda\__init__.py:1685
+#: addon\globalPlugins\agenda\__init__.py:1714
+msgid "Today"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:415
+#: addon\globalPlugins\agenda\__init__.py:1629
+#: addon\globalPlugins\agenda\__init__.py:1655
+#: addon\globalPlugins\agenda\__init__.py:1688
+#: addon\globalPlugins\agenda\__init__.py:1717
+msgid "Tomorrow"
+msgstr ""
+
+#. Add the numbers of itens to the label...
+#: addon\globalPlugins\agenda\__init__.py:420
+#: addon\globalPlugins\agenda\__init__.py:772
+msgid " items found"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:427
+msgid "You do not have any appointments for today and tomorrow!"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:460
+#: addon\globalPlugins\agenda\__init__.py:897
+msgid "Day:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:466
+#: addon\globalPlugins\agenda\__init__.py:902
+#: addon\globalPlugins\agenda\__init__.py:1337
+#: addon\globalPlugins\agenda\__init__.py:1362
+msgid "Month:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:472
+#: addon\globalPlugins\agenda\__init__.py:907
+#: addon\globalPlugins\agenda\__init__.py:1344
+#: addon\globalPlugins\agenda\__init__.py:1369
+msgid "Year:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:481
+msgid "items found:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:485
+msgid "Hour"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:492
+#: addon\globalPlugins\agenda\__init__.py:1394
+msgid "&Add"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:495
+#: addon\globalPlugins\agenda\__init__.py:1397
+msgid "&Edit"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:498
+#: addon\globalPlugins\agenda\__init__.py:1400
+msgid "&Remove"
+msgstr ""
+
+#. Label of button to execute the search
+#: addon\globalPlugins\agenda\__init__.py:501
+#: addon\globalPlugins\agenda\__init__.py:1377
+msgid "&Search"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:504
+msgid "E&xit"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:762
+#: addon\globalPlugins\agenda\__init__.py:918
+msgid "Hour:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:774
+#: addon\globalPlugins\agenda\__init__.py:808
+msgid "No items found"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:776
+msgid "No appointments"
+msgstr ""
+
+#. If date was changed, search in database for items on this date, if the class be instanced as Add
+#. If we are in the option Add and description field is empty, go back to the Add window
+#: addon\globalPlugins\agenda\__init__.py:788
+#: addon\globalPlugins\agenda\__init__.py:980
+#: addon\globalPlugins\agenda\__init__.py:1091
+#: addon\globalPlugins\agenda\__init__.py:1163
+#: addon\globalPlugins\agenda\__init__.py:1646
+msgid "Add"
+msgstr ""
+
+#. If description field is blank and  option is Edit, means user deleted the appointement informations. Check if date keeps the same
+#. If option is Edit and original date is different from present date fields avoid edition.
+#. If we are editing and the date or hour are different from saved, remove the old record
+#: addon\globalPlugins\agenda\__init__.py:817
+#: addon\globalPlugins\agenda\__init__.py:1139
+#: addon\globalPlugins\agenda\__init__.py:1154
+#: addon\globalPlugins\agenda\__init__.py:1232
+#: addon\globalPlugins\agenda\__init__.py:1678
+msgid "Edit"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:835
+msgid "You have not selected any appointment to edit."
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:852
+#: addon\globalPlugins\agenda\__init__.py:1726
+msgid "Do you really want to remove the  item: "
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:856
+#: addon\globalPlugins\agenda\__init__.py:1145
+#: addon\globalPlugins\agenda\__init__.py:1730
+msgid "Appointment removed successfully!"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:863
+msgid "You have not selected any appointment to be removed."
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:923
+msgid "Minutes:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:928
+msgid "Description:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:933
+msgid "Set alarm for the day before"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:937
+msgid "Set alarm to one hour before"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:941
+msgid "Set alarm to half hour before"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:945
+msgid "Set alarm to 15 minutes before"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:949
+msgid "Set alarm to the exact hour"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:960
+#: addon\globalPlugins\agenda\__init__.py:1407
+msgid "&Cancel"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1140
+msgid ""
+"You have deleted the appointment description. Do you want to delete the "
+"appointment?"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1155
+msgid ""
+"You have deleted the description and changed the date.\n"
+"If you want to add a new appointment, press the Add button on main or search "
+"windows\n"
+"If you want to delete an appointment, go to main or search windows, select "
+"the appointment and choose the remove button"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1164
+msgid "No description to the appointment"
+msgstr ""
+
+#. If database returns some records, so exist appointment for this date/hour
+#: addon\globalPlugins\agenda\__init__.py:1187
+msgid ""
+"Informations for this date and hour already exists on agenda. Do you want to "
+"replace original informations?"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1199
+msgid "Record updated successfully!"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1226
+msgid "Record saved successfully!"
+msgstr ""
+
+#. Confirms with user if he wants to discard changes
+#: addon\globalPlugins\agenda\__init__.py:1275
+msgid "Do you really want to discard the changes on appointment?"
+msgstr ""
+
+#. Title of search window
+#: addon\globalPlugins\agenda\__init__.py:1297
+msgid "Agenda search"
+msgstr ""
+
+#. Specify the search type
+#: addon\globalPlugins\agenda\__init__.py:1311
+msgid "Type of search:"
+msgstr ""
+
+#. The various search type
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1481
+#: addon\globalPlugins\agenda\__init__.py:1540
+msgid "Search by text"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1498
+#: addon\globalPlugins\agenda\__init__.py:1555
+msgid "Next 7 days"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1498
+#: addon\globalPlugins\agenda\__init__.py:1566
+msgid "Next 30 days"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1515
+#: addon\globalPlugins\agenda\__init__.py:1578
+msgid "Date range"
+msgstr ""
+
+#. Asking user to enter the text to search
+#: addon\globalPlugins\agenda\__init__.py:1320
+msgid "Enter the text to search:"
+msgstr ""
+
+#. Day of initial date
+#: addon\globalPlugins\agenda\__init__.py:1330
+msgid "Initial date: Day:"
+msgstr ""
+
+#. Day of final date
+#: addon\globalPlugins\agenda\__init__.py:1355
+msgid "Final date: Day:"
+msgstr ""
+
+#. Label of button to remove all appointments
+#: addon\globalPlugins\agenda\__init__.py:1404
+msgid "Remove A&ll"
+msgstr ""
+
+#. If the text to search is empty notifies the user
+#: addon\globalPlugins\agenda\__init__.py:1544
+msgid "Insert what to search or choose another type of search."
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1594
+msgid "The end date must be equal or after the start date."
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1639
+msgid "No items found:"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1701
+msgid "No appointment selected to edit..."
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1736
+msgid "No appointment selected to delete"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1743
+msgid ""
+"No itens to delete. Please, you need search something to delete all itens."
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1747
+msgid "Do you really want to delete all itens found?"
+msgstr ""
+
+#: addon\globalPlugins\agenda\__init__.py:1752
+msgid "All appointments deleted successfully!"
+msgstr ""
+
+#. Translators: Message dialog box to ask user if wants to update.
+#: addon\globalPlugins\agenda\update.py:85
+msgid ""
+"It is available a new version of this add-on.\n"
+" Do you want to update?"
+msgstr ""
+
+#. Translators: Message dialog box to inform user that the add-on is not compatible
+#: addon\globalPlugins\agenda\update.py:120
+msgid ""
+"This new version of this add-on is not compatible with your version of "
+"NVDA.\n"
+" The update process will be terminated."
+msgstr ""
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Accessible agenda"
+msgstr ""
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Allows access to an accesible agenda"
+msgstr ""

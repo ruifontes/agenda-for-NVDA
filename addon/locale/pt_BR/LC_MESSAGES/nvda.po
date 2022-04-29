@@ -1,0 +1,874 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Agenda\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2022-04-29 23:43+0100\n"
+"PO-Revision-Date: 2022-04-30 00:13+0100\n"
+"Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
+"Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes <ampa4374@gmail."
+"com> e Rui Fontes <Rui Fontes <rui.fontes@tiflotecnia.com>; Colaborador: "
+"Abel Passos <abel.passos@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ../../../globalPlugins\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "December"
+msgstr "Dezembro"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "November"
+msgstr "Novembro"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "October"
+msgstr "Outubro"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "September"
+msgstr "Setembro"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "August"
+msgstr "Agosto"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "July"
+msgstr "Julho"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "June"
+msgstr "Junho"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "May"
+msgstr "Maio"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "April"
+msgstr "Abril"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "March"
+msgstr "Março"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "February"
+msgstr "Fevereiro"
+
+#: addon\globalPlugins\agenda\__init__.py:32
+msgid "January"
+msgstr "Janeiro"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Monday"
+msgstr "Segunda"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "tuesday"
+msgstr "terça"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Wednesday"
+msgstr "Quarta"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Thursday"
+msgstr "Quinta"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Friday"
+msgstr "Sexta"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Saturday"
+msgstr "Sábado"
+
+#: addon\globalPlugins\agenda\__init__.py:33
+msgid "Sunday"
+msgstr "Domingo"
+
+#: addon\globalPlugins\agenda\__init__.py:106
+msgid "You have the following appointment tomorrow:\n"
+msgstr "Você tem o seguinte compromisso amanhã:\n"
+
+#: addon\globalPlugins\agenda\__init__.py:115
+#: addon\globalPlugins\agenda\__init__.py:122
+#: addon\globalPlugins\agenda\__init__.py:129
+#: addon\globalPlugins\agenda\__init__.py:136
+#: addon\globalPlugins\agenda\__init__.py:150
+msgid "Reminder!"
+msgstr "Lembrete!"
+
+#: addon\globalPlugins\agenda\__init__.py:116
+msgid "You have the following appointment in one hour:\n"
+msgstr "Você tem o seguinte compromisso dentro de uma hora:\n"
+
+#: addon\globalPlugins\agenda\__init__.py:123
+msgid "You have the following appointment in 30 minutes:\n"
+msgstr "Você tem o seguinte compromisso dentro de 30 minutos:\n"
+
+#: addon\globalPlugins\agenda\__init__.py:130
+msgid "You have the following appointment in 15 minutes:\n"
+msgstr "Você tem o seguinte compromisso dentro de 15 minutos:\n"
+
+#: addon\globalPlugins\agenda\__init__.py:137
+msgid "You have now the following appointment:\n"
+msgstr "Você tem o seguinte compromisso agora:\n"
+
+#. Translators: Dialog title
+#. For translators: Name of the section in "Input gestures" dialog.
+#. Translators: Title of the Agenda settings dialog in the NVDA settings.
+#: addon\globalPlugins\agenda\__init__.py:194
+#: addon\globalPlugins\agenda\__init__.py:269
+#: addon\globalPlugins\agenda\__init__.py:277
+#: addon\globalPlugins\agenda\__init__.py:453
+#: addon\globalPlugins\agenda\__init__.py:835
+#: addon\globalPlugins\agenda\__init__.py:852
+#: addon\globalPlugins\agenda\__init__.py:856
+#: addon\globalPlugins\agenda\__init__.py:863
+#: addon\globalPlugins\agenda\__init__.py:1140
+#: addon\globalPlugins\agenda\__init__.py:1145
+#: addon\globalPlugins\agenda\__init__.py:1155
+#: addon\globalPlugins\agenda\__init__.py:1164
+#: addon\globalPlugins\agenda\__init__.py:1187
+#: addon\globalPlugins\agenda\__init__.py:1199
+#: addon\globalPlugins\agenda\__init__.py:1226
+#: addon\globalPlugins\agenda\__init__.py:1275
+#: addon\globalPlugins\agenda\__init__.py:1544
+#: addon\globalPlugins\agenda\__init__.py:1594
+#: addon\globalPlugins\agenda\__init__.py:1701
+#: addon\globalPlugins\agenda\__init__.py:1726
+#: addon\globalPlugins\agenda\__init__.py:1730
+#: addon\globalPlugins\agenda\__init__.py:1736
+#: addon\globalPlugins\agenda\__init__.py:1743
+#: addon\globalPlugins\agenda\__init__.py:1747
+#: addon\globalPlugins\agenda\__init__.py:1752
+msgid "Agenda"
+msgstr "Agenda"
+
+#. Translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\agenda\__init__.py:267
+msgid "Main window to access an accessible agenda"
+msgstr "Janela principal para acessar a uma agenda acessível"
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\agenda\__init__.py:283
+msgid "Show next appointments at startup"
+msgstr "Exibir seus próximos compromissos ao iniciar"
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\agenda\__init__.py:288
+msgid "Check for updates at startup"
+msgstr "Procurar por atualizações ao iniciar"
+
+#. Translators: Name of combobox with the agenda files path
+#: addon\globalPlugins\agenda\__init__.py:293
+msgid "Path of agenda files:"
+msgstr "Caminho para os arquivos da agenda:"
+
+#. Translators: This is the label for the button used to add or change a agenda.db location
+#: addon\globalPlugins\agenda\__init__.py:306
+msgid "&Select or add a directory"
+msgstr "&Selecionar ou adicionar um diretório"
+
+#: addon\globalPlugins\agenda\__init__.py:317
+msgid "Choose where to save the agenda file"
+msgstr "Selecione um local para salvar o arquivo da agenda"
+
+#: addon\globalPlugins\agenda\__init__.py:318
+msgid "Database files (*.db)"
+msgstr "Arquivos de banco de dados (*.db)"
+
+#: addon\globalPlugins\agenda\__init__.py:365
+msgid "Appointments for today and tomorrow"
+msgstr "Compromissos para hoje e amanhã"
+
+#. Label of the list were the itens found will land
+#: addon\globalPlugins\agenda\__init__.py:369
+#: addon\globalPlugins\agenda\__init__.py:1382
+#: addon\globalPlugins\agenda\__init__.py:1636
+msgid "Items found:"
+msgstr "Itens encontrados:"
+
+#: addon\globalPlugins\agenda\__init__.py:373
+#: addon\globalPlugins\agenda\__init__.py:1386
+#: addon\globalPlugins\agenda\__init__.py:1610
+msgid "Date/Hour"
+msgstr "Data/hora"
+
+#: addon\globalPlugins\agenda\__init__.py:374
+#: addon\globalPlugins\agenda\__init__.py:486
+#: addon\globalPlugins\agenda\__init__.py:763
+#: addon\globalPlugins\agenda\__init__.py:1611
+msgid "Appointment"
+msgstr "Compromisso"
+
+#: addon\globalPlugins\agenda\__init__.py:380
+#: addon\globalPlugins\agenda\__init__.py:956
+msgid "&Ok"
+msgstr "&Ok"
+
+#: addon\globalPlugins\agenda\__init__.py:413
+#: addon\globalPlugins\agenda\__init__.py:1627
+#: addon\globalPlugins\agenda\__init__.py:1652
+#: addon\globalPlugins\agenda\__init__.py:1685
+#: addon\globalPlugins\agenda\__init__.py:1714
+msgid "Today"
+msgstr "Hoje"
+
+#: addon\globalPlugins\agenda\__init__.py:415
+#: addon\globalPlugins\agenda\__init__.py:1629
+#: addon\globalPlugins\agenda\__init__.py:1655
+#: addon\globalPlugins\agenda\__init__.py:1688
+#: addon\globalPlugins\agenda\__init__.py:1717
+msgid "Tomorrow"
+msgstr "Amanhã"
+
+#. Add the numbers of itens to the label...
+#: addon\globalPlugins\agenda\__init__.py:420
+#: addon\globalPlugins\agenda\__init__.py:772
+msgid " items found"
+msgstr " itens encontrados"
+
+#: addon\globalPlugins\agenda\__init__.py:427
+msgid "You do not have any appointments for today and tomorrow!"
+msgstr "Não tem compromissos para hoje e para amanhã!"
+
+#: addon\globalPlugins\agenda\__init__.py:460
+#: addon\globalPlugins\agenda\__init__.py:897
+msgid "Day:"
+msgstr "Dia:"
+
+#: addon\globalPlugins\agenda\__init__.py:466
+#: addon\globalPlugins\agenda\__init__.py:902
+#: addon\globalPlugins\agenda\__init__.py:1337
+#: addon\globalPlugins\agenda\__init__.py:1362
+msgid "Month:"
+msgstr "Mês:"
+
+#: addon\globalPlugins\agenda\__init__.py:472
+#: addon\globalPlugins\agenda\__init__.py:907
+#: addon\globalPlugins\agenda\__init__.py:1344
+#: addon\globalPlugins\agenda\__init__.py:1369
+msgid "Year:"
+msgstr "Ano:"
+
+#: addon\globalPlugins\agenda\__init__.py:481
+msgid "items found:"
+msgstr "itens encontrados:"
+
+#: addon\globalPlugins\agenda\__init__.py:485
+msgid "Hour"
+msgstr "Hora"
+
+#: addon\globalPlugins\agenda\__init__.py:492
+#: addon\globalPlugins\agenda\__init__.py:1394
+msgid "&Add"
+msgstr "&Adicionar"
+
+#: addon\globalPlugins\agenda\__init__.py:495
+#: addon\globalPlugins\agenda\__init__.py:1397
+msgid "&Edit"
+msgstr "&Editar"
+
+#: addon\globalPlugins\agenda\__init__.py:498
+#: addon\globalPlugins\agenda\__init__.py:1400
+msgid "&Remove"
+msgstr "&Remover"
+
+#. Label of button to execute the search
+#: addon\globalPlugins\agenda\__init__.py:501
+#: addon\globalPlugins\agenda\__init__.py:1377
+msgid "&Search"
+msgstr "&Pesquisar"
+
+#: addon\globalPlugins\agenda\__init__.py:504
+msgid "E&xit"
+msgstr "&Sair"
+
+#: addon\globalPlugins\agenda\__init__.py:762
+#: addon\globalPlugins\agenda\__init__.py:918
+msgid "Hour:"
+msgstr "Hora:"
+
+#: addon\globalPlugins\agenda\__init__.py:774
+#: addon\globalPlugins\agenda\__init__.py:808
+msgid "No items found"
+msgstr "Nenhum item encontrado"
+
+#: addon\globalPlugins\agenda\__init__.py:776
+msgid "No appointments"
+msgstr "Sem compromissos"
+
+#. If date was changed, search in database for items on this date, if the class be instanced as Add
+#. If we are in the option Add and description field is empty, go back to the Add window
+#: addon\globalPlugins\agenda\__init__.py:788
+#: addon\globalPlugins\agenda\__init__.py:980
+#: addon\globalPlugins\agenda\__init__.py:1091
+#: addon\globalPlugins\agenda\__init__.py:1163
+#: addon\globalPlugins\agenda\__init__.py:1646
+msgid "Add"
+msgstr "Adicionar"
+
+#. If description field is blank and  option is Edit, means user deleted the appointement informations. Check if date keeps the same
+#. If option is Edit and original date is different from present date fields avoid edition.
+#. If we are editing and the date or hour are different from saved, remove the old record
+#: addon\globalPlugins\agenda\__init__.py:817
+#: addon\globalPlugins\agenda\__init__.py:1139
+#: addon\globalPlugins\agenda\__init__.py:1154
+#: addon\globalPlugins\agenda\__init__.py:1232
+#: addon\globalPlugins\agenda\__init__.py:1678
+msgid "Edit"
+msgstr "Editar"
+
+#: addon\globalPlugins\agenda\__init__.py:835
+msgid "You have not selected any appointment to edit."
+msgstr "Você não selecionou qualquer compromisso para editar."
+
+#: addon\globalPlugins\agenda\__init__.py:852
+#: addon\globalPlugins\agenda\__init__.py:1726
+msgid "Do you really want to remove the  item: "
+msgstr "Deseja realmente remover o compromisso: "
+
+#: addon\globalPlugins\agenda\__init__.py:856
+#: addon\globalPlugins\agenda\__init__.py:1145
+#: addon\globalPlugins\agenda\__init__.py:1730
+msgid "Appointment removed successfully!"
+msgstr "Compromisso apagado com sucesso!"
+
+#: addon\globalPlugins\agenda\__init__.py:863
+msgid "You have not selected any appointment to be removed."
+msgstr "Você não selecionou qualquer compromisso para ser removido."
+
+#: addon\globalPlugins\agenda\__init__.py:923
+msgid "Minutes:"
+msgstr "Minutos:"
+
+#: addon\globalPlugins\agenda\__init__.py:928
+msgid "Description:"
+msgstr "Descrição:"
+
+#: addon\globalPlugins\agenda\__init__.py:933
+msgid "Set alarm for the day before"
+msgstr "Ajustar o alarme para o dia anterior"
+
+#: addon\globalPlugins\agenda\__init__.py:937
+msgid "Set alarm to one hour before"
+msgstr "Ajustar o alarme para uma hora antes"
+
+#: addon\globalPlugins\agenda\__init__.py:941
+msgid "Set alarm to half hour before"
+msgstr "Ajustar o alarme para meia hora antes"
+
+#: addon\globalPlugins\agenda\__init__.py:945
+msgid "Set alarm to 15 minutes before"
+msgstr "Ajustar o alarme para 15 minutos antes"
+
+#: addon\globalPlugins\agenda\__init__.py:949
+msgid "Set alarm to the exact hour"
+msgstr "Ajustar o alarme para a hora exata"
+
+#: addon\globalPlugins\agenda\__init__.py:960
+#: addon\globalPlugins\agenda\__init__.py:1407
+msgid "&Cancel"
+msgstr "&Cancelar"
+
+#: addon\globalPlugins\agenda\__init__.py:1140
+msgid ""
+"You have deleted the appointment description. Do you want to delete the "
+"appointment?"
+msgstr ""
+"Você apagou as informações sobre o compromisso. Deseja apagar este "
+"compromisso?"
+
+#: addon\globalPlugins\agenda\__init__.py:1155
+msgid ""
+"You have deleted the description and changed the date.\n"
+"If you want to add a new appointment, press the Add button on main or search "
+"windows\n"
+"If you want to delete an appointment, go to main or search windows, select "
+"the appointment and choose the remove button"
+msgstr ""
+"Você removeu a descrição e alterou a data.\n"
+"Para adicionar um novo compromisso, pressione o botão Adicionar na janela "
+"principal ou na janela de pesquisa\n"
+"Para apagar um compromisso, vá à janela principal ou de pesquisa, selecione "
+"o compromisso e escolha o botão \"remover\""
+
+#: addon\globalPlugins\agenda\__init__.py:1164
+msgid "No description to the appointment"
+msgstr "Nenhuma descrição para o compromisso"
+
+#. If database returns some records, so exist appointment for this date/hour
+#: addon\globalPlugins\agenda\__init__.py:1187
+msgid ""
+"Informations for this date and hour already exists on agenda. Do you want to "
+"replace original informations?"
+msgstr ""
+"Já existem  informações para esta data e hora na agenda. Deseja substituir "
+"as informações existentes?"
+
+#: addon\globalPlugins\agenda\__init__.py:1199
+msgid "Record updated successfully!"
+msgstr "O registro foi atualizado com sucesso!"
+
+#: addon\globalPlugins\agenda\__init__.py:1226
+msgid "Record saved successfully!"
+msgstr "O registro foi salvo com sucesso!"
+
+#. Confirms with user if he wants to discard changes
+#: addon\globalPlugins\agenda\__init__.py:1275
+msgid "Do you really want to discard the changes on appointment?"
+msgstr ""
+"Você tem certeza que deseja descartar as alterações feitas no compromisso?"
+
+#. Title of search window
+#: addon\globalPlugins\agenda\__init__.py:1297
+msgid "Agenda search"
+msgstr "Pesquisar na agenda"
+
+#. Specify the search type
+#: addon\globalPlugins\agenda\__init__.py:1311
+msgid "Type of search:"
+msgstr "Tipo de pesquisa:"
+
+#. The various search type
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1481
+#: addon\globalPlugins\agenda\__init__.py:1540
+msgid "Search by text"
+msgstr "Pesquisa por texto"
+
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1498
+#: addon\globalPlugins\agenda\__init__.py:1555
+msgid "Next 7 days"
+msgstr "Próximos 7 dias"
+
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1498
+#: addon\globalPlugins\agenda\__init__.py:1566
+msgid "Next 30 days"
+msgstr "Próximos 30 dias"
+
+#: addon\globalPlugins\agenda\__init__.py:1315
+#: addon\globalPlugins\agenda\__init__.py:1515
+#: addon\globalPlugins\agenda\__init__.py:1578
+msgid "Date range"
+msgstr "Intervalo de datas"
+
+#. Asking user to enter the text to search
+#: addon\globalPlugins\agenda\__init__.py:1320
+msgid "Enter the text to search:"
+msgstr "Digite o texto que deseja pesquisar:"
+
+#. Day of initial date
+#: addon\globalPlugins\agenda\__init__.py:1330
+msgid "Initial date: Day:"
+msgstr "Data inicial: Dia:"
+
+#. Day of final date
+#: addon\globalPlugins\agenda\__init__.py:1355
+msgid "Final date: Day:"
+msgstr "Data final: Dia:"
+
+#. Label of button to remove all appointments
+#: addon\globalPlugins\agenda\__init__.py:1404
+msgid "Remove A&ll"
+msgstr "Remover &tudo"
+
+#. If the text to search is empty notifies the user
+#: addon\globalPlugins\agenda\__init__.py:1544
+msgid "Insert what to search or choose another type of search."
+msgstr "Digite o que deseja pesquisar ou escolha outro tipo de pesquisa."
+
+#: addon\globalPlugins\agenda\__init__.py:1594
+msgid "The end date must be equal or after the start date."
+msgstr "A data final deve ser igual ou posterior à data de início."
+
+#: addon\globalPlugins\agenda\__init__.py:1639
+msgid "No items found:"
+msgstr "Nenhum item encontrado:"
+
+#: addon\globalPlugins\agenda\__init__.py:1701
+msgid "No appointment selected to edit..."
+msgstr "Nenhum compromisso foi selecionado para editar..."
+
+#: addon\globalPlugins\agenda\__init__.py:1736
+msgid "No appointment selected to delete"
+msgstr "Nenhum compromisso foi selecionado para apagar"
+
+#: addon\globalPlugins\agenda\__init__.py:1743
+msgid ""
+"No itens to delete. Please, you need search something to delete all itens."
+msgstr ""
+"Nenhum item foi selecionado para remover. É necessário efetuar uma pesquisa "
+"para localizar itens a apagar."
+
+#: addon\globalPlugins\agenda\__init__.py:1747
+msgid "Do you really want to delete all itens found?"
+msgstr "Deseja realmente remover todos os compromissos encontrados?"
+
+#: addon\globalPlugins\agenda\__init__.py:1752
+msgid "All appointments deleted successfully!"
+msgstr "Todos os compromissos foram removidos com êxito!"
+
+#. Translators: Message dialog box to ask user if wants to update.
+#: addon\globalPlugins\agenda\update.py:85
+msgid ""
+"It is available a new version of this add-on.\n"
+" Do you want to update?"
+msgstr ""
+"Uma nova versão deste addon está disponível.\n"
+" Deseja atualizar?"
+
+#. Translators: Message dialog box to inform user that the add-on is not compatible
+#: addon\globalPlugins\agenda\update.py:120
+msgid ""
+"This new version of this add-on is not compatible with your version of "
+"NVDA.\n"
+" The update process will be terminated."
+msgstr ""
+"A nova versão deste addon não é compatível com a sua versão do NVDA.\n"
+" A atualização será cancelada."
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Accessible agenda"
+msgstr "Agenda acessível"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Allows access to an accesible agenda"
+msgstr "Permite utilizar uma agenda acessível"
+
+#~ msgid "Do you really want to remove the following appointment: \n"
+#~ msgstr "Deseja realmente remover o seguinte compromisso\n"
+
+#~ msgid ""
+#~ "It was not possible to delete the record.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível apagar o compromisso.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid "Database error"
+#~ msgstr "Erro na base de dados"
+
+#~ msgid ""
+#~ "It was not possible to delete the records.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível apagar os compromissos.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid "Directory to store the agenda file:"
+#~ msgstr "Caminho das agendas:"
+
+#~ msgid ""
+#~ "It couldn'delete registers alarms.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível apagar os alarmes dos registos.\n"
+#~ "Mensagem de erro"
+
+#, fuzzy
+#~| msgid "&Select a directory"
+#~ msgid "&Select a database"
+#~ msgstr "&Seleccionar um directório"
+
+#~ msgid ""
+#~ "It couldn't load alarms.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível carregar os alarmes.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "It couldn't create a database file.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível criar um ficheiro de base de dados.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "It couldn't load your appointments.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível carregar os seus compromissos.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid "Appointment:"
+#~ msgstr "Compromisso:"
+
+#~ msgid ""
+#~ "It couldn't delete this appointment register.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível apagar o compromisso.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "It couldn't load appointment to edit.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível carregar o compromisso para editar.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "Problem occured to check appointments for this date.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Ocorreu um problema ao verificar os compromissos para esta data.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "Problem ocurred to remove register.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Ocorreu um problema ao remover o registo.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "It couldn't search for appointments for this date.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível procurar compromissos para esta data.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "Problem occured to replace register.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Ocorreu um problema ao substituir o registo.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid ""
+#~ "It couldn't search for appointments.\n"
+#~ "Error message: "
+#~ msgstr ""
+#~ "Não foi possível pesquisar por compromissos.\n"
+#~ "Mensagem de erro: "
+
+#~ msgid "Dictionaries"
+#~ msgstr "Dicionários"
+
+#~ msgid "Allows quick access to several dictionaries"
+#~ msgstr "Permite o acesso rápido a vários dicionários"
+
+#~ msgid "Dutch-French"
+#~ msgstr "Neerlandês-Francês"
+
+#~ msgid "English-French"
+#~ msgstr "Inglês-Francês"
+
+#~ msgid "English-Portuguese"
+#~ msgstr "Inglês-Português"
+
+#~ msgid "English-Spanish"
+#~ msgstr "Inglês-Espanhol"
+
+#~ msgid "French-Arabic"
+#~ msgstr "Francês-Árabe"
+
+#~ msgid "French-Dutch"
+#~ msgstr "Francês-Neerlandês"
+
+#~ msgid "French-English"
+#~ msgstr "Francês-Inglês"
+
+#~ msgid "French-German"
+#~ msgstr "Francês-Alemão"
+
+#~ msgid "French-Italian"
+#~ msgstr "Francês-Italiano"
+
+#~ msgid "French-Portuguese"
+#~ msgstr "Francês-Português"
+
+#~ msgid "french-Spanish"
+#~ msgstr "Francês-Espanhol"
+
+#~ msgid "German-Portuguese"
+#~ msgstr "Alemão-Português"
+
+#~ msgid "German-French"
+#~ msgstr "Alemão-Francês"
+
+#~ msgid "Icelandic-French"
+#~ msgstr "Islandês-Francês"
+
+#~ msgid "Italian-French"
+#~ msgstr "Italiano-Francês"
+
+#~ msgid "Italian-Portuguese"
+#~ msgstr "Italiano-Português"
+
+#~ msgid "Portuguese-English"
+#~ msgstr "Português-Inglês"
+
+#~ msgid "Portuguese-French"
+#~ msgstr "Português-Francês"
+
+#~ msgid "Portuguese-German"
+#~ msgstr "Português-Alemão"
+
+#~ msgid "Portuguese-Italian"
+#~ msgstr "Português-Italiano"
+
+#~ msgid "Portuguese-Spanish"
+#~ msgstr "Português-Espanhol"
+
+#~ msgid "Spanish-French"
+#~ msgstr "Espanhol-Francês"
+
+#~ msgid "Spanish-Portuguese"
+#~ msgstr "Espanhol-Português"
+
+#~ msgid "English (Concise Oxford dictionary)"
+#~ msgstr "Inglês (Concise Oxford dictionary)"
+
+#~ msgid "English synonyms dictionary)"
+#~ msgstr "Inglês - Sinónimos (em inglês)"
+
+#~ msgid "French common nouns with new ortography (in french)"
+#~ msgstr "Francês - Substantivos comuns com nova ortografia (em francês)"
+
+#~ msgid "French common nouns (in french)"
+#~ msgstr "Francês - Substantivos comuns (em francês)"
+
+#~ msgid "French proper nouns (in french)"
+#~ msgstr "Francês - Substantivos próprios (em francês)"
+
+#~ msgid "French encyclopedie (in french)"
+#~ msgstr "Enciclopédia francesa (em francês)"
+
+#~ msgid "French synonyms (in French)"
+#~ msgstr "Francês - Sinónimos (em francês)"
+
+#~ msgid "Portuguese - Portuguese language difficulties (in portuguese)"
+#~ msgstr "Português - Dificuldades da língua portuguesa"
+
+#~ msgid "Portuguese - meanings (in portuguese)"
+#~ msgstr "Português - Significados"
+
+#~ msgid "Portuguese - synonyms (in portuguese)"
+#~ msgstr "Português - Sinónimos"
+
+#~ msgid "Spanish - RAE (in spanish)"
+#~ msgstr "Espanhol (RAE)"
+
+#~ msgid "Chemical (in portuguese)"
+#~ msgstr "Química"
+
+#~ msgid "Finantial terms (in portuguese pt_br)"
+#~ msgstr "Finanças (glossário de termos) (Brasil)"
+
+#~ msgid "Finantial terms (in portuguese pt_pt)"
+#~ msgstr "Finanças (glossário de termos) (Portugal)"
+
+#~ msgid "Historical concepts (in portuguese)"
+#~ msgstr "História (conceitos)"
+
+#~ msgid "Law glossary (in portuguese)"
+#~ msgstr "Direito (glossário)"
+
+#~ msgid "Medical (in french)"
+#~ msgstr "Medicina (em francês)"
+
+#~ msgid "Medical (in portuguese)"
+#~ msgstr "Medicina"
+
+#~ msgid "Philosophy (Cambridge)"
+#~ msgstr "Filosofia (Cambridge) (em inglês)"
+
+#~ msgid "Philosophy (in portuguese)"
+#~ msgstr "Filosofia"
+
+#~ msgid "Psychology (in portuguese)"
+#~ msgstr "Psicologia"
+
+#~ msgid "Politic (in portuguese)"
+#~ msgstr "Política"
+
+#~ msgid "Tecnical of Informatic (english-french)"
+#~ msgstr "Informática (Inglês-Francês)"
+
+#~ msgid "Tecnical of Informatic (in portuguese)"
+#~ msgstr "Informática"
+
+#~ msgid "Choose the dictionary and press Enter"
+#~ msgstr "Escolhe o dicionário e pressiona Enter"
+
+#~ msgid "Download more..."
+#~ msgstr "Descarregar mais..."
+
+#~ msgid "Select what to search  from the list."
+#~ msgstr "Seleccione o que procurar a partir da lista."
+
+#~ msgid "Enter the first letter, a word or an expression to search."
+#~ msgstr "Introduza a primeira letra, palavra ou expressão a pesquisar."
+
+#~ msgid "Please wait untill the index is created..."
+#~ msgstr "Por favor aguarde até que o índice seja criado..."
+
+#~ msgid "Copy to clipboard"
+#~ msgstr "Copiar para a área de transferência"
+
+#~ msgid "Choose the dictionary to download and press Enter"
+#~ msgstr "Escolhe o dicionário a descarregar e pressiona Enter"
+
+#, python-format
+#~ msgid "Are you sure you want to download the %s dictionary from %s?"
+#~ msgstr "Tem a certeza que quer descarregar o dicionário %s de %s?"
+
+#~ msgid "Downloading... Please wait..."
+#~ msgstr "A descarregar... Por favor aguarde..."
+
+#~ msgid "dictionaries"
+#~ msgstr "Dicionários"
+
+#, python-format
+#~ msgid "%s not found in the dictionary of %s.\n"
+#~ msgstr "%s não encontrado no dicionário de %s.\n"
+
+#~ msgid "Do you want to search another word?"
+#~ msgstr "Quer procurar outra palavra?"
+
+#~ msgid "Philosophy by Nicola Abbagnano (in portuguese)"
+#~ msgstr "Filosofia por Nicola Abbagnano"
+
+#~ msgid "Psychology by Raul Mesquita and  other (in portuguese)"
+#~ msgstr "Psicologia por Raul Mesquita e outro"
+
+#, python-format
+#~ msgid "Here is the meaning of %s in the dictionary %s:"
+#~ msgstr "Eis o o significado de %s no dicionário %s:"
+
+#~ msgid "LEARNING with NVDA"
+#~ msgstr "Aprender com o NVDA"
+
+#~ msgid ""
+#~ "Here is the meaning of %s in the dictionary %s:\") %(wordToSearch[1:], "
+#~ "self.choice_1.GetStringSelection())"
+#~ msgstr "Eis o significado de %s no dicionário %s:"
+
+#, python-format
+#~ msgid ""
+#~ "%s not found in the dictionary of %s.\n"
+#~ "Please note that some dictionaries may have the terms first letter in "
+#~ "uppercase or even the all word...\n"
+#~ msgstr ""
+#~ "%s não encontrado no dicionário de %s.\n"
+#~ "Note se alguns dicionários podem ter a primeira letra dos termos em "
+#~ "maiúsculas ou mesmo o termo todo...\n"
