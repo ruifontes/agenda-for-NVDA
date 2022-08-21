@@ -3,7 +3,7 @@
 <br>
 ## Informations
 * Authors: Abel Passos, Ângelo Abrantes and Rui Fontes
-* Updated: April 16, 2022
+* Updated: August 21, 2022
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and later
 
@@ -61,7 +61,8 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * day/month/year: date fields that can be changed with the vertical arrows or by typing the desired value
 * hour/minutes: time fields that can be changed with the vertical arrows or by typing the desired value
 * Description: field to fill in the information about the commitment ;
-* Alarms: check boxes that should be checked as needed. By default, when any alarm is selected in advance of the appointment date and time, the exact time alarm is automatically activated
+* Repeat button - Opens a Window to define the pattern of repetitions and how long will happens;
+* Alarms button: Opens a window with several check boxes to be checked as needed. By default, when any alarm is selected in advance of the appointment date and time, the exact time alarm is automatically activated
 * OK button (Alt+O): enters the appointment information into the calendar
 * Cancel button (Alt+C): does not save the information filled in this window
 * The Add/Edit window has the shortcut keystroke Ctrl+Enter to save the filled in information. This is equivalent to the function of the OK button
@@ -82,3 +83,4 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * Remove all (Alt+L): Deletes all displayed appointments;
 * Cancel button (Alt+C): closes the search window and returns to the main window.
 
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2022.08/agenda-2022.08.nvda-addon
