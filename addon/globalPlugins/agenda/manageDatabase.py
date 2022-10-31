@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
 # Modul for database routines
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
+from .logDebug import logDebug
 from . import sqlite3
 import time
 import	datetime
@@ -198,12 +198,24 @@ class manageDatabase():
 		occurs = dbCursor.fetchall()
 		if occurs!=None:
 			# correct date
-			def correctDate(date1):
-				monthPeriodic = int(str(date1)[4:6])
+			def correctDate(date1, monthToMove):
+				sourceMonth = int(str(date1)[4:6])
+				monthPeriodic = sourceMonth+monthToMove
+				# logDebug('Meses a adicionar: {0}\nMês original: {1}\nTotal de meses: {2}'.format(monthToMove, sourceMonth, monthPeriodic))
 				if monthPeriodic>12:
-					date1 -= int(monthPeriodic/12.1)*12000000
-					date1 += int(monthPeriodic/12)*100000000
-					monthPeriodic = monthPeriodic%12.1 if monthPeriodic%12>0 else 12
+					# calculate the month for new date
+					finalMonth = monthPeriodic%12 if monthPeriodic%12!=0 else 12
+					# calculate quantity of  years to add to start  date
+					qttYear = int(monthPeriodic/12)  if monthPeriodic%12!=0 else int(monthPeriodic/12)-1
+					# if sourceMonth is different from   finalMonth, ajust date1 to correct month
+					if sourceMonth > finalMonth:
+						date1 -= (sourceMonth-finalMonth)*1000000
+					else:
+						date1 += (finalMonth-sourceMonth)*1000000
+					date1 += qttYear*100000000
+				else:
+					date1 += monthToMove*1000000
+				monthPeriodic = int(str(date1)[4:6])
 				yearPeriodic = int(str(date1)[:4])
 				dayPeriodic = int(str(date1)[6:8])
 				if monthPeriodic in [4, 6, 9, 11] and dayPeriodic>30:
@@ -212,6 +224,7 @@ class manageDatabase():
 					februaryDay = 29  if yearPeriodic%4==0 and yearPeriodic%100>0 else 28
 					if dayPeriodic>februaryDay:
 						date1 -= (dayPeriodic-februaryDay)*10000
+				# # logDebug('Data retornada: {0}'.format(date1))
 				return date1
 
 			for register in occurs:
@@ -224,24 +237,41 @@ class manageDatabase():
 					for dateOccurs in range(1, qtt+1):
 						# calculate all dates on a periodic event
 						if register[1]==1:
+							# logDebug('Pesquisa diária.')
 							nextEvent  = startPeriodic + datetime.timedelta(days=+dateOccurs)
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]==2:
+							# logDebug('Pesquisa semanal.')
 							nextEvent  = startPeriodic+ datetime.timedelta(days=+(dateOccurs*7))
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]==3:
+							# logDebug('Pesquisa quinzenal.')
 							nextEvent  = startPeriodic + datetime.timedelta(days=+(dateOccurs*14))
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]>=4 and register[1]<=7:
-							periodicDate = correctDate(sDate+(dateOccurs*(register[1]-3)*1000000))
+							sd = str(sDate)
+							dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
+							# logDebug('Data inicial: {0};\ndateOccurs: {1};\nregistro: {2}'.format(dateToExame, dateOccurs, register[1]))
+							periodicDate = correctDate(sDate, (dateOccurs*(register[1]-3)))
+							sd = str(periodicDate)
+							dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
+							# logDebug('Data processada: %s' % (dateToExame))
 						elif register[1]==8:
-							periodicDate = correctDate(sDate+(dateOccurs*6000000))
+							# logDebug('Pesquisa semestral.')
+							periodicDate = correctDate(sDate, (dateOccurs*6))
 						elif register[1]==9:
-							periodicDate = sDate+(dateOccurs*100000000)
+							# logDebug('Pesquisa anual.')
+							periodicDate = correctDate(sDate, (dateOccurs*12))
+							# periodicDate = sDate,(dateOccurs*12)
+						# logDebug('periodicDate: {0}'.format(periodicDate))
 						if periodicDate>=startDateInt and periodicDate<=endDateInt:
 							# save dataInicial field of original periodicity register and actual occurrency
 							listPeriodic = [register[0], periodicDate]
+							# logDebug('listPeriodic: {0}'.format(listPeriodic))
+							# logDebug('registro: {0}'.format(list(register[4:])))
 							typeFrequency = [register[1]]
+							# logDebug('typeFrequency: {0}'.format(typeFrequency))
+							
 							allPeriodicEvents += [listPeriodic+list(register[4:])+typeFrequency]
 
 							countFound += 1

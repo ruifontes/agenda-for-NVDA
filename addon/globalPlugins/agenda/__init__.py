@@ -7,6 +7,7 @@
 # See the file COPYING for more details.
 
 # import the necessary modules.
+from .logDebug import logDebug
 import globalPluginHandler
 import core
 from .configPanel import *
@@ -38,6 +39,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if globalVars.appArgs.secure:
 			return
 
+		logDebug('Iniciando log...', apagaAntigo=True)
 		# Translators: Dialog title
 		title = _("Agenda")
 

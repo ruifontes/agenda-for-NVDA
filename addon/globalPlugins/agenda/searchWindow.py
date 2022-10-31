@@ -6,6 +6,8 @@
 # See the file COPYING for more details.
 
 # import the necessary modules.
+from .logDebug import logDebug
+from .varsConfig import *
 from .update import *
 from .manageDatabase import *
 from .varsConfig import * 
@@ -383,16 +385,22 @@ class searchWindow(wx.Dialog):
 
 		if startDate!=None: 
 			self.periodicityRegisters = manageDatabase.findRepeatIntervalDate(startDate, finalDate, True, dirDatabase) 
+			# logDebug('Quantidade de registros periódicos encontrados: {0}'.format(len(self.periodicityRegisters)))
 			if len(self.periodicityRegisters)>0: 
 				self.flagRecordExists=True 
 				for tableLine in self.periodicityRegisters: 
 					readDate = str(tableLine[1]) 
+					sd = readDate
+					dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
+					# # logDebug('Data a adicionar: {0}'.format(dateToExame))
+
 					textToShow = "" 
 					if readDate[:8] == self.dayOfToday: 
 						textToShow = _("Today") 
 					elif readDate[:8] == self.dayOfTomorrow: 
 						textToShow = _("Tomorrow") 
 					else: 
+						# # logDebug('Data a buscar o dia da semana: {0}'.format(readDate))
 						weekToShow = weekDays[datetime.date (int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])).weekday()] 
 						textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
 					loadedItens += [[tableLine[1], textToShow + ", " + readDate[8:10] + ":" + readDate[10:12] + ', ', frequency[tableLine[10]] + "; " + tableLine[3]]] 

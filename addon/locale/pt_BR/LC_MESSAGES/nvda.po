@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Agenda\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2022-08-21 23:11+0100\n"
-"PO-Revision-Date: 2022-08-21 23:25+0100\n"
+"POT-Creation-Date: 2022-10-31 14:50+0000\n"
+"PO-Revision-Date: 2022-10-31 15:08+0000\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes <ampa4374@gmail."
 "com> e Rui Fontes <Rui Fontes <rui.fontes@tiflotecnia.com>; Colaborador: "
@@ -21,28 +21,28 @@ msgstr ""
 "X-Poedit-SearchPath-2: installTasks.py\n"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:42
-#: addon\globalPlugins\agenda\__init__.py:136
+#: addon\globalPlugins\agenda\__init__.py:138
 msgid "Day:"
 msgstr "Dia:"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:47
-#: addon\globalPlugins\agenda\__init__.py:142
+#: addon\globalPlugins\agenda\__init__.py:144
 #: addon\globalPlugins\agenda\eventRepeat.py:83
-#: addon\globalPlugins\agenda\searchWindow.py:65
-#: addon\globalPlugins\agenda\searchWindow.py:90
+#: addon\globalPlugins\agenda\searchWindow.py:67
+#: addon\globalPlugins\agenda\searchWindow.py:92
 msgid "Month:"
 msgstr "Mês:"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:52
-#: addon\globalPlugins\agenda\__init__.py:148
+#: addon\globalPlugins\agenda\__init__.py:150
 #: addon\globalPlugins\agenda\eventRepeat.py:90
-#: addon\globalPlugins\agenda\searchWindow.py:72
-#: addon\globalPlugins\agenda\searchWindow.py:97
+#: addon\globalPlugins\agenda\searchWindow.py:74
+#: addon\globalPlugins\agenda\searchWindow.py:99
 msgid "Year:"
 msgstr "Ano:"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:63
-#: addon\globalPlugins\agenda\__init__.py:437
+#: addon\globalPlugins\agenda\__init__.py:439
 msgid "Hour:"
 msgstr "Hora:"
 
@@ -70,7 +70,7 @@ msgstr "&Ok"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:94
 #: addon\globalPlugins\agenda\alarmsCheck.py:64
-#: addon\globalPlugins\agenda\searchWindow.py:135
+#: addon\globalPlugins\agenda\searchWindow.py:137
 msgid "&Cancel"
 msgstr "&Cancelar"
 
@@ -79,8 +79,8 @@ msgstr "&Cancelar"
 #: addon\globalPlugins\agenda\DlgAddEdit.py:115
 #: addon\globalPlugins\agenda\DlgAddEdit.py:232
 #: addon\globalPlugins\agenda\DlgAddEdit.py:346
-#: addon\globalPlugins\agenda\__init__.py:472
-#: addon\globalPlugins\agenda\searchWindow.py:417
+#: addon\globalPlugins\agenda\__init__.py:474
+#: addon\globalPlugins\agenda\searchWindow.py:425
 msgid "Add"
 msgstr "Adicionar"
 
@@ -91,8 +91,8 @@ msgstr "Adicionar"
 #: addon\globalPlugins\agenda\DlgAddEdit.py:318
 #: addon\globalPlugins\agenda\DlgAddEdit.py:337
 #: addon\globalPlugins\agenda\DlgAddEdit.py:429
-#: addon\globalPlugins\agenda\__init__.py:502
-#: addon\globalPlugins\agenda\searchWindow.py:449
+#: addon\globalPlugins\agenda\__init__.py:504
+#: addon\globalPlugins\agenda\searchWindow.py:457
 msgid "Edit"
 msgstr "Editar"
 
@@ -127,27 +127,27 @@ msgstr ""
 #: addon\globalPlugins\agenda\DlgAddEdit.py:386
 #: addon\globalPlugins\agenda\DlgAddEdit.py:423
 #: addon\globalPlugins\agenda\DlgAddEdit.py:473
-#: addon\globalPlugins\agenda\__init__.py:42
-#: addon\globalPlugins\agenda\__init__.py:105
-#: addon\globalPlugins\agenda\__init__.py:129
-#: addon\globalPlugins\agenda\__init__.py:533
-#: addon\globalPlugins\agenda\__init__.py:563
-#: addon\globalPlugins\agenda\__init__.py:570
+#: addon\globalPlugins\agenda\__init__.py:44
+#: addon\globalPlugins\agenda\__init__.py:107
+#: addon\globalPlugins\agenda\__init__.py:131
+#: addon\globalPlugins\agenda\__init__.py:535
+#: addon\globalPlugins\agenda\__init__.py:565
+#: addon\globalPlugins\agenda\__init__.py:572
 #: addon\globalPlugins\agenda\configPanel.py:37
-#: addon\globalPlugins\agenda\searchWindow.py:276
-#: addon\globalPlugins\agenda\searchWindow.py:325
-#: addon\globalPlugins\agenda\searchWindow.py:485
-#: addon\globalPlugins\agenda\searchWindow.py:526
-#: addon\globalPlugins\agenda\searchWindow.py:532
-#: addon\globalPlugins\agenda\searchWindow.py:539
-#: addon\globalPlugins\agenda\searchWindow.py:543
-#: addon\globalPlugins\agenda\searchWindow.py:549
+#: addon\globalPlugins\agenda\searchWindow.py:278
+#: addon\globalPlugins\agenda\searchWindow.py:327
+#: addon\globalPlugins\agenda\searchWindow.py:493
+#: addon\globalPlugins\agenda\searchWindow.py:534
+#: addon\globalPlugins\agenda\searchWindow.py:540
+#: addon\globalPlugins\agenda\searchWindow.py:547
+#: addon\globalPlugins\agenda\searchWindow.py:551
+#: addon\globalPlugins\agenda\searchWindow.py:557
 msgid "Agenda"
 msgstr "Agenda"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:326
-#: addon\globalPlugins\agenda\__init__.py:563
-#: addon\globalPlugins\agenda\searchWindow.py:526
+#: addon\globalPlugins\agenda\__init__.py:565
+#: addon\globalPlugins\agenda\searchWindow.py:534
 msgid "Appointment removed successfully!"
 msgstr "Compromisso apagado com sucesso!"
 
@@ -193,66 +193,66 @@ msgstr ""
 "Você tem certeza que deseja descartar as alterações feitas no compromisso?"
 
 #. Translators: Message to be announced during Keyboard Help
-#: addon\globalPlugins\agenda\__init__.py:103
+#: addon\globalPlugins\agenda\__init__.py:105
 msgid "Main window to access an accessible agenda"
 msgstr "Janela principal para acessar a uma agenda acessível"
 
-#: addon\globalPlugins\agenda\__init__.py:157
+#: addon\globalPlugins\agenda\__init__.py:159
 msgid "items found:"
 msgstr "itens encontrados:"
 
-#: addon\globalPlugins\agenda\__init__.py:161
+#: addon\globalPlugins\agenda\__init__.py:163
 msgid "Hour"
 msgstr "Hora"
 
-#: addon\globalPlugins\agenda\__init__.py:162
-#: addon\globalPlugins\agenda\__init__.py:438
+#: addon\globalPlugins\agenda\__init__.py:164
+#: addon\globalPlugins\agenda\__init__.py:440
 #: addon\globalPlugins\agenda\nextAppointments.py:32
 #: addon\globalPlugins\agenda\nextAppointments.py:67
-#: addon\globalPlugins\agenda\searchWindow.py:343
+#: addon\globalPlugins\agenda\searchWindow.py:345
 msgid "Appointment"
 msgstr "Compromisso"
 
-#: addon\globalPlugins\agenda\__init__.py:168
-#: addon\globalPlugins\agenda\searchWindow.py:122
+#: addon\globalPlugins\agenda\__init__.py:170
+#: addon\globalPlugins\agenda\searchWindow.py:124
 msgid "&Add"
 msgstr "&Adicionar"
 
-#: addon\globalPlugins\agenda\__init__.py:171
-#: addon\globalPlugins\agenda\searchWindow.py:125
+#: addon\globalPlugins\agenda\__init__.py:173
+#: addon\globalPlugins\agenda\searchWindow.py:127
 msgid "&Edit"
 msgstr "&Editar"
 
-#: addon\globalPlugins\agenda\__init__.py:174
-#: addon\globalPlugins\agenda\searchWindow.py:128
+#: addon\globalPlugins\agenda\__init__.py:176
+#: addon\globalPlugins\agenda\searchWindow.py:130
 msgid "&Remove"
 msgstr "&Remover"
 
 #. Label of button to execute the search
-#: addon\globalPlugins\agenda\__init__.py:177
-#: addon\globalPlugins\agenda\searchWindow.py:105
+#: addon\globalPlugins\agenda\__init__.py:179
+#: addon\globalPlugins\agenda\searchWindow.py:107
 msgid "&Search"
 msgstr "&Pesquisar"
 
-#: addon\globalPlugins\agenda\__init__.py:180
+#: addon\globalPlugins\agenda\__init__.py:182
 msgid "E&xit"
 msgstr "&Sair"
 
-#: addon\globalPlugins\agenda\__init__.py:456
+#: addon\globalPlugins\agenda\__init__.py:458
 msgid " items found"
 msgstr " itens encontrados"
 
-#: addon\globalPlugins\agenda\__init__.py:458
-#: addon\globalPlugins\agenda\__init__.py:493
+#: addon\globalPlugins\agenda\__init__.py:460
+#: addon\globalPlugins\agenda\__init__.py:495
 msgid "No items found"
 msgstr "Nenhum item encontrado"
 
-#: addon\globalPlugins\agenda\__init__.py:460
+#: addon\globalPlugins\agenda\__init__.py:462
 msgid "No appointments"
 msgstr "Sem compromissos"
 
-#: addon\globalPlugins\agenda\__init__.py:517
-#: addon\globalPlugins\agenda\searchWindow.py:472
+#: addon\globalPlugins\agenda\__init__.py:519
+#: addon\globalPlugins\agenda\searchWindow.py:480
 msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic "
 "event.\n"
@@ -262,22 +262,22 @@ msgstr ""
 "um evento periódico.\n"
 "Em vez disso, você precisa editar o registro original. Você quer editá-lo?"
 
-#: addon\globalPlugins\agenda\__init__.py:517
-#: addon\globalPlugins\agenda\searchWindow.py:472
+#: addon\globalPlugins\agenda\__init__.py:519
+#: addon\globalPlugins\agenda\searchWindow.py:480
 msgid "Edit periodic event"
 msgstr "Editar evento periódico"
 
-#: addon\globalPlugins\agenda\__init__.py:533
+#: addon\globalPlugins\agenda\__init__.py:535
 msgid "You have not selected any appointment to edit."
 msgstr "Você não selecionou qualquer compromisso para editar."
 
-#: addon\globalPlugins\agenda\__init__.py:549
-#: addon\globalPlugins\agenda\searchWindow.py:511
+#: addon\globalPlugins\agenda\__init__.py:551
+#: addon\globalPlugins\agenda\searchWindow.py:519
 msgid "Do you really want to remove the  item: "
 msgstr "Deseja realmente remover o compromisso: "
 
-#: addon\globalPlugins\agenda\__init__.py:554
-#: addon\globalPlugins\agenda\searchWindow.py:517
+#: addon\globalPlugins\agenda\__init__.py:556
+#: addon\globalPlugins\agenda\searchWindow.py:525
 msgid ""
 "You can't remove just one periodic event. Instead of, you need remove the "
 "original register. If you make this, alldates on this periodic event will be "
@@ -292,11 +292,11 @@ msgstr ""
 "Deseja excluir o registro original e todas as datas deste evento {}:\n"
 "{}?"
 
-#: addon\globalPlugins\agenda\__init__.py:557
+#: addon\globalPlugins\agenda\__init__.py:559
 msgid "Remove item"
 msgstr "Remover item"
 
-#: addon\globalPlugins\agenda\__init__.py:570
+#: addon\globalPlugins\agenda\__init__.py:572
 msgid "You have not selected any appointment to be removed."
 msgstr "Você não selecionou qualquer compromisso para ser removido."
 
@@ -474,12 +474,12 @@ msgid "Sunday"
 msgstr "Domingo"
 
 #: addon\globalPlugins\agenda\eventRepeat.py:197
-#: addon\globalPlugins\agenda\manageDatabase.py:259
+#: addon\globalPlugins\agenda\manageDatabase.py:289
 msgid "Your final date is oldest your inicial date."
 msgstr "Sua data final é anterior à data inicial."
 
 #: addon\globalPlugins\agenda\eventRepeat.py:197
-#: addon\globalPlugins\agenda\manageDatabase.py:259
+#: addon\globalPlugins\agenda\manageDatabase.py:289
 msgid "Incorrect date interval"
 msgstr "Intervalo de data incorreto"
 
@@ -490,140 +490,140 @@ msgstr "Compromissos para hoje e amanhã"
 #. Label of the list were the itens found will land
 #: addon\globalPlugins\agenda\nextAppointments.py:27
 #: addon\globalPlugins\agenda\nextAppointments.py:113
-#: addon\globalPlugins\agenda\searchWindow.py:110
-#: addon\globalPlugins\agenda\searchWindow.py:411
+#: addon\globalPlugins\agenda\searchWindow.py:112
+#: addon\globalPlugins\agenda\searchWindow.py:419
 msgid "Items found:"
 msgstr "Itens encontrados:"
 
 #: addon\globalPlugins\agenda\nextAppointments.py:31
 #: addon\globalPlugins\agenda\nextAppointments.py:66
-#: addon\globalPlugins\agenda\searchWindow.py:114
-#: addon\globalPlugins\agenda\searchWindow.py:342
+#: addon\globalPlugins\agenda\searchWindow.py:116
+#: addon\globalPlugins\agenda\searchWindow.py:344
 msgid "Date/Hour"
 msgstr "Data/hora"
 
 #. check for periodic event to this appointement
 #: addon\globalPlugins\agenda\nextAppointments.py:83
-#: addon\globalPlugins\agenda\searchWindow.py:359
+#: addon\globalPlugins\agenda\searchWindow.py:361
 msgid "No repeat"
 msgstr "Não se repete"
 
 #: addon\globalPlugins\agenda\nextAppointments.py:87
 #: addon\globalPlugins\agenda\nextAppointments.py:98
-#: addon\globalPlugins\agenda\searchWindow.py:363
-#: addon\globalPlugins\agenda\searchWindow.py:392
-#: addon\globalPlugins\agenda\searchWindow.py:423
-#: addon\globalPlugins\agenda\searchWindow.py:456
-#: addon\globalPlugins\agenda\searchWindow.py:499
+#: addon\globalPlugins\agenda\searchWindow.py:365
+#: addon\globalPlugins\agenda\searchWindow.py:399
+#: addon\globalPlugins\agenda\searchWindow.py:431
+#: addon\globalPlugins\agenda\searchWindow.py:464
+#: addon\globalPlugins\agenda\searchWindow.py:507
 msgid "Today"
 msgstr "Hoje"
 
 #: addon\globalPlugins\agenda\nextAppointments.py:89
 #: addon\globalPlugins\agenda\nextAppointments.py:100
-#: addon\globalPlugins\agenda\searchWindow.py:365
-#: addon\globalPlugins\agenda\searchWindow.py:394
-#: addon\globalPlugins\agenda\searchWindow.py:426
-#: addon\globalPlugins\agenda\searchWindow.py:459
-#: addon\globalPlugins\agenda\searchWindow.py:502
+#: addon\globalPlugins\agenda\searchWindow.py:367
+#: addon\globalPlugins\agenda\searchWindow.py:401
+#: addon\globalPlugins\agenda\searchWindow.py:434
+#: addon\globalPlugins\agenda\searchWindow.py:467
+#: addon\globalPlugins\agenda\searchWindow.py:510
 msgid "Tomorrow"
 msgstr "Amanhã"
 
 #: addon\globalPlugins\agenda\nextAppointments.py:104
-#: addon\globalPlugins\agenda\searchWindow.py:402
+#: addon\globalPlugins\agenda\searchWindow.py:410
 msgid "No items found:"
 msgstr "Nenhum item encontrado:"
 
 #. Title of search window
-#: addon\globalPlugins\agenda\searchWindow.py:25
+#: addon\globalPlugins\agenda\searchWindow.py:27
 msgid "Agenda search"
 msgstr "Pesquisar na agenda"
 
 #. Specify the search type
-#: addon\globalPlugins\agenda\searchWindow.py:39
+#: addon\globalPlugins\agenda\searchWindow.py:41
 msgid "Type of search:"
 msgstr "Tipo de pesquisa:"
 
 #. The various search type
-#: addon\globalPlugins\agenda\searchWindow.py:43
-#: addon\globalPlugins\agenda\searchWindow.py:210
-#: addon\globalPlugins\agenda\searchWindow.py:272
-#: addon\globalPlugins\agenda\searchWindow.py:377
-#: addon\globalPlugins\agenda\searchWindow.py:469
-#: addon\globalPlugins\agenda\searchWindow.py:512
+#: addon\globalPlugins\agenda\searchWindow.py:45
+#: addon\globalPlugins\agenda\searchWindow.py:212
+#: addon\globalPlugins\agenda\searchWindow.py:274
+#: addon\globalPlugins\agenda\searchWindow.py:379
+#: addon\globalPlugins\agenda\searchWindow.py:477
+#: addon\globalPlugins\agenda\searchWindow.py:520
 msgid "Search by text"
 msgstr "Pesquisa por texto"
 
-#: addon\globalPlugins\agenda\searchWindow.py:43
-#: addon\globalPlugins\agenda\searchWindow.py:227
-#: addon\globalPlugins\agenda\searchWindow.py:287
+#: addon\globalPlugins\agenda\searchWindow.py:45
+#: addon\globalPlugins\agenda\searchWindow.py:229
+#: addon\globalPlugins\agenda\searchWindow.py:289
 msgid "Next 7 days"
 msgstr "Próximos 7 dias"
 
-#: addon\globalPlugins\agenda\searchWindow.py:43
-#: addon\globalPlugins\agenda\searchWindow.py:227
-#: addon\globalPlugins\agenda\searchWindow.py:298
+#: addon\globalPlugins\agenda\searchWindow.py:45
+#: addon\globalPlugins\agenda\searchWindow.py:229
+#: addon\globalPlugins\agenda\searchWindow.py:300
 msgid "Next 30 days"
 msgstr "Próximos 30 dias"
 
-#: addon\globalPlugins\agenda\searchWindow.py:43
-#: addon\globalPlugins\agenda\searchWindow.py:244
-#: addon\globalPlugins\agenda\searchWindow.py:309
+#: addon\globalPlugins\agenda\searchWindow.py:45
+#: addon\globalPlugins\agenda\searchWindow.py:246
+#: addon\globalPlugins\agenda\searchWindow.py:311
 msgid "Date range"
 msgstr "Intervalo de datas"
 
 #. Asking user to enter the text to search
-#: addon\globalPlugins\agenda\searchWindow.py:48
+#: addon\globalPlugins\agenda\searchWindow.py:50
 msgid "Enter the text to search:"
 msgstr "Digite o texto que deseja pesquisar:"
 
 #. Day of initial date
-#: addon\globalPlugins\agenda\searchWindow.py:58
+#: addon\globalPlugins\agenda\searchWindow.py:60
 msgid "Initial date: Day:"
 msgstr "Data inicial: Dia:"
 
 #. Day of final date
-#: addon\globalPlugins\agenda\searchWindow.py:83
+#: addon\globalPlugins\agenda\searchWindow.py:85
 msgid "Final date: Day:"
 msgstr "Data final: Dia:"
 
 #. Label of button to remove all appointments
-#: addon\globalPlugins\agenda\searchWindow.py:132
+#: addon\globalPlugins\agenda\searchWindow.py:134
 msgid "Remove A&ll"
 msgstr "Remover &tudo"
 
 #. If the text to search is empty notifies the user
-#: addon\globalPlugins\agenda\searchWindow.py:276
+#: addon\globalPlugins\agenda\searchWindow.py:278
 msgid "Insert what to search or choose another type of search."
 msgstr "Digite o que deseja pesquisar ou escolha outro tipo de pesquisa."
 
-#: addon\globalPlugins\agenda\searchWindow.py:325
+#: addon\globalPlugins\agenda\searchWindow.py:327
 msgid "The end date must be equal or after the start date."
 msgstr "A data final deve ser igual ou posterior à data de início."
 
-#: addon\globalPlugins\agenda\searchWindow.py:485
+#: addon\globalPlugins\agenda\searchWindow.py:493
 msgid "No appointment selected to edit..."
 msgstr "Nenhum compromisso foi selecionado para editar..."
 
-#: addon\globalPlugins\agenda\searchWindow.py:520
+#: addon\globalPlugins\agenda\searchWindow.py:528
 msgid "Remove event"
 msgstr "Remover evento"
 
-#: addon\globalPlugins\agenda\searchWindow.py:532
+#: addon\globalPlugins\agenda\searchWindow.py:540
 msgid "No appointment selected to delete"
 msgstr "Nenhum compromisso foi selecionado para apagar"
 
-#: addon\globalPlugins\agenda\searchWindow.py:539
+#: addon\globalPlugins\agenda\searchWindow.py:547
 msgid ""
 "No itens to delete. Please, you need search something to delete all itens."
 msgstr ""
 "Nenhum item foi selecionado para remover. É necessário efetuar uma pesquisa "
 "para localizar itens a apagar."
 
-#: addon\globalPlugins\agenda\searchWindow.py:543
+#: addon\globalPlugins\agenda\searchWindow.py:551
 msgid "Do you really want to delete all itens found?"
 msgstr "Deseja realmente remover todos os compromissos encontrados?"
 
-#: addon\globalPlugins\agenda\searchWindow.py:549
+#: addon\globalPlugins\agenda\searchWindow.py:557
 msgid "All appointments deleted successfully!"
 msgstr "Todos os compromissos foram removidos com êxito!"
 
