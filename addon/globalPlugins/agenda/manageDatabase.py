@@ -18,6 +18,7 @@ def upcase (field):
 
 class manageDatabase():
 	def createDatabase(dirDatabase):
+		from .configPanel import dirDatabase
 		dbAgenda = sqlite3.connect(dirDatabase)
 		dbCursor = dbAgenda.cursor()
 		dbCursor.execute("""
@@ -36,6 +37,7 @@ class manageDatabase():
 		dbAgenda.close()
 
 	def increasePeriodicity(dirDatabase):
+		from .configPanel import dirDatabase
 		dbAgenda = sqlite3.connect(dirDatabase)
 		dbCursor = dbAgenda.cursor()
 		# create periodicity table if It isn't exists

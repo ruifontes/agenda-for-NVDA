@@ -53,6 +53,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
 
 		# Check for database file
+		from .configPanel import dirDatabase
 		if not os.path.exists(dirDatabase):
 			# Does not exist, so creat it
 			manageDatabase.createDatabase(dirDatabase)
