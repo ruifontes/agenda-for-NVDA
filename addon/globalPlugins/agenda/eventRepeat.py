@@ -2,11 +2,13 @@
 # Part of Agenda add-on
 # Module for interface to set repetitions and set the respective dates
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
+# Import the necessary modules
 from .varsConfig import *
-# Necessary For translation
+# To start translation process
 addonHandler.initTranslation()
 
 
@@ -15,6 +17,7 @@ class dlgRepeat(wx.Dialog):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
 
+		from . varsConfig import months, weekDays
 		self.eventInfo = eventInfo
 		self.register = self.eventInfo.register
 		self.currentYear = int(self.register/100000000)
@@ -167,6 +170,7 @@ class dlgRepeat(wx.Dialog):
 		# end wxGlade
 
 	def onChangedDate (self, event):
+		from . varsConfig import months, weekDays, maxDayMonth
 		# Gets the date fields to make the search
 		yearToSearch = str(self.spin_ctrl_3.GetValue())
 		monthToSearchStr = self.ComboMonth.GetValue()

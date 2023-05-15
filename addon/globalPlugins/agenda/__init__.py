@@ -1,8 +1,9 @@
 # -*- coding: UTF-8 -*-
-# Agenda add-on
+# Main file for Agenda add-on
 # Provides an accessible agenda with or without alarms
 # Shortcut: NVDA+F4
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
@@ -18,7 +19,7 @@ from .alarmsCheck import CheckAlarms
 from .searchWindow import searchWindow
 import threading
 from scriptHandler import script
-# Necessary For translation
+# To start translation process
 addonHandler.initTranslation()
 
 initConfiguration()
@@ -35,10 +36,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Call of the constructor of the parent class.
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 
-		# Avoid use in secure screens
-		if globalVars.appArgs.secure:
-			return
-
 		logDebug('Iniciando log...', apagaAntigo=True)
 		# Translators: Dialog title
 		title = _("Agenda")
@@ -46,18 +43,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Adding a NVDA configurations section
 		gui.NVDASettingsDialog.categoryClasses.append(AgendaSettingsPanel)
 
-		# To allow waiting end of network tasks
-		core.postNvdaStartup.register(self.networkTasks)
-
-		# To check if agenda settings panel should be shown or not
-		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
-
 		# Check for database file
 		from .configPanel import dirDatabase
 		if not os.path.exists(dirDatabase):
 			# Does not exist, so creat it
 			manageDatabase.createDatabase(dirDatabase)
-
 		# checks for the existence of the periodicity table
 		manageDatabase.increasePeriodicity(dirDatabase)
 
@@ -75,29 +65,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			t.setDaemon(True)
 			t.start()
 
-	# Check if we are with a active profile or not, to decide if agenda settings panel is shown
-	def handleConfigProfileSwitch(self):
-		if config.conf.profiles[-1].name:
-			try:
-				NVDASettingsDialog.categoryClasses.remove(AgendaSettingsPanel)
-			except Exception:  # panel is not present
-				pass
-		elif not AgendaSettingsPanel in NVDASettingsDialog.categoryClasses:
-			NVDASettingsDialog.categoryClasses.append(AgendaSettingsPanel)
-
-	def networkTasks(self):
-		# Calling the update process...
-		_MainWindows = Initialize()
-		_MainWindows.start()
-
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
 		try:
 			NVDASettingsDialog.categoryClasses.remove(AgendaSettingsPanel)
 		except Exception:
 			pass
-		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
-		core.postNvdaStartup.unregister(self.networkTasks)
 
 	#defining a script with decorator:
 	@script(

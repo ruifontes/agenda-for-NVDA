@@ -1,17 +1,42 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
-# Module to save global variables
+# Variables for the Agenda add-on
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
+# import the necessary modules.
+import ui
+import wx
+import os
+import globalVars
+import gui
+from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
+from gui import guiHelper
+import core
 import config
-from .update import *
+import addonHandler
 from .manageDatabase import *
 from .nextAppointments import nextAppointments
-# For translation process
-import addonHandler
+# To start translation process
 addonHandler.initTranslation()
+
+def getOurAddon():
+	return addonHandler.getCodeAddon()
+
+ourAddon = getOurAddon()
+
+def initConfiguration():
+	confspec = {
+		"show" : "boolean(default=True)",
+		"days" : "integer(1, 30, default=1)",
+		"path" : "string(default="")",
+		"altPath" : "string(default="")",
+		"xx" : "string(default="")",
+	}
+	config.conf.spec[ourAddon.name] = confspec
+
+initConfiguration()
 
 # Global variables
 months = [_("December"), _("November"), _("October"), _("September"), _("August"), _("July"), _("June"), _("May"), _("April"), _("March"), _("February"), _("January")]
@@ -50,7 +75,8 @@ def threadAlarm ():
 			time.sleep(5)
 		# if minute increase, check dictionary
 		selfNow = datetime.datetime.now()
-		nextDays = selfNow + datetime.timedelta(days=+1)
+		from .configPanel import nDays
+		nextDays = selfNow + datetime.timedelta(days=nDays-1)
 		justNow = int(datetime.datetime.strftime(selfNow, '%Y%m%d%H%M'))
 		tomorrowStart = int(datetime.datetime.strftime(nextDays, '%Y%m%d')+'0000')
 		tomorrowEnd = int(datetime.datetime.strftime(nextDays, '%Y%m%d')+'2359')
@@ -188,7 +214,7 @@ class eventRepeatInfo(object):
 		self.finalDate = 0
 		self.dirDatabase = ""
 
-class generalVars (object):
+class generalVars(object):
 	def __init__(self):
 		self.titleAddEd = ''
 		self.itemToEdit = 0

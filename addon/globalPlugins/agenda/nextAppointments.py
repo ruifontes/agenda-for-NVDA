@@ -7,7 +7,8 @@
 
 # import the necessary modules.
 from .manageDatabase import *
-from .varsConfig import * 
+from .varsConfig import *
+from .DlgAddEdit import DlgAddEdit
 # Necessary For translation
 addonHandler.initTranslation()
 
@@ -20,7 +21,7 @@ class nextAppointments(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
-		self.SetTitle(_("Appointments for today and tomorrow"))
+		self.SetTitle(_("Appointments for the next days"))
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
 
@@ -35,6 +36,9 @@ class nextAppointments(wx.Dialog):
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
+		self.button_Open = wx.Button(self, wx.ID_ANY, _("&Open"))
+		sizer_2.AddButton(self.button_Open)
+
 		self.button_OK = wx.Button(self, wx.ID_OK, _("&Ok"))
 		self.button_OK.SetDefault()
 		sizer_2.AddButton(self.button_OK)
@@ -43,17 +47,37 @@ class nextAppointments(wx.Dialog):
 		self.SetSizer(sizer_1)
 		sizer_1.Fit(self)
 
+		# Adding an ID for each keystroke event
+		self.Delete = wx.Window.NewControlId()
+		# Assigns to each keystroke ID a method to the associated event
+		self.Bind(wx.EVT_MENU, self.executeRemove, id=self.Delete)
+		# Assigns the keystrokes to the ID's
+		accel_tbl = wx.AcceleratorTable([(wx.ACCEL_NORMAL, wx.WXK_DELETE, self.Delete)])
+		self.SetAcceleratorTable(accel_tbl)
+
+
 		self.SetAffirmativeId(self.button_OK.GetId())
+		self.Bind(wx.EVT_BUTTON, self.OnOpen, self.button_Open)
 		self.Bind(wx.EVT_BUTTON, self.OnOk, self.button_OK)
-		self.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.OnOk, self.appointmentsList)
+		self.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.executeEdit, self.appointmentsList)
 
 		self.Layout()
 		self.CentreOnScreen()
 
+		self.update()
+
+	def update(self):
 		# Define the date range to find appointements
 		Now = datetime.datetime.now()
 		todayStart = int(datetime.datetime.strftime(Now, '%Y%m%d')+'0000')
-		nextDays = Now + datetime.timedelta(days=+1)
+		# Check how many days should be included
+		try:
+			if config.conf[ourAddon.name]["days"]:
+				# Number of days to include in next events
+				nDays = int(config.conf[ourAddon.name]["days"])
+		except:
+			nDays = 2
+		nextDays = Now + datetime.timedelta(days=nDays-1)
 		tomorrowEnd = int(datetime.datetime.strftime(nextDays, '%Y%m%d')+'2359')
 		# Conecting to database
 		from .configPanel import dirDatabase
@@ -87,6 +111,10 @@ class nextAppointments(wx.Dialog):
 					textToShow = _("Today")
 				elif readDate[:8] == self.dayOfTomorrow:
 					textToShow = _("Tomorrow")
+				else:
+					from .varsConfig import weekDays
+					weekToShow = weekDays[datetime.date(int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])).weekday()] 
+					textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
 				loadedItens += [[tableLine[0], textToShow + ", " + readDate[8:10] + ":" + readDate[10:12], tableLine[2]]]
 		self.periodicityRegisters = manageDatabase.findRepeatIntervalDate(todayStart, tomorrowEnd, True, dirDatabase)
 		if len(self.periodicityRegisters)>0:
@@ -98,6 +126,10 @@ class nextAppointments(wx.Dialog):
 					textToShow = _("Today")
 				elif readDate[:8] == self.dayOfTomorrow:
 					textToShow = _("Tomorrow")
+				else:
+					from .varsConfig import weekDays
+					weekToShow = weekDays[datetime.date(int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])).weekday()] 
+					textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
 				loadedItens += [[tableLine[1], textToShow + ", " + readDate[8:10] + ":" + readDate[10:12], frequency[tableLine[10]] +"; " + tableLine[3]]]
 
 		if not self.flagRecordExists:
@@ -108,12 +140,99 @@ class nextAppointments(wx.Dialog):
 			j = 0
 			for x in loadedSorted:
 				index = self.appointmentsList.InsertItem(j, x[1])
-				self.appointmentsList.SetStringItem(index, 1,x[2])
+				self.appointmentsList.SetStringItem(index, 1, x[2])
 				j+=1
 			self.label_1.SetLabel(str(self.appointmentsList.GetItemCount()) + _("Items found:"))
+			self.appointmentsList.Focus(0)
+			self.appointmentsList.Select(0)
 		self.appointmentsList.SetFocus()
-		self.appointmentsList.Focus(0)
-		self.appointmentsList.Select(0)
+
+	def executeEdit(self, event):
+		global itemToEdit
+		from . varsConfig import generalVars
+		generalVars.titleAddEd = _("Edit")
+		flagGoToEdit = False
+		# The variable should contain the details of appointment to edit
+		if self.flagRecordExists and self.appointmentsList.GetSelectedItemCount() != 0:
+			# Get appointment details to make the date to edit
+			strItemToEdit = self.appointmentsList.GetItemText(self.appointmentsList.GetFocusedItem(), 0)
+			dateToEdit = ""
+			if strItemToEdit.startswith(_("Today")):
+				dateToEdit = self.dayOfToday
+				hour = strItemToEdit[6:8] + strItemToEdit[9:11]
+			elif strItemToEdit.startswith(_("Tomorrow")):
+				dateToEdit = self.dayOfTomorrow
+				hour = strItemToEdit[8:10] + strItemToEdit[11:13]
+			else:
+				strItemToEdit = strItemToEdit.split(", ")[1] + ", " + strItemToEdit.split(", ")[2]
+				dateToEdit = strItemToEdit[6:10] + strItemToEdit[3:5]+strItemToEdit[:2]
+				hour = strItemToEdit[12:14] + strItemToEdit[15:17]
+
+			generalVars.itemToEdit = int(dateToEdit + hour)
+			flagGoToEdit = True
+			for foundRepeatRegister  in self.periodicityRegisters:
+				if foundRepeatRegister[1] == generalVars.itemToEdit:
+					dlg = wx.MessageDialog(self, _("You selected a periodic event. You can't edit a date inside on periodic event.\nInstead of, you need edit the original register. Do you want edit It?"), _("Edit periodic event"), wx.YES_NO)
+					if dlg.ShowModal()==wx.ID_YES:
+						generalVars.itemToEdit= foundRepeatRegister[0]
+						break
+					else:
+						flagGoToEdit = False
+						break
+
+			if flagGoToEdit:
+				dlgAdEd = DlgAddEdit(generalVars, self).ShowModal()
+		else:
+			dlg = wx.MessageDialog(None, _("No appointment selected to edit..."), _("Agenda"), wx.OK)
+			dlg.ShowModal() 
+			dlg.Destroy()
+		event.Skip()
+		self.update()
+
+	def executeRemove(self, event):
+		# The variable should contain the details of appointment to remove
+		if self.flagRecordExists and self.appointmentsList.GetSelectedItemCount() > 0:
+			# Get appointments fields to create the date
+			strItemToRemove = self.appointmentsList.GetItemText(self.appointmentsList.GetFocusedItem(), 0)
+			strItemToRemoveMsg = self.appointmentsList.GetItemText(self.appointmentsList.GetFocusedItem(), 1)
+			dateToRemove = ""
+			if strItemToRemove.startswith(_("Today")):
+				dateToRemove = self.dayOfToday
+				hour = strItemToRemove[6:8]+strItemToRemove[9:11]
+			elif strItemToRemove.startswith(_("Tomorrow")):
+				dateToRemove=self.dayOfTomorrow
+				hour = strItemToRemove[8:10]+strItemToRemove[11:13]
+			else:
+				strItemToRemove = strItemToRemove.split(", ")[1] + ", " + strItemToRemove.split(", ")[2]
+				dateToRemove=strItemToRemove[6:10]+strItemToRemove[3:5]+strItemToRemove[:2]
+				hour = strItemToRemove[12:14]+strItemToRemove[15:17]
+
+			itemToRemove= int(dateToRemove + hour)
+			msgRemove = (_("Do you really want to remove the  item: ") + strItemToRemoveMsg + "?")
+			for foundRepeatRegister  in self.periodicityRegisters:
+				if foundRepeatRegister[1]==itemToRemove:
+					originalDate = str(foundRepeatRegister[0])
+					originalDateStr = originalDate[6:8]+'/'+originalDate[4:6]+'/'+originalDate[:4]+', '+originalDate[8:10]+':'+originalDate[10:12]+', '+foundRepeatRegister[3]
+					msgRemove = _("You can't remove just one periodic event. Instead of, you need remove the original register. If you make this, alldates on this periodic event will be deleted.\nDo you want to delete the original register and all   dates of this {} event:\n{}?").format(frequency[foundRepeatRegister[10]], originalDateStr)
+					itemToRemove= foundRepeatRegister[0]
+					break
+			dlg = wx.MessageDialog(self, msgRemove, _("Remove event"), wx.YES_NO)
+			if dlg.ShowModal()==wx.ID_YES: 
+				# Conecting to database
+				from .configPanel import dirDatabase
+				manageDatabase.removeItem(itemToRemove, dirDatabase)
+				manageDatabase.removeRepeat(itemToRemove, dirDatabase)
+				dlg2 = wx.MessageDialog( self, _("Appointment removed successfully!"), _("Agenda"), wx.OK)
+				dlg2.ShowModal()
+				#self.Destroy()
+				self.update()
+		event.Skip()
+
+	def OnOpen(self, event):
+		self.Destroy()
+		from . import MainWindow
+		gui.mainFrame._popupSettingsDialog(MainWindow)
+		event.Skip()
 
 	def OnOk(self, event):
 		self.Destroy()

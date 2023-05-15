@@ -8,9 +8,7 @@
 # import the necessary modules.
 from .logDebug import logDebug
 from .varsConfig import *
-from .update import *
 from .manageDatabase import *
-from .varsConfig import * 
 from .configPanel import *
 from .DlgAddEdit import DlgAddEdit
 from .alarmsCheck import CheckAlarms

@@ -3,9 +3,9 @@
 <br>
 ## Informations
 * Authors: Abel Passos, Ângelo Abrantes and Rui Fontes
-* Updated: October 31, 2022
+* Updated: May 13, 2023
 * Download [stable version][1]
-* Compatibility: NVDA version 2019.3 and later
+* Compatibility: NVDA version 2019.3 and beyond
 
 <br>
 ## Presentation
@@ -14,7 +14,7 @@ You can use two different agendas.
 To switch between them, go to the NVDA menu, Preferences, Settings, agenda section and choose from the combobox the agenda you want to use.
 If the second line is empty, use the \"Select or add a directory\" button to create a second agenda.
 If you use this button with a path selected, the agenda 	will be moved to the new path, if there is no agenda in it. If it does, only the path will be changed, and both agendas will be preserved, with the new path being used.
-At NVDA startup you will be reminded of the appointments for the current day and the next. This reminder can be a window with a list of all appointments or a reminder with a dialog and an audible alarm for appointments with a set alarm.
+At NVDA startup you will be reminded of the appointments for the next days This reminder can be a window with a list of all appointments or a reminder with a dialog and an audible alarm for appointments with a set alarm.
 This option can be configured in the add-on's settings.
 
 <br>
@@ -83,4 +83,4 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * Remove all (Alt+L): Deletes all displayed appointments;
 * Cancel button (Alt+C): closes the search window and returns to the main window.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2022.10/agenda-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.05.13/agenda-2023.05.13.nvda-addon

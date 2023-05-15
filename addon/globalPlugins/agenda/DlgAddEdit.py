@@ -7,10 +7,10 @@
 
 # import the necessary modules.
 import globalPluginHandler
-from .varsConfig import *
+from . configPanel import *
+from . varsConfig import *
 from .eventRepeat import dlgRepeat
 from .alarmsCheck import CheckAlarms
-from .configPanel import *
 import threading
 # Necessary For translation
 addonHandler.initTranslation()
@@ -31,6 +31,7 @@ class DlgAddEdit(wx.Dialog):
 		self.exitConfirm = False
 		self.SetTitle(self.titleAddEd)
 
+		from . varsConfig import checkBoxVars
 		# Store alarmes values
 		self.alarmValues = checkBoxVars()
 
@@ -44,6 +45,7 @@ class DlgAddEdit(wx.Dialog):
 		self.spinDay = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1, max=31)
 		sizer_3.Add(self.spinDay, 0, 0, 0)
 
+		from .varsConfig import months
 		label_5 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_3.Add(label_5, 0, 0, 0)
 		self.comboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months, style=wx.CB_DROPDOWN|wx.CB_READONLY)
@@ -111,6 +113,7 @@ class DlgAddEdit(wx.Dialog):
 		self.currentDay = str(self.itemToEdit)[6:8]
 		self.itemToEditStr = str(self.itemToEdit)
 
+		from . varsConfig import eventRepeatInfo
 		self.eventRepeatData = eventRepeatInfo()
 		if self.titleAddEd == _("Add"):
 			# We are in the Add window
@@ -193,11 +196,11 @@ class DlgAddEdit(wx.Dialog):
 
 		# Gets the date fields to make the search
 		#Gets the week day
+		from . varsConfig import weekDays
 		self.currentWeek = weekDays[datetime.date (int(self.currentYear), int(self.currentMonth), int(self.currentDay)) .weekday ()]
 		# Update the weekDay field
 		self.weekDay.SetValue(self.currentWeek)
 		self.weekToSave = self.currentWeek
-		
 
 	def update(self, event):
 		# Just to avoid the event
@@ -205,6 +208,7 @@ class DlgAddEdit(wx.Dialog):
 
 	def updateData(self):
 		# Gets the date fields to make the search
+		from . varsConfig import months, maxDayMonth, weekDays
 		yearToSearch = str(self.spinYear.GetValue())
 		monthToSearchStr = self.comboMonth.GetValue()
 		monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
@@ -251,6 +255,7 @@ class DlgAddEdit(wx.Dialog):
 				self.alarmValues.checkExactTime = False
 
 	def OnPeriodicity (self, event):
+		from . varsConfig import months, weekDays
 		if self.titleAddEd == _("Edit"):
 			self.eventRepeatData.register= self.itemToEdit
 			originalTypeRepeat = self.eventRepeatData.typeRepeat
@@ -293,8 +298,7 @@ class DlgAddEdit(wx.Dialog):
 		self.changesEnd()
 
 	def changesEnd(self):
-		# global itemToEdit
-		# global titleAddEd
+		from . varsConfig import generalVars, months, maxDayMonth, weekDays
 		# signals wich exit type
 		self.exitType = "OK"
 		# Gets date and hour fields to add to database
@@ -443,6 +447,8 @@ class DlgAddEdit(wx.Dialog):
 			return
 			event.Skip()
 		else:
+			
+			from . varsConfig import months
 			# Get the date and hour fields to add to database
 			self.yearToSave = str(self.spinYear.GetValue())
 			self.monthToSaveStr = self.comboMonth.GetValue()

@@ -3,7 +3,7 @@
 <br>
 ## Informações
 * Autores: Abel Passos, Ângelo Abrantes  e Rui Fontes
-* Actualizado em: 31 de Outubro de 2022 
+* Actualizado em: 13 de Maio de 2023
 * Descarregar [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
@@ -14,7 +14,7 @@ Este extra permite anotar  compromissos e actividades, com ou sem alarmes e com
 Para alternar entre elas, vá ao menu do NVDA, Preferências, Configurações, secção Agenda e escolha, na caixa combinada, a agenda que quer usar.
 Se a segunda linha estiver vazia, use o botão "Seleccionar ou adicionar um directório" para criar uma segunda agenda.
 Se utilizar este botão com um caminho seleccionado, a agenda será movida para o novo caminho, se nele não existir nenhuma. Se existir, será apenas mudado o caminho, as duas agendas serão preservadas, passando a ser utilizada a do novo caminho.
-No arranque do NVDA, seremos alertados para os compromissos para o dia actual e o seguinte. Este lembrete pode ser uma janela com a lista de todos os compromissos ou um lembrete com um diálogo e um alarme sonoro para os compromissos com alarme definido.
+No arranque do NVDA, seremos alertados para os compromissos para os próximos dias. Este lembrete pode ser uma janela com a lista de todos os compromissos ou um lembrete com um diálogo e um alarme sonoro para os compromissos com alarme definido.
 Esta opção pode ser configurada nas definições do extra.
 
 <br>
@@ -84,4 +84,4 @@ Além disto, na função Editar, os dados do compromisso seleccionado são apres
 * Remover tudo (Alt+T): apaga todos os compromissos apresentados;
 * Botão Cancelar  (Alt+C): fecha a janela de pesquisa e retorna à janela principal.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2022.10/agenda-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.05.13/agenda-2023.05.13.nvda-addon
