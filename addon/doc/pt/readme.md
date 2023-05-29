@@ -1,13 +1,13 @@
 #Agenda
 
-<br>
+
 ## Informações
 * Autores: Abel Passos, Ângelo Abrantes  e Rui Fontes
-* Actualizado em: 13 de Maio de 2023
+* Actualizado em: 30 de Maio de 2023
 * Descarregar [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
-<br>
+
 ## Apresentação
 Este extra permite anotar  compromissos e actividades, com ou sem alarmes e com ou sem repetições periódicas.
 É possível utilizar duas agendas diferentes.
@@ -17,12 +17,12 @@ Se utilizar este botão com um caminho seleccionado, a agenda será movida para 
 No arranque do NVDA, seremos alertados para os compromissos para os próximos dias. Este lembrete pode ser uma janela com a lista de todos os compromissos ou um lembrete com um diálogo e um alarme sonoro para os compromissos com alarme definido.
 Esta opção pode ser configurada nas definições do extra.
 
-<br>
+
 ## Comando
 O comando para chamar o extra é NVDA+F4.
 É possível alterá-lo no diálogo "Definir comandos", na secção Agenda.
 
-<br>
+
 ## Como funciona:
 * Ao abrir o programa, serão mostrados os compromissos do dia actual.
 * Na jannela principal, existem os campos para se alterar a data, os compromissos da data selecionada e alguns botões de controlo do programa que serão descritos adiante.
@@ -53,9 +53,11 @@ Os campos da data podem ser alterados usando as setas verticais ou digitando o v
 * Pesquisar (Alt+P): abre uma janela para pesquisa de informações na agenda;
 * sair (Alt+S): Fecha a janela.
 
+
 ### As funções de adicionar e editar são bastante semelhantes e, por este motivo, a janela que será descrita serve para ambas as funcionalidades.
 A principal diferença é que, para editar, necessita ter seleccionado, previamente, um compromisso a ser alterado.
 Além disto, na função Editar, os dados do compromisso seleccionado são apresentados na janela para modificação. Na opção Adicionar, a janela abre com a data seleccionada e com os demais campos em branco. 
+
 
 ### Campos da janela Adicionar e Editar: 
 
@@ -68,7 +70,7 @@ Além disto, na função Editar, os dados do compromisso seleccionado são apres
 * Botão Cancelar (Alt+C): não guarda as informações preenchidas nesta janela. 
 * A janela Adicionar/Editar possui a tecla de atalho Ctrl+Enter para guardar as informações preenchidas. Equivalente à função do botão OK. 
 
-<br>
+
 ### Campos da janela de pesquisa. 
 * Tipo de pesquisa: deve seleccionar entre as seguintes opções:
 <br>
@@ -84,4 +86,4 @@ Além disto, na função Editar, os dados do compromisso seleccionado são apres
 * Remover tudo (Alt+T): apaga todos os compromissos apresentados;
 * Botão Cancelar  (Alt+C): fecha a janela de pesquisa e retorna à janela principal.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.05.13/agenda-2023.05.13.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.05.30/agenda-2023.05.30.nvda-addon

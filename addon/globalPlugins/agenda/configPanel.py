@@ -1,23 +1,46 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
-# Module for add-on settings panel
+# Module for Agenda add-on settings panel
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
-# Copyright (C) 2022-2023 Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
-from .varsConfig import *
+# Import the necessary modules
+import os
+import gui
+from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
+from gui import guiHelper
+import wx
+import globalVars
+import config
 from configobj import ConfigObj
-# To start translation process
+import addonHandler
+
+# To start the translation process
 addonHandler.initTranslation()
+
+# Constants
+dirDatabase = os.path.join(os.path.dirname(__file__), "agenda.db")
+
+def initConfiguration():
+	confspec = {
+		"show" : "boolean(default=True)",
+		"days" : "integer(1, 30, default=1)",
+		"path" : "string(default="")",
+		"altPath" : "string(default="")",
+		"xx" : "string(default="")",
+	}
+	config.conf.spec["agenda"] = confspec
+
+initConfiguration()
 
 # Read configuration on INI file to know how many days to include in next events
 global nDays
 nDays = 2
 try:
-	if config.conf[ourAddon.name]["days"]:
+	if config.conf["agenda"]["days"]:
 		# Number of days to include in next events
-		nDays = int(config.conf[ourAddon.name]["days"])
+		nDays = int(config.conf["agenda"]["days"])
 except:
 	pass
 
@@ -28,15 +51,15 @@ altDatabase = ""
 indexDB = 0
 
 try:
-	if config.conf[ourAddon.name]["xx"]:
+	if config.conf["agenda"]["xx"]:
 		# index of agenda.db file to use
-		indexDB = int(config.conf[ourAddon.name]["xx"])
+		indexDB = int(config.conf["agenda"]["xx"])
 		if indexDB == 0:
-			dirDatabase = 				config.conf[ourAddon.name]["path"]
+			dirDatabase = 				config.conf["agenda"]["path"]
 		else:
-			dirDatabase = 				config.conf[ourAddon.name]["altPath"]
-		firstDatabase = config.conf[ourAddon.name]["path"]
-		altDatabase = config.conf[ourAddon.name]["altPath"]
+			dirDatabase = 				config.conf["agenda"]["altPath"]
+		firstDatabase = config.conf["agenda"]["path"]
+		altDatabase = config.conf["agenda"]["altPath"]
 except:
 	# Not registered, so use the default path
 	pass
@@ -51,14 +74,14 @@ class AgendaSettingsPanel(gui.SettingsPanel):
 
 		# Translators: Checkbox name in the configuration dialog
 		self.showNextAppointmentsWnd = wx.CheckBox(self, label = _("Show next appointments at startup"))
-		self.showNextAppointmentsWnd.SetValue(config.conf[ourAddon.name]["show"])
+		self.showNextAppointmentsWnd.SetValue(bool(config.conf["agenda"]["show"]))
 		settingsSizerHelper.addItem(self.showNextAppointmentsWnd)
 
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Number of days in next events:"))
 		settingsSizerHelper.addItem(label_1)
-		# Translators: Checkbox name in the configuration dialog to set the number of days included in the events notification
+		# Translators: EditComboBox name in the configuration dialog to set the number of days included in the events notification
 		self.days = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1, max=30)
-		self.days .SetValue(config.conf[ourAddon.name]["days"])
+		self.days .SetValue(config.conf["agenda"]["days"])
 		settingsSizerHelper.addItem(self.days)
 
 		# Translators: Name of combobox with the agenda files path
@@ -117,16 +140,25 @@ class AgendaSettingsPanel(gui.SettingsPanel):
 
 	def onSave (self):
 		global dirDatabase, indexDB, days
-		config.conf.profiles[0][ourAddon.name]["show"] = self.showNextAppointmentsWnd.GetValue()
-		config.conf.profiles[0][ourAddon.name]["days"] = self.days.GetValue()
-		config.conf.profiles[0][ourAddon.name]["path"] = firstDatabase
-		config.conf.profiles[0][ourAddon.name]["altPath"] = altDatabase
-		config.conf.profiles[0][ourAddon.name]["xx"] = str(self.pathList.index(self.pathNameCB.GetStringSelection()))
+		config.conf["agenda"]["show"] = self.showNextAppointmentsWnd.GetValue()
+		config.conf["agenda"]["days"] = self.days.GetValue()
+		config.conf["agenda"]["path"] = firstDatabase
+		config.conf["agenda"]["altPath"] = altDatabase
+		config.conf["agenda"]["xx"] = str(self.pathList.index(self.pathNameCB.GetStringSelection()))
 		indexDB = self.pathNameCB.GetSelection()
 		dirDatabase = self.pathList[indexDB]
+
+	def onPanelActivated(self):
+		# Deactivate all profile triggers and active profiles
+		config.conf.disableProfileTriggers()
+		self.Show()
+
+	def onPanelDeactivated(self):
+		# Reactivate profiles triggers
+		config.conf.enableProfileTriggers()
+		self.Hide()
 
 	def terminate(self):
 		super(AgendaSettingsPanel, self).terminate()
 		pass
-
 

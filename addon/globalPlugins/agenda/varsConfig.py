@@ -9,6 +9,7 @@
 import ui
 import wx
 import os
+import winsound
 import globalVars
 import gui
 from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel

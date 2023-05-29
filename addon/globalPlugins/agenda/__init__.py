@@ -1,25 +1,25 @@
 # -*- coding: UTF-8 -*-
-# Main file for Agenda add-on
+# Agenda add-on
 # Provides an accessible agenda with or without alarms
 # Shortcut: NVDA+F4
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
-# Copyright (C) 2022-2023 Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
 # import the necessary modules.
-from .logDebug import logDebug
 import globalPluginHandler
-import core
-from .configPanel import *
+from .logDebug import logDebug
 from .manageDatabase import *
 from .varsConfig import *
 from .DlgAddEdit import DlgAddEdit
 from .alarmsCheck import CheckAlarms
 from .searchWindow import searchWindow
+import ui
 import threading
 from scriptHandler import script
-# To start translation process
+
+# To start translation
 addonHandler.initTranslation()
 
 initConfiguration()
@@ -48,13 +48,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if not os.path.exists(dirDatabase):
 			# Does not exist, so creat it
 			manageDatabase.createDatabase(dirDatabase)
+
 		# checks for the existence of the periodicity table
 		manageDatabase.increasePeriodicity(dirDatabase)
 
 		# Decide if appointments for today and tomorrow are shown
 		if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
-			if config.conf[ourAddon.name]["show"]:
-				# Is shown is set, so display the today and tomorrow appointments
+			if config.conf["agenda"]["show"]:
+				# Is shown is set, so display the next appointments
 				allow = 1
 			else:
 				allow = 0
@@ -77,7 +78,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture="kb:NVDA+f4",
 		# Translators: Message to be announced during Keyboard Help	 
 		description= _("Main window to access an accessible agenda"),
-		# For translators: Name of the section in "Input gestures" dialog.	
+		# Translators: Name of the section in "Input gestures" dialog.	
 		category= _("Agenda"))
 	def script_callMainWindow(self, event):
 		#Calling the agenda main dialog.
@@ -109,18 +110,21 @@ class MainWindow(wx.Dialog):
 		sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_3, 1, wx.EXPAND, 0)
 
+		# Translators: Field to select the day
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Day:"))
 		sizer_3.Add(label_1, 0, 0, 0)
 		self.spinDay = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1, max=31)
 		self.spinDay.SetValue(int(self.currentDay))
 		sizer_3.Add(self.spinDay, 0, 0, 0)
 
+		# Translators: Field to select the month
 		label_2 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_3.Add(label_2, 0, 0, 0)
 		self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months , style=wx.CB_DROPDOWN|wx.CB_READONLY)
 		self.ComboMonth.SetSelection(12-int(self.currentMonth))
 		sizer_3.Add(self.ComboMonth, 0, 0, 0)
 
+		# Translators: Field to select the year
 		label_3 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_3.Add(label_3, 0, 0, 0)
 		self.spinYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1970, max=2050)
@@ -130,6 +134,7 @@ class MainWindow(wx.Dialog):
 		self.weekDay = wx.TextCtrl(self, wx.ID_ANY, "", style=wx.TE_MULTILINE|wx.TE_READONLY)
 		sizer_3.Add(self.weekDay, 0, 0, 0)
 
+		# Translators: Name of the list with the events
 		self.label_4 = wx.StaticText(self, wx.ID_ANY, _("items found:"))
 		sizer_1.Add(self.label_4, 0, 0, 0)
 
@@ -141,18 +146,23 @@ class MainWindow(wx.Dialog):
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
+		# Translators: Button to add an event
 		self.buttonAdd = wx.Button(self, wx.ID_ANY, _("&Add"))
 		sizer_2.Add(self.buttonAdd, 0, 0, 0)
 
+		# Translators: Button to edit an event
 		self.buttonEdit = wx.Button(self, wx.ID_ANY, _("&Edit"))
 		sizer_2.Add(self.buttonEdit, 0, 0, 0)
 
+		# Translators: Button to remove an event
 		self.buttonRemove = wx.Button(self, wx.ID_ANY, _("&Remove"))
 		sizer_2.Add(self.buttonRemove, 0, 0, 0)
 
+		# Translators: Button to start a search
 		self.buttonSearch = wx.Button(self, wx.ID_ANY, _("&Search"))
 		sizer_2.Add(self.buttonSearch, 0, 0, 0)
 
+		# Translators: Button to close the add-on
 		self.buttonExit = wx.Button(self, wx.ID_ANY, _("E&xit"))
 		sizer_2.Add(self.buttonExit, 0, 0, 0)
 

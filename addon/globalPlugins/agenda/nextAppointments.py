@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
-# Module for next appointements routines
+# Module for next appointements routines of Agenda add-on
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
@@ -9,7 +9,8 @@
 from .manageDatabase import *
 from .varsConfig import *
 from .DlgAddEdit import DlgAddEdit
-# Necessary For translation
+
+# To start the translation process
 addonHandler.initTranslation()
 
 #Global variables
@@ -21,25 +22,30 @@ class nextAppointments(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
+		# Translators: Dialog title
 		self.SetTitle(_("Appointments for the next days"))
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
 
+		# Translators: List label
 		self.label_1 = wx.StaticText(self, wx.ID_ANY, _("Items found:"))
 		sizer_1.Add(self.label_1, 0, 0, 0)
 
 		self.appointmentsList = wx.ListCtrl(self, wx.ID_ANY, style=wx.LC_HRULES | wx.LC_REPORT | wx.LC_VRULES)
+		# Translators: Column title
 		self.appointmentsList.AppendColumn(_("Date/Hour"), format=wx.LIST_FORMAT_LEFT, width=100)
+		# Translators: Column title
 		self.appointmentsList.AppendColumn(_("Appointment"), format=wx.LIST_FORMAT_LEFT, width=400)
 		sizer_1.Add(self.appointmentsList, 1, wx.EXPAND, 0)
 
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
+		# Translators: Button name to open the main dialog
 		self.button_Open = wx.Button(self, wx.ID_ANY, _("&Open"))
 		sizer_2.AddButton(self.button_Open)
 
-		self.button_OK = wx.Button(self, wx.ID_OK, _("&Ok"))
+		self.button_OK = wx.Button(self, wx.ID_OK)
 		self.button_OK.SetDefault()
 		sizer_2.AddButton(self.button_OK)
 
@@ -54,7 +60,6 @@ class nextAppointments(wx.Dialog):
 		# Assigns the keystrokes to the ID's
 		accel_tbl = wx.AcceleratorTable([(wx.ACCEL_NORMAL, wx.WXK_DELETE, self.Delete)])
 		self.SetAcceleratorTable(accel_tbl)
-
 
 		self.SetAffirmativeId(self.button_OK.GetId())
 		self.Bind(wx.EVT_BUTTON, self.OnOpen, self.button_Open)
@@ -72,9 +77,9 @@ class nextAppointments(wx.Dialog):
 		todayStart = int(datetime.datetime.strftime(Now, '%Y%m%d')+'0000')
 		# Check how many days should be included
 		try:
-			if config.conf[ourAddon.name]["days"]:
+			if config.conf["agenda"]["days"]:
 				# Number of days to include in next events
-				nDays = int(config.conf[ourAddon.name]["days"])
+				nDays = int(config.conf["agenda"]["days"])
 		except:
 			nDays = 2
 		nextDays = Now + datetime.timedelta(days=nDays-1)
@@ -172,7 +177,8 @@ class nextAppointments(wx.Dialog):
 			flagGoToEdit = True
 			for foundRepeatRegister  in self.periodicityRegisters:
 				if foundRepeatRegister[1] == generalVars.itemToEdit:
-					dlg = wx.MessageDialog(self, _("You selected a periodic event. You can't edit a date inside on periodic event.\nInstead of, you need edit the original register. Do you want edit It?"), _("Edit periodic event"), wx.YES_NO)
+					# Translators: Dialog to ask if it is to edit the first registry.
+					dlg = wx.MessageDialog(self, _("You selected a periodic event. You can't edit a date inside on periodic event.\nInstead of, you need edit the original registry. Do you want to edit It?"), _("Edit periodic event"), wx.YES_NO)
 					if dlg.ShowModal()==wx.ID_YES:
 						generalVars.itemToEdit= foundRepeatRegister[0]
 						break
@@ -183,6 +189,7 @@ class nextAppointments(wx.Dialog):
 			if flagGoToEdit:
 				dlgAdEd = DlgAddEdit(generalVars, self).ShowModal()
 		else:
+			# Translators: Inform that no event was selected...
 			dlg = wx.MessageDialog(None, _("No appointment selected to edit..."), _("Agenda"), wx.OK)
 			dlg.ShowModal() 
 			dlg.Destroy()
@@ -213,15 +220,18 @@ class nextAppointments(wx.Dialog):
 				if foundRepeatRegister[1]==itemToRemove:
 					originalDate = str(foundRepeatRegister[0])
 					originalDateStr = originalDate[6:8]+'/'+originalDate[4:6]+'/'+originalDate[:4]+', '+originalDate[8:10]+':'+originalDate[10:12]+', '+foundRepeatRegister[3]
-					msgRemove = _("You can't remove just one periodic event. Instead of, you need remove the original register. If you make this, alldates on this periodic event will be deleted.\nDo you want to delete the original register and all   dates of this {} event:\n{}?").format(frequency[foundRepeatRegister[10]], originalDateStr)
+					# Translators: Asking to delete the original registry and not one single event...
+					msgRemove = _("You can't remove just one periodic event. Instead of, you need remove the original registry. If you make this, alldates on this periodic event will be deleted.\nDo you want to delete the original register and all   dates of this {} event:\n{}?").format(frequency[foundRepeatRegister[10]], originalDateStr)
 					itemToRemove= foundRepeatRegister[0]
 					break
+			# Translators: Confirm deletion
 			dlg = wx.MessageDialog(self, msgRemove, _("Remove event"), wx.YES_NO)
 			if dlg.ShowModal()==wx.ID_YES: 
 				# Conecting to database
 				from .configPanel import dirDatabase
 				manageDatabase.removeItem(itemToRemove, dirDatabase)
 				manageDatabase.removeRepeat(itemToRemove, dirDatabase)
+				# Translators: Informative about event deletion
 				dlg2 = wx.MessageDialog( self, _("Appointment removed successfully!"), _("Agenda"), wx.OK)
 				dlg2.ShowModal()
 				#self.Destroy()

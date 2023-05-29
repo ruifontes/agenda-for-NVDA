@@ -1,18 +1,17 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
-# Module for add and edit window
+# Agenda add-on: Module for add and edit window
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
 # import the necessary modules.
-import globalPluginHandler
 from . configPanel import *
 from . varsConfig import *
 from .eventRepeat import dlgRepeat
 from .alarmsCheck import CheckAlarms
-import threading
-# Necessary For translation
+
+# To start the translation process
 addonHandler.initTranslation()
 
 
@@ -36,42 +35,48 @@ class DlgAddEdit(wx.Dialog):
 		self.alarmValues = checkBoxVars()
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
-
 		sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_3, 1, wx.EXPAND, 0)
 
+		# Translators: EditComboBox name in the configuration dialog
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Day:"))
 		sizer_3.Add(label_1, 0, 0, 0)
 		self.spinDay = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1, max=31)
 		sizer_3.Add(self.spinDay, 0, 0, 0)
 
 		from .varsConfig import months
+		# Translators: ComboBox name in the configuration dialog
 		label_5 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_3.Add(label_5, 0, 0, 0)
 		self.comboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months, style=wx.CB_DROPDOWN|wx.CB_READONLY)
 		sizer_3.Add(self.comboMonth, 0, 0, 0)
 
+		# Translators: EditComboBox name in the configuration dialog
 		label_6 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_3.Add(label_6, 0, 0, 0)
 		self.spinYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1970, max=2050)
 		sizer_3.Add(self.spinYear, 0, 0, 0)
 
+		# Translators: ReadOnly text field name in the configuration dialog
 		self.weekDay = wx.TextCtrl(self, wx.ID_ANY, "", style=wx.TE_MULTILINE|wx.TE_READONLY)
 		sizer_3.Add(self.weekDay, 0, 0, 0)
 
 		sizer_4 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_4, 1, wx.EXPAND, 0)
 
+		# Translators: EditComboBox name in the configuration dialog
 		label_7 = wx.StaticText(self, wx.ID_ANY, _("Hour:"))
 		sizer_4.Add(label_7, 0, 0, 0)
 		self.spinHour = wx.SpinCtrl(self, wx.ID_ANY, "0", min=0, max=23)
 		sizer_4.Add(self.spinHour, 0, 0, 0)
 
+		# Translators: EditComboBox name in the configuration dialog
 		label_8 = wx.StaticText(self, wx.ID_ANY, _("Minutes:"))
 		sizer_4.Add(label_8, 0, 0, 0)
 		self.spinMinutes = wx.SpinCtrl(self, wx.ID_ANY, "0", min=0, max=59)
 		sizer_4.Add(self.spinMinutes, 0, 0, 0)
 
+		# Translators: Multiline text field name in the configuration dialog
 		label_3 = wx.StaticText(self, wx.ID_ANY, _("Description:"))
 		sizer_1.Add(label_3, 0, 0, 0)
 		self.description = wx.TextCtrl(self, wx.ID_ANY, "", style=wx.HSCROLL | wx.TE_MULTILINE | wx.TE_WORDWRAP)
@@ -80,20 +85,22 @@ class DlgAddEdit(wx.Dialog):
 		sizer_5 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_5, 1, wx.EXPAND, 0)
 
+		# Translators: Button name in the configuration dialog
 		self.button_repeat = wx.Button(self, wx.ID_ANY, _("&Repeat"))
 		sizer_5.Add(self.button_repeat, 0, 0, 0)
 
+		# Translators: Button name in the configuration dialog
 		self.button_alarmesDef =  wx.Button(self, wx.ID_ANY, _("&Alarms"))
 		sizer_5.Add(self.button_alarmesDef, 0, 0, 0)
 
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
-		self.button_OK = wx.Button(self, wx.ID_OK, _("&Ok"))
+		self.button_OK = wx.Button(self, wx.ID_OK)
 		self.button_OK.SetDefault()
 		sizer_2.Add(self.button_OK, 0, 0, 0)
 
-		self.button_CANCEL = wx.Button(self, wx.ID_CANCEL, _("&Cancel"))
+		self.button_CANCEL = wx.Button(self, wx.ID_CANCEL)
 		sizer_2.AddButton(self.button_CANCEL)
 
 		sizer_2.Realize()
@@ -447,7 +454,6 @@ class DlgAddEdit(wx.Dialog):
 			return
 			event.Skip()
 		else:
-			
 			from . varsConfig import months
 			# Get the date and hour fields to add to database
 			self.yearToSave = str(self.spinYear.GetValue())

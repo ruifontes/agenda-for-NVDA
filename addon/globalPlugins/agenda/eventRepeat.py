@@ -1,14 +1,14 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
-# Module for interface to set repetitions and set the respective dates
+# Agenda add-on: Module for interface to set repetitions and set the respective dates
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
-# Copyright (C) 2022-2023 Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
 # Import the necessary modules
 from .varsConfig import *
-# To start translation process
+
+# To start the translation process
 addonHandler.initTranslation()
 
 
@@ -24,8 +24,7 @@ class dlgRepeat(wx.Dialog):
 		self.currentMonth = int(self.register/1000000)-(self.currentYear*100)
 		self.currentDay = int(self.register/10000)-(self.currentYear*10000 + self.currentMonth*100)
 
-
-		# Search for existent register
+		# Search for existent registries
 		#lobal dirDatabase
 		from .configPanel import dirDatabase
 		dbAgenda = sqlite3.connect(dirDatabase)
@@ -44,16 +43,19 @@ class dlgRepeat(wx.Dialog):
 			self.eventInfo.finalDate=0
 		dbAgenda.close()
 
-		self.SetTitle(_("Set repeations"))
+		# Translators: Dialog title
+		self.SetTitle(_("Set repetitions"))
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
 
 		sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_3, 1, wx.EXPAND, 0)
 
+		# Translators: Group label of ocurrences
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choice your event repeat:"))
 		sizer_3.Add(label_1, 0, 0, 0)
 
+		# Translators: The various ocurrences periods
 		self.choice_1 = wx.Choice(self, wx.ID_ANY, choices=[_('None'), _("Daily"), _("Weekly"), _("Biweekly"), _("Monthly"), _("Twomonthly"), _("Threemontly"), _("Fourmontly"), _("Sixmonthly"), _("Anualy")])
 		if self.eventInfo.typeRepeat>0:
 			self.choice_1.SetSelection(self.eventInfo.typeRepeat)
@@ -61,12 +63,14 @@ class dlgRepeat(wx.Dialog):
 			self.choice_1.SetSelection(0)
 		sizer_3.Add(self.choice_1, 0, 0, 0)
 
+		# Translators: Check box to define if repetitions have a fixed end
 		self.checkbox_1 = wx.CheckBox(self, wx.ID_ANY, _("Mark to set when repeat finish"))
 		sizer_1.Add(self.checkbox_1, 0, 0, 0)
 
 		sizer_4 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_4, 1, wx.EXPAND, 0)
 
+		# Translators: Group label to number of repetitions
 		label_2 = wx.StaticText(self, wx.ID_ANY, _("Quantity of repeations:"))
 		sizer_4.Add(label_2, 0, 0, 0)
 
@@ -76,6 +80,7 @@ class dlgRepeat(wx.Dialog):
 		sizer_5 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_5, 1, wx.EXPAND, 0)
 
+		# Translators: Group label to the end date
 		label_3 = wx.StaticText(self, wx.ID_ANY, _("End	 date: Day:"))
 		sizer_5.Add(label_3, 0, 0, 0)
 
@@ -83,6 +88,7 @@ class dlgRepeat(wx.Dialog):
 		self.spin_ctrl_2.SetValue(int(self.currentDay))
 		sizer_5.Add(self.spin_ctrl_2, 0, 0, 0)
 
+		# Translators: Group label to the end date
 		label_4 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_5.Add(label_4, 0, 0, 0)
 
@@ -90,6 +96,7 @@ class dlgRepeat(wx.Dialog):
 		self.ComboMonth.SetSelection(12-int(self.currentMonth))
 		sizer_5.Add(self.ComboMonth, 0, 0, 0)
 
+		# Translators: Group label to the end date
 		label_5 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_5.Add(label_5, 0, 0, 0)
 
@@ -101,17 +108,7 @@ class dlgRepeat(wx.Dialog):
 		sizer_5.Add(self.text_ctrl_1, 0, 0, 0)
 
 		sizer_1.Add((0, 0), 0, 0, 0)
-		"""
-		sizer_1.Add((0, 0), 0, 0, 0)
 
-		sizer_1.Add((0, 0), 0, 0, 0)
-
-		sizer_1.Add((0, 0), 0, 0, 0)
-
-		sizer_1.Add((0, 0), 0, 0, 0)
-
-		sizer_1.Add((0, 0), 0, 0, 0)
-		"""
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
@@ -131,6 +128,7 @@ class dlgRepeat(wx.Dialog):
 		self.SetEscapeId(self.button_CANCEL.GetId())
 
 		self.Layout()
+		self.CentreOnScreen()
 
 		self.Bind(wx.EVT_SPINCTRL, self.onChangedQuantity, self.spin_ctrl_1)
 		self.Bind(wx.EVT_CHOICE, self.onChangedChoice, self.choice_1)
@@ -167,8 +165,6 @@ class dlgRepeat(wx.Dialog):
 		self.previousYear = self.currentYear
 		self.onChangedDate(self)
 
-		# end wxGlade
-
 	def onChangedDate (self, event):
 		from . varsConfig import months, weekDays, maxDayMonth
 		# Gets the date fields to make the search
@@ -199,8 +195,6 @@ class dlgRepeat(wx.Dialog):
 
 		if endDate<startDate:
 			dlg = wx.MessageDialog(None, _("Your final date is oldest your inicial date."), _("Incorrect date interval"), wx.OK).ShowModal()
-			# not necessary...
-			#dlg.Destroy()
 		else:
 			# Calculate occurrences
 			typeRepeat = self.choice_1.GetSelection()
@@ -274,7 +268,6 @@ class dlgRepeat(wx.Dialog):
 			self.ComboMonth.Hide()
 			self.spin_ctrl_3.Hide()
 			self.text_ctrl_1.Hide()
-
 
 	def onCheckboxUpdate (self, event):
 		flagChecked = self.checkbox_1.GetValue()

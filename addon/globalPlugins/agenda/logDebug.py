@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Agenda add-on: Module for debug log
+# written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
+# This file is covered by the GNU General Public License.
+# See the file COPYING for more details.
+
+# Import the necessary modules
 import os
 from datetime import datetime
 

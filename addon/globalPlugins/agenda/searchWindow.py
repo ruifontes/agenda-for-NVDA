@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
-# Part of Agenda add-on
-# Module responsible for search window and all possible operations
+# Agenda add-on: Module responsible for search window and all possible operations on it.
 # written by Abel Passos do Nascimento Jr. <abel.passos@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com> and 
+# Copyright (C) 2022-2023 Abel Passos Jr. and Rui Fontes
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
@@ -12,7 +12,8 @@ from .manageDatabase import *
 from .configPanel import *
 from .DlgAddEdit import DlgAddEdit
 from .alarmsCheck import CheckAlarms
-# For translation process
+
+# Tostart the translation process
 addonHandler.initTranslation()
 
 
@@ -21,7 +22,7 @@ class searchWindow(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
-		# Title of search window
+		# Translators: Title of search window
 		self.SetTitle(_("Agenda search"))
 
 		self.lastSearch = ''
@@ -35,16 +36,16 @@ class searchWindow(wx.Dialog):
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
 
-		# Specify the search type
+		# Translators: The search type
 		self.label_1 = wx.StaticText(self, wx.ID_ANY, _("Type of search:"))
 		sizer_1.Add(self.label_1, 0, 0, 0)
 
-		# The various search type
+		# Translators: The various search types
 		self.comboSearchType = wx.ComboBox(self, wx.ID_ANY, choices=[_("Search by text"), _("Next 7 days"), _("Next 30 days"), _("Date range")], style=wx.CB_DROPDOWN|wx.CB_READONLY)
 		self.comboSearchType.SetSelection(0)
 		sizer_1.Add(self.comboSearchType, 0, 0, 0)
 
-		# Asking user to enter the text to search
+		# Translators: Asking user to enter the text to search
 		self.label_2 = wx.StaticText(self, wx.ID_ANY, _("Enter the text to search:"))
 		sizer_1.Add(self.label_2, 0, 0, 0)
 
@@ -54,7 +55,7 @@ class searchWindow(wx.Dialog):
 		sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_3, 1, wx.EXPAND, 0)
 
-		# Day of initial date
+		# Translators: Day of initial date
 		self.label_3 = wx.StaticText(self, wx.ID_ANY, _("Initial date: Day:"))
 		sizer_3.Add(self.label_3, 0, 0, 0)
 
@@ -62,6 +63,7 @@ class searchWindow(wx.Dialog):
 		self.spinInitialDay.SetValue(int(self.currentDay))
 		sizer_3.Add(self.spinInitialDay, 0, 0, 0)
 
+		# Translators: month of initial date
 		self.label_4 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_3.Add(self.label_4, 0, 0, 0)
 
@@ -69,6 +71,7 @@ class searchWindow(wx.Dialog):
 		self.ComboInitialMonth.SetSelection(12-int(self.currentMonth))
 		sizer_3.Add(self.ComboInitialMonth, 0, 0, 0)
 
+		# Translators: Year of initial date
 		self.label_5 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_3.Add(self.label_5, 0, 0, 0)
 
@@ -79,7 +82,7 @@ class searchWindow(wx.Dialog):
 		sizer_4 = wx.BoxSizer(wx.HORIZONTAL)
 		sizer_1.Add(sizer_4, 1, wx.EXPAND, 0)
 
-		# Day of final date
+		# Translators: Day of final date
 		self.label_6 = wx.StaticText(self, wx.ID_ANY, _("Final date: Day:"))
 		sizer_4.Add(self.label_6, 0, 0, 0)
 
@@ -87,6 +90,7 @@ class searchWindow(wx.Dialog):
 		self.spinFinalDay.SetValue(int(self.currentDay))
 		sizer_4.Add(self.spinFinalDay, 0, 0, 0)
 
+		# Translators: Month of final date
 		self.label_7 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_4.Add(self.label_7, 0, 0, 0)
 
@@ -94,6 +98,7 @@ class searchWindow(wx.Dialog):
 		self.ComboFinalMonth.SetSelection(12-int(self.currentMonth))
 		sizer_4.Add(self.ComboFinalMonth, 0, 0, 0)
 
+		# Translators: Year of final date
 		self.label_8 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_4.Add(self.label_8, 0, 0, 0)
 
@@ -101,12 +106,12 @@ class searchWindow(wx.Dialog):
 		self.spinFinalYear.SetValue(int(self.currentYear))
 		sizer_4.Add(self.spinFinalYear, 0, 0, 0)
 
-		# Label of button to execute the search
+		# Translators: Label of button to execute the search
 		self.button_1 = wx.Button(self, wx.ID_ANY, _("&Search"))
 		self.button_1.SetDefault()
 		sizer_1.Add(self.button_1, 0, 0, 0)
 
-		# Label of the list were the itens found will land
+		# Translators: Label of the list were the itens found will land
 		self.label_9 = wx.StaticText(self, wx.ID_ANY, _("Items found:"))
 		sizer_1.Add(self.label_9, 0, 0, 0)
 
@@ -119,16 +124,20 @@ class searchWindow(wx.Dialog):
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
+		# 
+		# Translators: Add button label
 		self.ButtonAdd = wx.Button(self, wx.ID_ANY, _("&Add"))
 		sizer_2.Add(self.ButtonAdd, 0, 0, 0)
 
+		# Translators: Edit button label
 		self.ButtonEdit = wx.Button(self, wx.ID_ANY, _("&Edit"))
 		sizer_2.Add(self.ButtonEdit, 0, 0, 0)
 
+		# Translators: Remove button label
 		self.ButtonRemove = wx.Button(self, wx.ID_ANY, _("&Remove"))
 		sizer_2.Add(self.ButtonRemove, 0, 0, 0)
 
-		# Label of button to remove all appointments
+		# Translators: Label of button to remove all appointments
 		self.ButtonDeleteAll = wx.Button(self, wx.ID_ANY, _("Remove A&ll"))
 		sizer_2.Add(self.ButtonDeleteAll, 0, 0, 0)
 
@@ -272,7 +281,7 @@ class searchWindow(wx.Dialog):
 		if self.SearchType == _("Search by text"): 
 			textToSearch = self.text_ctrl_1.GetValue() 
 			if len(textToSearch) == 0: 
-				# If the text to search is empty notifies the user 
+				# Translators: If the text to search is empty notifies the user 
 				dlg = wx.MessageDialog( self, _("Insert what to search or choose another type of search."), _("Agenda"), wx.OK) 
 				dlg.ShowModal() 
 				dlg.Destroy() 
@@ -488,6 +497,7 @@ class searchWindow(wx.Dialog):
 			if flagGoToEdit:
 				dlgAdEd = DlgAddEdit(generalVars, self).ShowModal()
 		else:
+			# Translators: Informing no event selected.
 			dlg = wx.MessageDialog(None, _("No appointment selected to edit..."), _("Agenda"), wx.OK)
 			dlg.ShowModal() 
 			dlg.Destroy()
@@ -514,27 +524,32 @@ class searchWindow(wx.Dialog):
 				hour = strItemToRemove[12:14]+strItemToRemove[15:17]
 
 			itemToRemove= int(dateToRemove + hour)
+			# Translators: To confirm remotion of the event
 			msgRemove = (_("Do you really want to remove the  item: ") + strItemToRemoveMsg + "?")
 			if self.SearchType != _("Search by text"):
 				for foundRepeatRegister  in self.periodicityRegisters:
 					if foundRepeatRegister[1]==itemToRemove:
 						originalDate = str(foundRepeatRegister[0])
 						originalDateStr = originalDate[6:8]+'/'+originalDate[4:6]+'/'+originalDate[:4]+', '+originalDate[8:10]+':'+originalDate[10:12]+', '+foundRepeatRegister[3]
+						#Translators: Inform that is necessary to remove the original event
 						msgRemove = _("You can't remove just one periodic event. Instead of, you need remove the original register. If you make this, alldates on this periodic event will be deleted.\nDo you want to delete the original register and all   dates of this {} event:\n{}?").format(frequency[foundRepeatRegister[10]], originalDateStr)
 						itemToRemove= foundRepeatRegister[0]
 						break
+			# Translators: Asking confirmation to delete
 			dlg = wx.MessageDialog(self, msgRemove, _("Remove event"), wx.YES_NO)
 			if dlg.ShowModal()==wx.ID_YES: 
 				# Conecting to database
 				from .configPanel import dirDatabase
 				manageDatabase.removeItem(itemToRemove, dirDatabase)
 				manageDatabase.removeRepeat(itemToRemove, dirDatabase)
+				# Translators: Informing success of remotion
 				dlg2 = wx.MessageDialog( self, _("Appointment removed successfully!"), _("Agenda"), wx.OK)
 				dlg2.ShowModal()
 				dlg2.Destroy()
 				self.executeSearch(event)
 				loadAlarms(0)
 		else:
+			# Translators: Informing no event selected.
 			dlg = wx.MessageDialog(None, _("No appointment selected to delete"), _("Agenda"), wx.OK)
 			dlg.ShowModal() 
 			dlg.Destroy()
@@ -542,16 +557,19 @@ class searchWindow(wx.Dialog):
 
 	def onDeleteAll(self, event):
 		if self.lastSearch == "":
+			# Translators: Informing no event selected.
 			dlg = wx.MessageDialog(None, _("No itens to delete. Please, you need search something to delete all itens."), _("Agenda"), wx.OK)
 			dlg.ShowModal() 
 			dlg.Destroy()
 		else:
+			# Translators: Confirmation to delete all selected events
 			dlg = wx.MessageDialog(self, _("Do you really want to delete all itens found?"), _("Agenda"), wx.YES_NO)
 			if dlg.ShowModal()==wx.ID_YES: 
 				# Conecting to database
 				from .configPanel import dirDatabase
 				manageDatabase.removeItem(self.lastSearch, dirDatabase)
 
+				# Translators: Informing success of all events deleted
 				dlg2 = wx.MessageDialog( self, _("All appointments deleted successfully!"), _("Agenda"), wx.OK)
 				dlg2.ShowModal()
 				dlg2.Destroy()
