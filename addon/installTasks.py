@@ -9,5 +9,4 @@ import addonHandler
 def onInstall():
 	configFilePath = os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "agenda", "globalPlugins", "agenda", "agenda.db"))
 	if os.path.isfile(configFilePath):	
-		#os.remove(os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "agenda" + addonHandler.ADDON_PENDINGINSTALL_SUFFIX, "globalPlugins", "agenda", "agenda.db")))
 		os.rename(configFilePath, os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "agenda" + addonHandler.ADDON_PENDINGINSTALL_SUFFIX, "globalPlugins", "agenda", "agenda.db")))
