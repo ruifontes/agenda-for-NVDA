@@ -84,4 +84,4 @@ Además, en la función Editar, los datos de la anotación seleccionada se muest
 * Eliminar todo (Alt + T): elimina todas las anotaciones mostradas;
 * Botón Cancelar (Alt+C): cierra la ventana de búsqueda y vuelve a la ventana principal.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.05.30/agenda-2023.05.30.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.05.31/agenda-2023.05.31.nvda-addon

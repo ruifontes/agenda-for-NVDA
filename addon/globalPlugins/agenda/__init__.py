@@ -11,6 +11,7 @@
 import globalPluginHandler
 from .logDebug import logDebug
 from .manageDatabase import *
+from .configPanel import *
 from .varsConfig import *
 from .DlgAddEdit import DlgAddEdit
 from .alarmsCheck import CheckAlarms
