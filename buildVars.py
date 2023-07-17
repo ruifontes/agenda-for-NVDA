@@ -26,7 +26,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Allows access to an accesible agenda"""),
 	# version
-	"addon_version": "2023.06.00",
+	"addon_version": "2023.07.17",
 	# Author(s)
 	"addon_author": "Abel Passos do Nascimento Jr <abel.passos@gmail.com>, Ângelo Abrantes <ampa4374@gmail.com> and Rui Fontes <rui.fontes@tiflotecnia.com>",
 	# URL for the add-on documentation support

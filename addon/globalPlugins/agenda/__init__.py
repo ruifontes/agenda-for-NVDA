@@ -83,7 +83,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category= _("Agenda"))
 	def script_callMainWindow(self, event):
 		#Calling the agenda main dialog.
-		gui.mainFrame._popupSettingsDialog(MainWindow)
+		dialog0 = MainWindow(gui.mainFrame)
+		if not dialog0.IsShown():
+			gui.mainFrame.prePopup()
+			dialog0.Show()
+			gui.mainFrame.postPopup()
 
 
 class MainWindow(wx.Dialog):

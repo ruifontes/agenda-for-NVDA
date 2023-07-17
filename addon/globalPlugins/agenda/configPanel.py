@@ -65,7 +65,7 @@ except:
 	pass
 
 
-class AgendaSettingsPanel(gui.SettingsPanel):
+class AgendaSettingsPanel(gui.settingsDialogs.SettingsPanel):
 	# Translators: Title of the Agenda settings dialog in the NVDA settings.
 	title = _("Agenda")
 

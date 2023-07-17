@@ -241,7 +241,11 @@ class nextAppointments(wx.Dialog):
 	def OnOpen(self, event):
 		self.Destroy()
 		from . import MainWindow
-		gui.mainFrame._popupSettingsDialog(MainWindow)
+		dialog0 = MainWindow(gui.mainFrame)
+		if not dialog0.IsShown():
+			gui.mainFrame.prePopup()
+			dialog0.Show()
+			gui.mainFrame.postPopup()
 		event.Skip()
 
 	def OnOk(self, event):

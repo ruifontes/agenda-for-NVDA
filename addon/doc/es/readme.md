@@ -3,85 +3,85 @@
 
 ## Información
 * Autores: Abel Passos, Ângelo Abrantes y Rui Fontes
-* Actualizado: mayo 30, 2023
+* Actualizado: 17.07.2023
 * Descargar [versión estable][1]
-* Compatibilidad: NVDA versión 2019.3 y posteriores
+* Compatibilidad: NVDA versión 2019.3 en adelante
 
-<br>
+
 ## Presentación
-Este extra permite anotar anotaciones y actividades, con o sin alarmas y con o sin repeticiones periódicas.
+Este complemento permite anotar citas y actividades, que pueden tener alarmas y ser periódicas.
 Puedes usar dos agendas diferentes.
-Para cambiar entre ellas, vaya al menú NVDA, Preferencias, Configuración, sección agenda y elija, en el cuadro combinado, el agenda que desea usar.
-Si la segunda fila está vacía, use el botón "Seleccionar o agregar un directorio" para crear una segunda agenda.
-Si utiliza este botón con una ruta seleccionada, la programación se moverá a la nueva ruta si no existe ninguna. Si existe, solo se cambiará el camino, se conservarán las dos agendas, comenzando a usarse la del nuevo camino.
-En el lanzamiento de NVDA, seremos alertados de los compromisos para los próximos días. Este recordatorio puede ser una ventana con la lista de todas las anotaciones o un recordatorio con un diálogo y una alarma audible para anotaciones con una alarma configurada.
-Esta opción se puede configurar en la configuración del complemento.
+Para alternar entre ellas, ve al menú NVDA, Preferencias, Opciones, sección Agenda, y elige en el cuadro combinado la agenda que quieres usar.
+Si la segunda línea está vacía, usa el botón \"Seleccionar o añadir un directorio\" para crear una segunda agenda.
+Si usas este botón con una agenda seleccionada, la agenda se moverá a la nueva ruta, si no hay agenda en ella. Si la hay, sólo cambiará la ruta, y se conservarán ambas agendas usando la nueva ruta.
+Al arrancar NVDA se te recordarán las citas de los próximos días. Este recordatorio puede ser una ventana con una lista con todas las citas, o un recordatorio con una alarma sonora y un diálogo para las citas con alarma.
+Este ajuste se puede configurar en las opciones del complemento.
 
-<br>
-## Comando
-El comando para llamar al extra es NVDA+F4.
-Puede cambiarlo en el cuadro de diálogo "Establecer comandos" en la sección Programación.
 
-<br>
+## Orden
+La orden para invocar el complemento es NVDA+f4.
+Puedes cambiarla desde el diálogo Gestos de entrada, en la sección Agenda.
+
+
 ## Cómo funciona:
-* Cuando abra el programa, se le mostrarán las anotaciones del día actual.
-* En la ventana principal, están los campos para cambiar la fecha, los compromisos de la fecha seleccionada y algunos botones de control del programa que se describirán a continuación.
-Los campos de fecha se pueden cambiar mediante las flechas verticales o escribiendo el valor deseado. Cuando cambie la fecha, las anotaciones del día se mostrarán automáticamente.
+* Al abrir el programa, se mostrarán las citas de hoy.
+* En la ventana principal hay campos para cambiar la fecha, las citas de la fecha seleccionada, y algunos botones de control que se describirán más adelante.
+Se pueden modificar los campos de fecha usando las flechas arriba y abajo o tecleando el valor deseado. Al cambiar la fecha, se mostrarán automáticamente las citas de ese día.
 
 
-### Teclas de atajo de la ventana principal:
+### Atajos de teclado en la ventana principal:
 
 
-* Alt + 1-9: Adelanta el número de días correspondientes al valor pulsado;
-* Alt+0: Vuelve a la fecha actual;
-* Alt + flecha izquierda: Rebobina la fecha un día;
-* Alt + flecha derecha: Avanza un día en la fecha;
-* Alt + Flecha hacia arriba: avance rápido una semana;
-* Alt + Flecha a bajo: Retrocede una semana;
-* Alt + PageUp: Adelanta un mes;
-* Alt + PageDown: Se remonta a un mes;
-* Entrar: Si se selecciona una anotación, se abre la ventana de edición. De lo contrario, abre la ventana para crear una nueva anotación;
-* Eliminar: Elimina el registro seleccionado. La misma función que el botón Eliminar;
-* Control+F: Abre la ventana de búsqueda. Equivalente a pulsar el botón "Buscar".
+* Alt + 1-9: adelanta varios días según el número pulsado;
+* Alt+0: vuelve a la fecha actual;
+* Alt+flecha izquierda: retrocede un día en la fecha;
+* Alt+flecha derecha: avanza un día en la fecha;
+* Alt+flecha arriba: avanza una semana;
+* Alt+flecha abajo: retrocede una semana;
+* Alt+retroceso de página: avanza un mes;
+* Alt+avance página: retrocede un mes;
+* Intro: si hay una cita seleccionada, abre la ventana de edición. Si no, abre una ventana para crear una nueva cita;
+* Suprimir: elimina el registro seleccionado, al igual que el botón Eliminar;
+* Control+f: abre la ventana «Buscar». Lo mismo que pasa al activar el botón "Buscar".
 
 
-### Funciones de los botones de la ventana principal y sus respectivas teclas de aceleración:
+### Funciones de los botones de la ventana principal y teclas aceleradoras de los mismos:
+* Añadir (Alt+A): Abre una ventana para registrar citas en la fecha seleccionada;
+* Editar (Alt+E): Abre una ventana para editar la cita seleccionada;
+* Eliminar (Alt+R): Elimina la cita seleccionada;
+* Buscar (Alt+B): Abre una ventana para buscar información en la agenda;
+* Salir (Alt+A): Cierra la ventana.
 
-* Agregar (Alt+A): abre una ventana para registrar anotaciones en la fecha seleccionada;
-* Editar (Alt+E): abre una ventana para editar la anotación seleccionada;
-* Eliminar (Alt+R): elimina la anotación seleccionada;
-* Buscar (Alt+P): abre una ventana para buscar información en la agenda;
-* exit (Alt+S): Cierra la ventana.
 
-### Las funciones de añadir y editar son bastante similares y, por este motivo, la ventana que se describirá sirve para ambas funcionalidades.
-La principal diferencia es que para editar, debe haber seleccionado previamente un compromiso para cambiar.
-Además, en la función Editar, los datos de la anotación seleccionada se muestran en la ventana para su modificación. En la opción Agregar, se abre la ventana con la fecha seleccionada y los demás campos en blanco. 
+### Las funciones de añadir y editar son muy similares, y por ello la ventana que se describe sirve para ambos propósitos.
+La principal diferencia es que para editar, debe haber una cita previamente seleccionada.
+Además, se muestra la información de la cita para modificarla. Al añadir una cita, la fecha y otros campos aparecen en blanco.
 
-### Agregar y editar campos de ventana: 
 
-* día/mes/año: campos de fecha que se pueden cambiar con las flechas verticales o escribiendo el valor deseado; 
-* hora/minutos: campos de tiempo que se pueden cambiar con las flechas verticales o escribiendo el valor deseado; 
-* Descripción: campo para rellenar la información sobre el compromiso;
-* Botón de repeticiones: Accedemos a la ventana donde podemos seleccionar la periodicidad de las repeticiones y su duración.
-* Botón de alarmas: Accedemos a una ventana donde encontramos varias casillas de verificación para seleccionar las alarmas necesarias. De forma predeterminada, cuando se selecciona cualquier alarma antes de la fecha y hora de la anotación, la alarma de hora exacta se activa automáticamente.
-* Botón OK (Alt + O): registra la información de la anotación en la agenda; 
-* Botón Cancelar (Alt+C): no guarda la información rellenada en esta ventana. 
-* La ventana Agregar / Editar tiene la tecla de método abreviado Ctrl + Enter para guardar la información completada. Equivalente a la función del botón OK. 
+### Añadir y editar campos de ventana:
+* día/mes/año: campos de fecha que se pueden cambiar con flechas arriba y abajo o tecleando el valor deseado;
+* hora/minutos: campos de hora que se pueden cambiar con las flechas arriba y abajo o tecleando el valor deseado;
+* Description: campo para rellenar con información de la cita;
+* Botón Repetir: permite acceder a la ventana de configurar periodicidad, donde se puede definir el periodo de repetición y cuándo finalizará.
+* Alarmas: permite acceder a la ventana de "Configuración de alarmas", donde hay varias casillas de verificación para elegir cuándo disparar la alarma. Por defecto, cuando se seleccione una alarma antes de la fecha y hora de la cita, se activa automáticamente la alarma en la hora exacta.
+* Botón Aceptar (Alt+A): introduce la información de la cita en el calendario.
+* Botón Cancelar (Alt+C): no guarda la información introducida en esta ventana.
+* La ventana de añadir o editar dispone del atajo control+intro para guardar la información introducida. Esto es equivalente a la función del botón Aceptar
 
-<br>
-### Campos de la ventana de búsqueda. 
-* Tipo de búsqueda: debe seleccionar entre las siguientes opciones:
-<br>
-	* Búsqueda de texto: se abrirá un campo de edición para escribir lo que desea buscar. No es necesario escribir la expresión completa, la búsqueda se puede hacer con partes de palabras;
-\t* Próximos 7 días: muestra los compromisos para los próximos 7 días, sin incluir el día actual;
-\t* Próximos 30 días: muestra los compromisos para los próximos 30 días, sin incluir el día actual;
-\t* Rango de fechas: muestra los campos de fecha de inicio y finalización para buscar;
-<br>
-* Botón de búsqueda (Alt + P): ejecuta la búsqueda seleccionada y devuelve la información encontrada;
-* Botón Agregar (Alt + A): La misma función agregar desde la ventana principal. La diferencia es que si seleccionó una anotación, la ventana para agregar será en la fecha de la anotación seleccionada. Si no se selecciona ningún registro, la ventana aparece en la fecha actual;
-* Botón Editar (Alt+E): La misma función de edición que la ventana principal. Necesitas cierto compromiso para ser seleccionado;
-* Eliminar (Alt+R): elimina la anotación seleccionada;
-* Eliminar todo (Alt + T): elimina todas las anotaciones mostradas;
-* Botón Cancelar (Alt+C): cierra la ventana de búsqueda y vuelve a la ventana principal.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.06.00/agenda-2023.06.00.nvda-addon
+### Campos de la ventana de búsqueda
+* Tipo de búsqueda: debes elegir entre las siguientes opciones:
+
+	* Búsqueda de texto: se abrirá un cuadro de edición para escribir lo que quieres buscar. No es necesario escribir frases completas, se puede hacer la búsqueda con partes de palabras;
+	* Próximos 7 días: muestra las citas de los próximos 7 días, sin incluir el día actual;
+	* Próximos 30 días: muestra las citas de los próximos 30 días, sin incluir el día actual;
+	* Rango de fechas: muestra los campos de fecha de inicio y fecha de finalización para buscar;
+
+* Botón Buscar (Alt+B): ejecuta la búsqueda seleccionada y devuelve la información encontrada;
+* Botón Añadir (Alt+A): la misma función de añadir de la ventana principal. La diferencia es que si hay una cita seleccionada, se rellenará la fecha con la de esa cita. Si no se selecciona ninguna cita, se mostrará el día de hoy;
+* Botón Editar (Alt+E): misma función que en la ventana principal. Debe haber una cita seleccionada;
+* Botón Eliminar (Alt+R): elimina la cita seleccionada;
+* Botón Eliminar todo (Alt+T): elimina todas las citas mostradas;
+* Botón Cancelar (Alt+C): cierra la ventana de búsqueda y regresa a la ventana principal.
+
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.07.17/agenda-2023.07.17.nvda-addon

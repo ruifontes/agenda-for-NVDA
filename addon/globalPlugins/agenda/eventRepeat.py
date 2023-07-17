@@ -216,6 +216,7 @@ class dlgRepeat(wx.Dialog):
 			self.spin_ctrl_1.SetValue(occurs)
 
 	def onChangedQuantity(self, event):
+		from . varsConfig import months, weekDays
 		typeRepeat = self.choice_1.GetSelection()
 		day = int(self.currentDay)
 		month = int(self.currentMonth)
@@ -270,6 +271,7 @@ class dlgRepeat(wx.Dialog):
 			self.text_ctrl_1.Hide()
 
 	def onCheckboxUpdate (self, event):
+		from . varsConfig import months, weekDays
 		flagChecked = self.checkbox_1.GetValue()
 		if flagChecked:
 			self.spin_ctrl_1.Show()
@@ -285,6 +287,7 @@ class dlgRepeat(wx.Dialog):
 			self.text_ctrl_1.Hide()
 
 	def onOk (self,event):
+		from . varsConfig import months, weekDays
 		checkEternal = self.checkbox_1.GetValue()
 		self.eventInfo.typeRepeat = self.choice_1.GetSelection()
 		if checkEternal:

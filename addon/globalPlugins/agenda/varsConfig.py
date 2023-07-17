@@ -140,6 +140,7 @@ def threadAlarm ():
 
 					# If we have a title, we have an alarm, so show the message
 					if len(titleAlarm)>0:
+						print(titleAlarm)
 						ringFile = os.path.join(os.path.dirname(__file__), "ringin.wav")
 						winsound.PlaySound(ringFile, winsound.SND_FILENAME|winsound.SND_ASYNC)
 						dlg = wx.MessageDialog(None, msgAlarm + dictNextAlarms[dictLine][0], titleAlarm, wx.OK)
@@ -193,7 +194,11 @@ def loadAlarms(allow):
 		flagAlarmDayAfter=True
 	flagPauseAlarm=False
 	if allow == 1:
-		gui.mainFrame._popupSettingsDialog(nextAppointments)
+		dialog1 = nextAppointments(gui.mainFrame)
+		if not dialog1.IsShown():
+			gui.mainFrame.prePopup()
+			dialog1.Show()
+			gui.mainFrame.postPopup()
 	else:
 		pass
 
