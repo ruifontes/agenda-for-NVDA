@@ -84,4 +84,4 @@ De plus, dans la fonction Éditer, les données du rendez-vous sélectionné s'a
 * Bouton Supprimer tout (Alt+T) : Supprime tous les rendez-vous affichés ;
 * Bouton Annuler (Alt+N) : Ferme la fenêtre de recherche et revient à la fenêtre principale.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.07.17/agenda-2023.07.17.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.07.18/agenda-2023.07.18.nvda-addon
