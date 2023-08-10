@@ -3,7 +3,7 @@
 
 ## Informações
 * Autores: Abel Passos, Ângelo Abrantes  e Rui Fontes
-* atualizado em: 17.07.2023
+* atualizado em: 10.08.2023
 * Baixar a [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
@@ -117,4 +117,4 @@ Este comportamento se deve ao fato de este tipo de pesquisa não ter uma data li
 3. Se for selecionado um evento dentre os encontrados por uma pesquisa que não seja por texto,  desejando editar ou remover este registro, o usuário será avisado se se tratar de um evento periódico. Caso o evento seja deste tipo, o usuário poderá editar ou remover apenas os registros que deram origem ao evento mostrado.
 Exemplo: supondo que eu tenha criado um evento diário na data de 8 de fevereiro de 2022 e tenha feito uma pesquisa para os próximos 7 dias, este evento aparecerá todos os dias, resultando em 7 eventos, a partir da data atual. Se um destes eventos for selecionado para edição ou exclusão, aparecerá um aviso para o usuário indicando que esta ação deverá ser executada na data que originou o evento e toda alteração feita repercutirá em todas suas datas posteriores.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.07.18/agenda-2023.07.18.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.08.10/agenda-2023.08.10.nvda-addon

@@ -3,7 +3,7 @@
 
 ## Information
 * Authors: Abel Passos, Ângelo Abrantes and Rui Fontes
-* Updated: 17.07.2023
+* Updated: 10.08.2023
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
@@ -84,4 +84,4 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * Remove all (Alt+L): Deletes all displayed appointments;
 * Cancel button (Alt+C): closes the search window and returns to the main window.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.07.18/agenda-2023.07.18.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.08.10/agenda-2023.08.10.nvda-addon

@@ -17,7 +17,7 @@ class dlgRepeat(wx.Dialog):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
 
-		from . varsConfig import months, weekDays
+		from . varsConfig import months, weekDays, frequency
 		self.eventInfo = eventInfo
 		self.register = self.eventInfo.register
 		self.currentYear = int(self.register/100000000)
@@ -25,7 +25,6 @@ class dlgRepeat(wx.Dialog):
 		self.currentDay = int(self.register/10000)-(self.currentYear*10000 + self.currentMonth*100)
 
 		# Search for existent registries
-		#lobal dirDatabase
 		from .configPanel import dirDatabase
 		dbAgenda = sqlite3.connect(dirDatabase)
 		dbCursor = dbAgenda.cursor()
@@ -52,11 +51,11 @@ class dlgRepeat(wx.Dialog):
 		sizer_1.Add(sizer_3, 1, wx.EXPAND, 0)
 
 		# Translators: Group label of ocurrences
-		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choice your event repeat:"))
+		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choose your event repeat:"))
 		sizer_3.Add(label_1, 0, 0, 0)
 
 		# Translators: The various ocurrences periods
-		self.choice_1 = wx.Choice(self, wx.ID_ANY, choices=[_('None'), _("Daily"), _("Weekly"), _("Biweekly"), _("Monthly"), _("Twomonthly"), _("Threemontly"), _("Fourmontly"), _("Sixmonthly"), _("Anualy")])
+		self.choice_1 = wx.Choice(self, wx.ID_ANY, choices=frequency)
 		if self.eventInfo.typeRepeat>0:
 			self.choice_1.SetSelection(self.eventInfo.typeRepeat)
 		else:
@@ -113,7 +112,7 @@ class dlgRepeat(wx.Dialog):
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
 		self.button_OK = wx.Button(self, wx.ID_OK, "")
-		# self.button_OK.SetDefault()
+		self.button_OK.SetDefault()
 		sizer_2.AddButton(self.button_OK)
 
 		self.button_CANCEL = wx.Button(self, wx.ID_CANCEL, "")
@@ -153,11 +152,11 @@ class dlgRepeat(wx.Dialog):
 				self.checkbox_1.Show()
 			else:
 				self.checkbox_1.Hide()
-			self.spin_ctrl_1.Hide()
-			self.spin_ctrl_2.Hide()
-			self.ComboMonth.Hide()
-			self.spin_ctrl_3.Hide()
-			self.text_ctrl_1.Hide()
+				self.spin_ctrl_1.Hide()
+				self.spin_ctrl_2.Hide()
+				self.ComboMonth.Hide()
+				self.spin_ctrl_3.Hide()
+				self.text_ctrl_1.Hide()
 
 		# Store the previous date to check what was changed
 		self.previousDay = self.currentDay
@@ -182,9 +181,9 @@ class dlgRepeat(wx.Dialog):
 		endMonth = '%02d' % (12-months.index(monthToSearchStr))
 		endDay = str(self.spin_ctrl_2.GetValue())
 		endDate = datetime.datetime.strptime(endDay+'/'+endMonth+'/'+endYear, '%d/%m/%Y').date()
-				#Gets the week day
-		weekDays = [_("Monday"), _("tuesday"), _("Wednesday"), _("Thursday"), _("Friday"), _("Saturday"), _("Sunday")]
-		currentWeek = weekDays[datetime.date (int(endYear), int(endMonth), int(endDay)) .weekday ()]
+
+		# Gets the week day
+		currentWeek = weekDays[datetime.date (int(endYear), int(endMonth), int(endDay)).weekday()]
 		# Update the weekDay field
 		self.text_ctrl_1.SetValue(currentWeek)
 
@@ -240,6 +239,14 @@ class dlgRepeat(wx.Dialog):
 			# set combo month and spin year based on occurs value
 			self.ComboMonth.SetValue(months[12-monthQtt])
 			self.spin_ctrl_3.SetValue(year+yearAdd)
+			if "." in str(year+yearAdd):
+				yearStr = str(year+yearAdd).split(".")[0]
+			else:
+				yearStr = str(year+yearAdd)
+			monthStr = str(12-months.index(self.ComboMonth.GetValue()))
+			dayStr = '%02d' % self.currentDay
+			finalDate = datetime.datetime.strptime(dayStr+'/'+monthStr+'/'+yearStr, '%d/%m/%Y').date()
+			finalDateStr = str(finalDate)
 		elif typeRepeat>0 and typeRepeat<4:
 			yearStr = str(self.currentYear)
 			monthStr = '%02d' % self.currentMonth
@@ -255,8 +262,12 @@ class dlgRepeat(wx.Dialog):
 			self.spin_ctrl_2.SetValue(int(finalDateStr[8:10]))
 			self.ComboMonth.SetValue(months[12-int(finalDateStr[5:7])])
 			self.spin_ctrl_3.SetValue(int(finalDateStr[0:4]))
-		elif typeRepeat==0:
-			pass
+		# elif typeRepeat==0:
+			# pass
+		# Gets the week day
+		currentWeek = weekDays[datetime.date (int(finalDateStr[:4]), int(finalDateStr[5:7]), int(finalDateStr[8:10])).weekday()]
+		# Update the weekDay field
+		self.text_ctrl_1.SetValue(currentWeek)
 
 	def onChangedChoice (self, event):
 		if  self.choice_1.GetSelection()>0:

@@ -270,7 +270,7 @@ class searchWindow(wx.Dialog):
 
 	def executeSearch(self, event): 
 		global dateToSearch 
-		self.lastSearch='' 
+		self.lastSearch = ""
 		now = datetime.datetime.now() 
 
 		flagquery = 0 

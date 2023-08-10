@@ -392,7 +392,7 @@ class DlgAddEdit(wx.Dialog):
 					""", (self.weekToSave, self.descriptionToSave, self.alarmOneDay, self.alarmOneHour, self.alarm30Minutes, self.alarm15Minutes, self.alarmHourExact,	'Indefinido', self.dateToSave))
 				dbAgenda.commit()
 				dbAgenda.close()
-				self.eventRepeatData.register=self.dateToSave
+				self.eventRepeatData.register = self.dateToSave
 				manageDatabase.updateRepeat(self.eventRepeatData, dirDatabase)
 				dlg2 = wx.MessageDialog( self, _("Record updated successfully!"), _("Agenda"), wx.OK)
 				dlg2.ShowModal()

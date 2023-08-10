@@ -162,25 +162,13 @@ class manageDatabase():
 	def findRepeatIntervalDate (startDate, endDate, fullDay, dirDatabase):
 		dirDatabase = dirDatabase
 		countFound = 0
-		startYear = int(startDate/100000000)
-		startMonth = int(startDate / 1000000)-(startYear * 100)
-		startDay = int(startDate / 10000)-(startYear * 10000 + startMonth * 100)
-		startHour = int((startDate%10000)/100)
-		startMinutes = startDate%100
-
-		# if startDat we will start with 0 hour
+		# get information for full day
 		if fullDay:
 			startDateToSearch = str(startDate)[:8]+'0000'
 		else:
 			startDateToSearch = str(startDate)
 		startDateInt = int(startDateToSearch)
 
-		endYear = int(endDate / 100000000)
-		endMonth = int(endDate / 1000000)-(endYear * 100)
-		endDay = int(endDate / 10000)-(endYear * 10000 + endMonth * 100)
-		endHour = int((endDate%10000)/100)
-		endMinutes = endDate%100
-		# get information for full day
 		if fullDay:
 			endDateToSearch = str(endDate)[:8]+'2359'
 		else:
@@ -232,6 +220,7 @@ class manageDatabase():
 				# # logDebug('Data retornada: {0}'.format(date1))
 				return date1
 
+			print(str(occurs))
 			for register in occurs:
 				# calculate all occurrences for periodicity
 				qtt = occurrencesToDateInterval(register[0], endDateInt, register[1])
@@ -242,18 +231,22 @@ class manageDatabase():
 					for dateOccurs in range(1, qtt+1):
 						# calculate all dates on a periodic event
 						if register[1]==1:
+							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa diária.')
 							nextEvent  = startPeriodic + datetime.timedelta(days=+dateOccurs)
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]==2:
+							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa semanal.')
 							nextEvent  = startPeriodic+ datetime.timedelta(days=+(dateOccurs*7))
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]==3:
+							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa quinzenal.')
 							nextEvent  = startPeriodic + datetime.timedelta(days=+(dateOccurs*14))
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]>=4 and register[1]<=7:
+							print("nº ocorrências = " + str(dateOccurs))
 							sd = str(sDate)
 							dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
 							# logDebug('Data inicial: {0};\ndateOccurs: {1};\nregistro: {2}'.format(dateToExame, dateOccurs, register[1]))
@@ -262,21 +255,23 @@ class manageDatabase():
 							dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
 							# logDebug('Data processada: %s' % (dateToExame))
 						elif register[1]==8:
+							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa semestral.')
 							periodicDate = correctDate(sDate, (dateOccurs*6))
 						elif register[1]==9:
+							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa anual.')
 							periodicDate = correctDate(sDate, (dateOccurs*12))
-							# periodicDate = sDate,(dateOccurs*12)
 						# logDebug('periodicDate: {0}'.format(periodicDate))
-						if periodicDate>=startDateInt and periodicDate<=endDateInt:
+						if periodicDate > register[2]:
+							pass
+						elif startDateInt <= periodicDate <= endDateInt:
 							# save dataInicial field of original periodicity register and actual occurrency
 							listPeriodic = [register[0], periodicDate]
 							# logDebug('listPeriodic: {0}'.format(listPeriodic))
 							# logDebug('registro: {0}'.format(list(register[4:])))
 							typeFrequency = [register[1]]
 							# logDebug('typeFrequency: {0}'.format(typeFrequency))
-							
 							allPeriodicEvents += [listPeriodic+list(register[4:])+typeFrequency]
 
 							countFound += 1

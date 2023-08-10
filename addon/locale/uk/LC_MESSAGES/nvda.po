@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'agenda' '2023.05.13'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2023-05-31 08:28+0300\n"
-"PO-Revision-Date: 2023-05-31 08:33+0300\n"
+"POT-Creation-Date: 2023-08-10 02:14+0100\n"
+"PO-Revision-Date: 2023-08-10 02:27+0100\n"
 "Last-Translator: Heorhii <nvda.translation.uk@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. Translators: EditComboBox name in the configuration dialog
 #. Translators: Field to select the day
 #: addon\globalPlugins\agenda\DlgAddEdit.py:42
-#: addon\globalPlugins\agenda\__init__.py:115
+#: addon\globalPlugins\agenda\__init__.py:117
 msgid "Day:"
 msgstr "День:"
 
@@ -30,8 +30,8 @@ msgstr "День:"
 #. Translators: month of initial date
 #. Translators: Month of final date
 #: addon\globalPlugins\agenda\DlgAddEdit.py:49
-#: addon\globalPlugins\agenda\__init__.py:122
-#: addon\globalPlugins\agenda\eventRepeat.py:92
+#: addon\globalPlugins\agenda\__init__.py:124
+#: addon\globalPlugins\agenda\eventRepeat.py:91
 #: addon\globalPlugins\agenda\searchWindow.py:67
 #: addon\globalPlugins\agenda\searchWindow.py:94
 msgid "Month:"
@@ -43,8 +43,8 @@ msgstr "Місяць:"
 #. Translators: Year of initial date
 #. Translators: Year of final date
 #: addon\globalPlugins\agenda\DlgAddEdit.py:55
-#: addon\globalPlugins\agenda\__init__.py:129
-#: addon\globalPlugins\agenda\eventRepeat.py:100
+#: addon\globalPlugins\agenda\__init__.py:131
+#: addon\globalPlugins\agenda\eventRepeat.py:99
 #: addon\globalPlugins\agenda\searchWindow.py:75
 #: addon\globalPlugins\agenda\searchWindow.py:102
 msgid "Year:"
@@ -52,7 +52,7 @@ msgstr "Рік:"
 
 #. Translators: EditComboBox name in the configuration dialog
 #: addon\globalPlugins\agenda\DlgAddEdit.py:68
-#: addon\globalPlugins\agenda\__init__.py:424
+#: addon\globalPlugins\agenda\__init__.py:426
 msgid "Hour:"
 msgstr "Година:"
 
@@ -81,7 +81,7 @@ msgstr "&Сигнали"
 #: addon\globalPlugins\agenda\DlgAddEdit.py:125
 #: addon\globalPlugins\agenda\DlgAddEdit.py:243
 #: addon\globalPlugins\agenda\DlgAddEdit.py:357
-#: addon\globalPlugins\agenda\__init__.py:459
+#: addon\globalPlugins\agenda\__init__.py:461
 #: addon\globalPlugins\agenda\searchWindow.py:432
 msgid "Add"
 msgstr "Додати"
@@ -93,7 +93,7 @@ msgstr "Додати"
 #: addon\globalPlugins\agenda\DlgAddEdit.py:329
 #: addon\globalPlugins\agenda\DlgAddEdit.py:348
 #: addon\globalPlugins\agenda\DlgAddEdit.py:440
-#: addon\globalPlugins\agenda\__init__.py:489
+#: addon\globalPlugins\agenda\__init__.py:491
 #: addon\globalPlugins\agenda\nextAppointments.py:158
 #: addon\globalPlugins\agenda\searchWindow.py:464
 msgid "Edit"
@@ -128,12 +128,12 @@ msgstr "Ви видалили опис зустрічі. Ви бажаєте в�
 #: addon\globalPlugins\agenda\DlgAddEdit.py:397
 #: addon\globalPlugins\agenda\DlgAddEdit.py:434
 #: addon\globalPlugins\agenda\DlgAddEdit.py:485
-#: addon\globalPlugins\agenda\__init__.py:42
-#: addon\globalPlugins\agenda\__init__.py:83
-#: addon\globalPlugins\agenda\__init__.py:107
-#: addon\globalPlugins\agenda\__init__.py:520
-#: addon\globalPlugins\agenda\__init__.py:550
-#: addon\globalPlugins\agenda\__init__.py:557
+#: addon\globalPlugins\agenda\__init__.py:40
+#: addon\globalPlugins\agenda\__init__.py:81
+#: addon\globalPlugins\agenda\__init__.py:109
+#: addon\globalPlugins\agenda\__init__.py:522
+#: addon\globalPlugins\agenda\__init__.py:552
+#: addon\globalPlugins\agenda\__init__.py:559
 #: addon\globalPlugins\agenda\configPanel.py:70
 #: addon\globalPlugins\agenda\nextAppointments.py:193
 #: addon\globalPlugins\agenda\nextAppointments.py:235
@@ -151,7 +151,7 @@ msgstr "Порядок денний"
 #. Translators: Informative about event deletion
 #. Translators: Informing success of remotion
 #: addon\globalPlugins\agenda\DlgAddEdit.py:337
-#: addon\globalPlugins\agenda\__init__.py:550
+#: addon\globalPlugins\agenda\__init__.py:552
 #: addon\globalPlugins\agenda\nextAppointments.py:235
 #: addon\globalPlugins\agenda\searchWindow.py:546
 msgid "Appointment removed successfully!"
@@ -198,22 +198,22 @@ msgid "Do you really want to discard the changes on appointment?"
 msgstr "Ви дійсно хочете скасувати зміни під час зустрічі?"
 
 #. Translators: Message to be announced during Keyboard Help
-#: addon\globalPlugins\agenda\__init__.py:81
+#: addon\globalPlugins\agenda\__init__.py:79
 msgid "Main window to access an accessible agenda"
 msgstr "Головний діалог для доступу до порядку денного"
 
 #. Translators: Name of the list with the events
-#: addon\globalPlugins\agenda\__init__.py:139
+#: addon\globalPlugins\agenda\__init__.py:141
 msgid "items found:"
 msgstr "знайдено елементів:"
 
-#: addon\globalPlugins\agenda\__init__.py:143
+#: addon\globalPlugins\agenda\__init__.py:145
 msgid "Hour"
 msgstr "Годину"
 
 #. Translators: Column title
-#: addon\globalPlugins\agenda\__init__.py:144
-#: addon\globalPlugins\agenda\__init__.py:425
+#: addon\globalPlugins\agenda\__init__.py:146
+#: addon\globalPlugins\agenda\__init__.py:427
 #: addon\globalPlugins\agenda\nextAppointments.py:38
 #: addon\globalPlugins\agenda\nextAppointments.py:96
 #: addon\globalPlugins\agenda\searchWindow.py:352
@@ -223,51 +223,51 @@ msgstr "Зустріч"
 #. Translators: Button to add an event
 #.
 #. Translators: Add button label
-#: addon\globalPlugins\agenda\__init__.py:151
+#: addon\globalPlugins\agenda\__init__.py:153
 #: addon\globalPlugins\agenda\searchWindow.py:129
 msgid "&Add"
 msgstr "&Додати"
 
 #. Translators: Button to edit an event
 #. Translators: Edit button label
-#: addon\globalPlugins\agenda\__init__.py:155
+#: addon\globalPlugins\agenda\__init__.py:157
 #: addon\globalPlugins\agenda\searchWindow.py:133
 msgid "&Edit"
 msgstr "&Редагувати"
 
 #. Translators: Button to remove an event
 #. Translators: Remove button label
-#: addon\globalPlugins\agenda\__init__.py:159
+#: addon\globalPlugins\agenda\__init__.py:161
 #: addon\globalPlugins\agenda\searchWindow.py:137
 msgid "&Remove"
 msgstr "&Видалити"
 
 #. Translators: Button to start a search
 #. Translators: Label of button to execute the search
-#: addon\globalPlugins\agenda\__init__.py:163
+#: addon\globalPlugins\agenda\__init__.py:165
 #: addon\globalPlugins\agenda\searchWindow.py:110
 msgid "&Search"
 msgstr "&Пошук"
 
 #. Translators: Button to close the add-on
-#: addon\globalPlugins\agenda\__init__.py:167
+#: addon\globalPlugins\agenda\__init__.py:169
 msgid "E&xit"
 msgstr "В&ихід"
 
-#: addon\globalPlugins\agenda\__init__.py:443
+#: addon\globalPlugins\agenda\__init__.py:445
 msgid " items found"
 msgstr " знайдено елементів"
 
-#: addon\globalPlugins\agenda\__init__.py:445
-#: addon\globalPlugins\agenda\__init__.py:480
+#: addon\globalPlugins\agenda\__init__.py:447
+#: addon\globalPlugins\agenda\__init__.py:482
 msgid "No items found"
 msgstr "Елементів не знайдено"
 
-#: addon\globalPlugins\agenda\__init__.py:447
+#: addon\globalPlugins\agenda\__init__.py:449
 msgid "No appointments"
 msgstr "Немає зустрічей"
 
-#: addon\globalPlugins\agenda\__init__.py:504
+#: addon\globalPlugins\agenda\__init__.py:506
 #: addon\globalPlugins\agenda\searchWindow.py:487
 msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic "
@@ -279,25 +279,25 @@ msgstr ""
 "Замість цього, вам потрібно відредагувати оригінальний реєстр. Ви хочете "
 "відредагувати його?"
 
-#: addon\globalPlugins\agenda\__init__.py:504
+#: addon\globalPlugins\agenda\__init__.py:506
 #: addon\globalPlugins\agenda\nextAppointments.py:181
 #: addon\globalPlugins\agenda\searchWindow.py:487
 msgid "Edit periodic event"
 msgstr "Редагувати періодичну подію"
 
-#: addon\globalPlugins\agenda\__init__.py:520
+#: addon\globalPlugins\agenda\__init__.py:522
 msgid "You have not selected any appointment to edit."
 msgstr "Ви не вибрали жодної зустрічі для редагування."
 
 #. Translators: To confirm remotion of the event
-#: addon\globalPlugins\agenda\__init__.py:536
+#: addon\globalPlugins\agenda\__init__.py:538
 #: addon\globalPlugins\agenda\nextAppointments.py:218
 #: addon\globalPlugins\agenda\searchWindow.py:528
 msgid "Do you really want to remove the  item: "
 msgstr "Ви дійсно хочете видалити елемент: "
 
 #. Translators: Inform that is necessary to remove the original event
-#: addon\globalPlugins\agenda\__init__.py:541
+#: addon\globalPlugins\agenda\__init__.py:543
 #: addon\globalPlugins\agenda\searchWindow.py:535
 msgid ""
 "You can't remove just one periodic event. Instead of, you need remove the "
@@ -313,11 +313,11 @@ msgstr ""
 "Ви хочете видалити оригінальний реєстр і всі дати цієї події {}:\n"
 "{}?"
 
-#: addon\globalPlugins\agenda\__init__.py:544
+#: addon\globalPlugins\agenda\__init__.py:546
 msgid "Remove item"
 msgstr "Видалити елемент"
 
-#: addon\globalPlugins\agenda\__init__.py:557
+#: addon\globalPlugins\agenda\__init__.py:559
 msgid "You have not selected any appointment to be removed."
 msgstr "Ви не вибрали жодної зустрічі для видалення."
 
@@ -384,139 +384,90 @@ msgid "Database files (*.db)"
 msgstr "Файли бази даних (*.db)"
 
 #. Translators: Dialog title
-#: addon\globalPlugins\agenda\eventRepeat.py:47
-#, fuzzy
-#| msgid "Set repeations"
+#: addon\globalPlugins\agenda\eventRepeat.py:46
 msgid "Set repetitions"
-msgstr "Встановити повтор"
+msgstr "Встановити повтори"
 
 #. Translators: Group label of ocurrences
-#: addon\globalPlugins\agenda\eventRepeat.py:55
-msgid "Choice your event repeat:"
+#: addon\globalPlugins\agenda\eventRepeat.py:54
+msgid "Choose your event repeat:"
 msgstr "Виберіть повтор події:"
 
-#. Translators: The various ocurrences periods
+#. Translators: Check box to define if repetitions have a fixed end
+#: addon\globalPlugins\agenda\eventRepeat.py:66
+msgid "Mark to set when repeat finish"
+msgstr "Позначте, щоб встановити, коли завершується повтор"
+
+#. Translators: Group label to number of repetitions
+#: addon\globalPlugins\agenda\eventRepeat.py:73
+msgid "Quantity of repeations:"
+msgstr "Кількість повторень:"
+
+#. Translators: Group label to the end date
+#: addon\globalPlugins\agenda\eventRepeat.py:83
+msgid "End\t date: Day:"
+msgstr "Дата\t закінчення: День:"
+
+#: addon\globalPlugins\agenda\eventRepeat.py:196
+#: addon\globalPlugins\agenda\manageDatabase.py:289
+msgid "Your final date is oldest your inicial date."
+msgstr "Ваша остання дата є найдавнішою з вашої початкової дати."
+
+#: addon\globalPlugins\agenda\eventRepeat.py:196
+#: addon\globalPlugins\agenda\manageDatabase.py:289
+msgid "Incorrect date interval"
+msgstr "Неправильний інтервал дат"
+
 #. Global variables
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "None"
 msgstr "Немає"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Daily"
 msgstr "Щодня"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Weekly"
 msgstr "Щотижня"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Biweekly"
 msgstr "Раз на два тижні"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Monthly"
 msgstr "Щомісяця"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Twomonthly"
 msgstr "Раз на два місяці"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Threemontly"
 msgstr "Раз на три місяці"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Fourmontly"
 msgstr "Раз на чотири місяці"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Sixmonthly"
 msgstr "Раз на півроку"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:59
 #: addon\globalPlugins\agenda\nextAppointments.py:17
 #: addon\globalPlugins\agenda\varsConfig.py:45
 msgid "Anualy"
 msgstr "Щороку"
-
-#. Translators: Check box to define if repetitions have a fixed end
-#: addon\globalPlugins\agenda\eventRepeat.py:67
-msgid "Mark to set when repeat finish"
-msgstr "Позначте, щоб встановити, коли завершується повтор"
-
-#. Translators: Group label to number of repetitions
-#: addon\globalPlugins\agenda\eventRepeat.py:74
-msgid "Quantity of repeations:"
-msgstr "Кількість повторень:"
-
-#. Translators: Group label to the end date
-#: addon\globalPlugins\agenda\eventRepeat.py:84
-msgid "End\t date: Day:"
-msgstr "Дата\t закінчення: День:"
-
-#. Gets the week day
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "Monday"
-msgstr "Понеділок"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "tuesday"
-msgstr "вівторок"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "Wednesday"
-msgstr "Середа"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "Thursday"
-msgstr "Четвер"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "Friday"
-msgstr "П'ятниця"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "Saturday"
-msgstr "Субота"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:186
-#: addon\globalPlugins\agenda\varsConfig.py:44
-msgid "Sunday"
-msgstr "Неділя"
-
-#: addon\globalPlugins\agenda\eventRepeat.py:197
-#: addon\globalPlugins\agenda\manageDatabase.py:294
-msgid "Your final date is oldest your inicial date."
-msgstr "Ваша остання дата є найдавнішою з вашої початкової дати."
-
-#: addon\globalPlugins\agenda\eventRepeat.py:197
-#: addon\globalPlugins\agenda\manageDatabase.py:294
-msgid "Incorrect date interval"
-msgstr "Неправильний інтервал дат"
 
 #. Translators: Dialog title
 #: addon\globalPlugins\agenda\nextAppointments.py:26
@@ -582,11 +533,6 @@ msgstr "Не знайдено елементів:"
 
 #. Translators: Dialog to ask if it is to edit the first registry.
 #: addon\globalPlugins\agenda\nextAppointments.py:181
-#, fuzzy
-#| msgid ""
-#| "You selected a periodic event. You can't edit a date inside on periodic "
-#| "event.\n"
-#| "Instead of, you need edit the original register. Do you want edit It?"
 msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic "
 "event.\n"
@@ -606,14 +552,6 @@ msgstr "Не вибрано жодної зустрічі для редагув�
 
 #. Translators: Asking to delete the original registry and not one single event...
 #: addon\globalPlugins\agenda\nextAppointments.py:224
-#, fuzzy
-#| msgid ""
-#| "You can't remove just one periodic event. Instead of, you need remove the "
-#| "original register. If you make this, alldates on this periodic event will "
-#| "be deleted.\n"
-#| "Do you want to delete the original register and all   dates of this {} "
-#| "event:\n"
-#| "{}?"
 msgid ""
 "You can't remove just one periodic event. Instead of, you need remove the "
 "original registry. If you make this, alldates on this periodic event will be "
@@ -778,6 +716,34 @@ msgstr "Лютий"
 msgid "January"
 msgstr "Січень"
 
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "Monday"
+msgstr "Понеділок"
+
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "tuesday"
+msgstr "вівторок"
+
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "Wednesday"
+msgstr "Середа"
+
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "Thursday"
+msgstr "Четвер"
+
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "Friday"
+msgstr "П'ятниця"
+
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "Saturday"
+msgstr "Субота"
+
+#: addon\globalPlugins\agenda\varsConfig.py:44
+msgid "Sunday"
+msgstr "Неділя"
+
 #: addon\globalPlugins\agenda\varsConfig.py:108
 msgid "You have the following appointment tomorrow:\n"
 msgstr "У вас завтра така зустріч:\n"
@@ -786,7 +752,7 @@ msgstr "У вас завтра така зустріч:\n"
 #: addon\globalPlugins\agenda\varsConfig.py:124
 #: addon\globalPlugins\agenda\varsConfig.py:131
 #: addon\globalPlugins\agenda\varsConfig.py:138
-#: addon\globalPlugins\agenda\varsConfig.py:152
+#: addon\globalPlugins\agenda\varsConfig.py:153
 msgid "Reminder!"
 msgstr "Нагадування!"
 
@@ -821,3 +787,21 @@ msgstr "Надає доступ до доступного порядку ден�
 
 #~ msgid "&Ok"
 #~ msgstr "&Гаразд"
+
+#~ msgid "Check for updates at startup"
+#~ msgstr "Перевірити наявність оновлень під час запуску"
+
+#~ msgid ""
+#~ "It is available a new version of this add-on.\n"
+#~ " Do you want to update?"
+#~ msgstr ""
+#~ "Доступна нова версія цього додатка.\n"
+#~ " Ви хочете оновити?"
+
+#~ msgid ""
+#~ "This new version of this add-on is not compatible with your version of "
+#~ "NVDA.\n"
+#~ " The update process will be terminated."
+#~ msgstr ""
+#~ "Нова версія цього додатка несумісна з вашою версією NVDA.\n"
+#~ " Процес оновлення буде припинено."

@@ -9,7 +9,6 @@
 
 # import the necessary modules.
 import globalPluginHandler
-from .logDebug import logDebug
 from .manageDatabase import *
 from .configPanel import *
 from .varsConfig import *
@@ -37,7 +36,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Call of the constructor of the parent class.
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 
-		logDebug('Iniciando log...', apagaAntigo=True)
 		# Translators: Dialog title
 		title = _("Agenda")
 
