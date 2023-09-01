@@ -6,7 +6,7 @@
 # See the file COPYING for more details.
 
 # import the necessary modules.
-from .logDebug import logDebug
+from .convertdate import persian
 from .varsConfig import *
 from .manageDatabase import *
 from .configPanel import *
@@ -75,7 +75,7 @@ class searchWindow(wx.Dialog):
 		self.label_5 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_3.Add(self.label_5, 0, 0, 0)
 
-		self.spinInitialYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1970, max=2050)
+		self.spinInitialYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1300, max=2050)
 		self.spinInitialYear.SetValue(int(self.currentYear))
 		sizer_3.Add(self.spinInitialYear, 0, 0, 0)
 
@@ -102,7 +102,7 @@ class searchWindow(wx.Dialog):
 		self.label_8 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_4.Add(self.label_8, 0, 0, 0)
 
-		self.spinFinalYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1970, max=2050)
+		self.spinFinalYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1300, max=2050)
 		self.spinFinalYear.SetValue(int(self.currentYear))
 		sizer_4.Add(self.spinFinalYear, 0, 0, 0)
 
@@ -374,7 +374,11 @@ class searchWindow(wx.Dialog):
 					textToShow = _("Tomorrow") 
 				else: 
 					weekToShow = weekDays[datetime.date (int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])) .weekday()] 
-					textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+					if calendarToUse == _("Gregorian (Default)"):
+						textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+					else:
+						persianDate = persian.from_gregorian(int(readDate[:4]), int(readDate[4:6]), int(readDate[6:8]))
+						textToShow = weekToShow + ", " + str("%02d" % persianDate[2]) + "/" + str("%02d" % persianDate[1]) + "/" + str(persianDate[0])
 				dbCursor.execute(""" 
 					select tipo 
 					from periodicity 
@@ -399,7 +403,6 @@ class searchWindow(wx.Dialog):
 					readDate = str(tableLine[1]) 
 					sd = readDate
 					dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
-					# # logDebug('Data a adicionar: {0}'.format(dateToExame))
 
 					textToShow = "" 
 					if readDate[:8] == self.dayOfToday: 
@@ -407,9 +410,12 @@ class searchWindow(wx.Dialog):
 					elif readDate[:8] == self.dayOfTomorrow: 
 						textToShow = _("Tomorrow") 
 					else: 
-						# # logDebug('Data a buscar o dia da semana: {0}'.format(readDate))
 						weekToShow = weekDays[datetime.date (int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])).weekday()] 
-						textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+						if calendarToUse == _("Gregorian (Default)"):
+							textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+						else:
+							persianDate = persian.from_gregorian(int(readDate[:4]), int(readDate[4:6]), int(readDate[6:8]))
+							textToShow = weekToShow + ", " + str("%02d" % persianDate[2]) + "/" + str("%02d" % persianDate[1]) + "/" + str(persianDate[0])
 					loadedItens += [[tableLine[1], textToShow + ", " + readDate[8:10] + ":" + readDate[10:12] + ', ', frequency[tableLine[10]] + "; " + tableLine[3]]] 
 
 		if not self.flagRecordExists: 
@@ -519,10 +525,9 @@ class searchWindow(wx.Dialog):
 				dateToRemove=self.dayOfTomorrow
 				hour = strItemToRemove[8:10]+strItemToRemove[11:13]
 			else:
-				strItemToRemove = strItemToRemove.split(", ")[1] + ", " + strItemToRemove.split(", ")[2]
+				strItemToRemove = strItemToRemove.split(", ")[1] + strItemToRemove.split(", ")[2]
 				dateToRemove=strItemToRemove[6:10]+strItemToRemove[3:5]+strItemToRemove[:2]
-				hour = strItemToRemove[12:14]+strItemToRemove[15:17]
-
+				hour = strItemToRemove[10:12]+strItemToRemove[13:]
 			itemToRemove= int(dateToRemove + hour)
 			# Translators: To confirm remotion of the event
 			msgRemove = (_("Do you really want to remove the  item: ") + strItemToRemoveMsg + "?")

@@ -9,6 +9,8 @@
 from .manageDatabase import *
 from .varsConfig import *
 from .DlgAddEdit import DlgAddEdit
+from .convertdate import persian
+import winsound
 
 # To start the translation process
 addonHandler.initTranslation()
@@ -72,6 +74,8 @@ class nextAppointments(wx.Dialog):
 		self.update()
 
 	def update(self):
+		from .configPanel import calendarToUse
+		playSound = False
 		# Define the date range to find appointements
 		Now = datetime.datetime.now()
 		todayStart = int(datetime.datetime.strftime(Now, '%Y%m%d')+'0000')
@@ -105,8 +109,6 @@ class nextAppointments(wx.Dialog):
 		if len(occurs) != 0:
 			self.flagRecordExists=True
 			# Items were found, so fill the listbox with them
-			dbAgenda = sqlite3.connect(dirDatabase)
-			dbCursor = dbAgenda.cursor()
 			for tableLine in occurs:
 				# check for periodic event to this appointement
 				checkRepeat = _("No repeat")
@@ -114,12 +116,18 @@ class nextAppointments(wx.Dialog):
 				textToShow = ""
 				if readDate[:8] == self.dayOfToday:
 					textToShow = _("Today")
+					playSound = True
 				elif readDate[:8] == self.dayOfTomorrow:
 					textToShow = _("Tomorrow")
+					playSound = True
 				else:
 					from .varsConfig import weekDays
 					weekToShow = weekDays[datetime.date(int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])).weekday()] 
-					textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+					if calendarToUse == _("Gregorian (Default)"):
+						textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+					else:
+						persianDate = persian.from_gregorian(int(readDate[:4]), int(readDate[4:6]), int(readDate[6:8]))
+						textToShow = weekToShow + ", " + str("%02d" % persianDate[2]) + "/" + str("%02d" % persianDate[1]) + "/" + str(persianDate[0])
 				loadedItens += [[tableLine[0], textToShow + ", " + readDate[8:10] + ":" + readDate[10:12], tableLine[2]]]
 		self.periodicityRegisters = manageDatabase.findRepeatIntervalDate(todayStart, tomorrowEnd, True, dirDatabase)
 		if len(self.periodicityRegisters)>0:
@@ -129,12 +137,18 @@ class nextAppointments(wx.Dialog):
 				textToShow = ""
 				if readDate[:8] == self.dayOfToday:
 					textToShow = _("Today")
+					playSound = True
 				elif readDate[:8] == self.dayOfTomorrow:
 					textToShow = _("Tomorrow")
+					playSound = True
 				else:
 					from .varsConfig import weekDays
 					weekToShow = weekDays[datetime.date(int(readDate[:4]),int(readDate[4:6]),int(readDate[6:8])).weekday()] 
-					textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+					if calendarToUse == _("Gregorian (Default)"):
+						textToShow = weekToShow + ", " + readDate[6:8] + "/" + readDate[4:6] + "/" + readDate[:4] 
+					else:
+						persianDate = persian.from_gregorian(int(readDate[:4]), int(readDate[4:6]), int(readDate[6:8]))
+						textToShow = weekToShow + ", " + str(persianDate[2]) + "/" + str('%02d' % (persianDate[1])) + "/" + str('%02d' % (persianDate[0]))
 				loadedItens += [[tableLine[1], textToShow + ", " + readDate[8:10] + ":" + readDate[10:12], frequency[tableLine[10]] +"; " + tableLine[3]]]
 
 		if not self.flagRecordExists:
@@ -145,12 +159,16 @@ class nextAppointments(wx.Dialog):
 			j = 0
 			for x in loadedSorted:
 				index = self.appointmentsList.InsertItem(j, x[1])
-				self.appointmentsList.SetStringItem(index, 1, x[2])
+				self.appointmentsList.SetItem(index, 1, x[2])
 				j+=1
 			self.label_1.SetLabel(str(self.appointmentsList.GetItemCount()) + _("Items found:"))
 			self.appointmentsList.Focus(0)
 			self.appointmentsList.Select(0)
 		self.appointmentsList.SetFocus()
+		from .configPanel import soundToUse
+		if config.conf["agenda"]["playSound"] and playSound == True:
+			ringFile = os.path.join(os.path.dirname(__file__), "sounds", soundToUse)
+			winsound.PlaySound(ringFile, winsound.SND_FILENAME|winsound.SND_ASYNC)
 
 	def executeEdit(self, event):
 		global itemToEdit
@@ -172,6 +190,9 @@ class nextAppointments(wx.Dialog):
 				strItemToEdit = strItemToEdit.split(", ")[1] + ", " + strItemToEdit.split(", ")[2]
 				dateToEdit = strItemToEdit[6:10] + strItemToEdit[3:5]+strItemToEdit[:2]
 				hour = strItemToEdit[12:14] + strItemToEdit[15:17]
+				if calendarToUse == _("Persian"):
+					gregorianDate = persian.to_gregorian(int(strItemToEdit[6:10]), int(strItemToEdit[3:5]), int(strItemToEdit[:2]))
+					dateToEdit = str(gregorianDate[0]) + str('%02d' % (gregorianDate[1])) + str('%02d' % (gregorianDate[2]))
 
 			generalVars.itemToEdit = int(dateToEdit + hour)
 			flagGoToEdit = True
@@ -213,6 +234,10 @@ class nextAppointments(wx.Dialog):
 				strItemToRemove = strItemToRemove.split(", ")[1] + ", " + strItemToRemove.split(", ")[2]
 				dateToRemove=strItemToRemove[6:10]+strItemToRemove[3:5]+strItemToRemove[:2]
 				hour = strItemToRemove[12:14]+strItemToRemove[15:17]
+
+				if calendarToUse == _("Persian"):
+					gregorianDate = persian.to_gregorian(int(strItemToRemove[6:10]), int(strItemToRemove[3:5]), int(strItemToRemove[:2]))
+					dateToRemove = str(gregorianDate[0]) + str('%02d' % (gregorianDate[1])) + str('%02d' % (gregorianDate[2]))
 
 			itemToRemove= int(dateToRemove + hour)
 			msgRemove = (_("Do you really want to remove the  item: ") + strItemToRemoveMsg + "?")

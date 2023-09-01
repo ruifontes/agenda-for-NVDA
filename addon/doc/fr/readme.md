@@ -3,7 +3,7 @@
 
 ## Informations
 * Auteurs : Abel Passos, Ângelo Abrantes et Rui Fontes
-* Mis à jour : 10.08.2023
+* Mis à jour : 01.09.2023
 * Télécharger[version stable][1]
 * Compatibilité : NVDA Version 2019.3 et au-delà
 
@@ -84,4 +84,4 @@ De plus, dans la fonction Éditer, les données du rendez-vous sélectionné s'a
 * Bouton Supprimer tout (Alt+T) : Supprime tous les rendez-vous affichés ;
 * Bouton Annuler (Alt+N) : Ferme la fenêtre de recherche et revient à la fenêtre principale.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.08.10/agenda-2023.08.10.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.02/agenda-2023.09.02.nvda-addon

@@ -3,13 +3,13 @@
 	"displayName": "Accessible agenda",
 	"URL": "",
 	"description": "Allows access to an accesible agenda",
-	"sha256": "6bed128c373addcaf11910c9547b4533177a61147818dbdb4658ce807ca61c52",
+	"sha256": "a99338eba6d79859aa80a4788dd8cfbc899502ff44a2ae17a4933e48348472bf",
 	"homepage": "https://github.com/ruifontes/agenda-for-NVDA",
-	"addonVersionName": "2023.08.10",
+	"addonVersionName": "2023.09.02",
 	"addonVersionNumber": {
 		"major": 2023,
-		"minor": 8,
-		"patch": 10
+		"minor": 9,
+		"patch": 2
 	},
 	"minNVDAVersion": {
 		"major": 2019,

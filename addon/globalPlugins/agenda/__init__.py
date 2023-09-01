@@ -15,6 +15,11 @@ from .varsConfig import *
 from .DlgAddEdit import DlgAddEdit
 from .alarmsCheck import CheckAlarms
 from .searchWindow import searchWindow
+import sys
+sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__))))
+from . import convertdate
+from .convertdate import persian
+from . import pymeeus
 import ui
 import threading
 from scriptHandler import script
@@ -71,6 +76,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			NVDASettingsDialog.categoryClasses.remove(AgendaSettingsPanel)
 		except Exception:
 			pass
+		sys.path.remove(sys.path[-1])
 
 	#defining a script with decorator:
 	@script(
@@ -102,10 +108,17 @@ class MainWindow(wx.Dialog):
 			return False
 
 		self.flagSetFocus=False
+
 		self.now = str(datetime.datetime.now())
 		self.currentYear = self.now[:4]
 		self.currentMonth = self.now[5:7]
 		self.currentDay = self.now[8:10]
+		if calendarToUse == _("Persian"):
+			self.now = persian.from_gregorian(int(self.currentYear ), int(self.currentMonth ), int(self.currentDay))
+			self.currentYear = self.now[0]
+			self.currentMonth = self.now[1]
+			self.currentDay = self.now[2]
+
 		self.SetTitle(_("Agenda"))
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
@@ -123,14 +136,17 @@ class MainWindow(wx.Dialog):
 		# Translators: Field to select the month
 		label_2 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_3.Add(label_2, 0, 0, 0)
-		self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months , style=wx.CB_DROPDOWN|wx.CB_READONLY)
+		if calendarToUse == _("Gregorian (Default)"):
+			self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months , style=wx.CB_DROPDOWN|wx.CB_READONLY)
+		elif calendarToUse == _("Persian"):
+			self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = persianMonths , style=wx.CB_DROPDOWN|wx.CB_READONLY)
 		self.ComboMonth.SetSelection(12-int(self.currentMonth))
 		sizer_3.Add(self.ComboMonth, 0, 0, 0)
 
 		# Translators: Field to select the year
 		label_3 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_3.Add(label_3, 0, 0, 0)
-		self.spinYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1970, max=2050)
+		self.spinYear = wx.SpinCtrl(self, wx.ID_ANY, "1300", min=1300, max=2050)
 		self.spinYear.SetValue(int(self.currentYear))
 		sizer_3.Add(self.spinYear, 0, 0, 0)
 
@@ -256,7 +272,6 @@ class MainWindow(wx.Dialog):
 		# Variables to scroll the date by keystroke
 		scrollDay = 0
 		scrollMonth = 0
-		#self.gVars = generalVars()
 
 	def onAlt2(self, event):
 		self.keystrokeScrollDay(2)
@@ -320,7 +335,10 @@ class MainWindow(wx.Dialog):
 		else:
 			year = self.spinYear.GetValue()
 			monthStr = self.ComboMonth.GetValue()
-			month = 12-months.index(monthStr)
+			if calendarToUse == _("Gregorian (Default)"):
+				month = 12-months.index(monthStr)
+			elif calendarToUse == _("Persian"):
+				month = 12-persianMonths.index(monthStr)
 			currentMonth = month
 			day = self.spinDay.GetValue()
 			dayMax = self.spinDay.GetMax()
@@ -384,7 +402,10 @@ class MainWindow(wx.Dialog):
 
 		# Update the date details
 		self.spinYear.SetValue(year)
-		self.ComboMonth.SetValue(months[12-month])
+		if calendarToUse == _("Gregorian (Default)"):
+			self.ComboMonth.SetValue(months[12-month])
+		else:
+			self.ComboMonth.SetValue(persianMonths[12-month])
 		self.spinDay.SetValue(day)
 
 		# Call the function to update the details
@@ -395,24 +416,46 @@ class MainWindow(wx.Dialog):
 		self.updateItems()
 
 	def updateItems(self):
-		# Gets the date fields to make the search
-		yearToSearch = str(self.spinYear.GetValue())
-		monthToSearchStr = self.ComboMonth.GetValue()
-		monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
-		# Gets the maximum days of the month
-		year = int(yearToSearch)
-		month = 12-months.index(monthToSearchStr)
-		dayMax = maxDayMonth(year, month)
-		self.spinDay.SetRange(1, dayMax)
-		dayToSearch = '%02d' % self.spinDay.GetValue()
+		if calendarToUse == _("Gregorian (Default)"):
+			# Gets the date fields to make the search
+			yearToSearch = str(self.spinYear.GetValue())
+			monthToSearchStr = self.ComboMonth.GetValue()
+			monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+			# Gets the maximum days of the month
+			year = int(yearToSearch)
+			month = 12-months.index(monthToSearchStr)
+			dayMax = maxDayMonth(year, month)
+			self.spinDay.SetRange(1, dayMax)
+			dayToSearch = '%02d' % self.spinDay.GetValue()
+			# Gets the week day
+			weekToSearch = weekDays[datetime.date (int(yearToSearch),int(monthToSearch),int(dayToSearch)) .weekday ()]
+			# Updates week day field
+			self.weekDay.SetValue(weekToSearch)
+			newTitle = dayToSearch+'/'+monthToSearch+'/'+yearToSearch
+
+		elif calendarToUse == _("Persian"):
+			# Gets the date fields to make the search
+			yearToSearch = str(self.spinYear.GetValue())
+			monthToSearchStr = self.ComboMonth.GetValue()
+			monthToSearch = '%02d' % (12 - persianMonths.index(monthToSearchStr))
+			# Gets the maximum days of the month
+			year = int(yearToSearch)
+			month = 12 - persianMonths.index(monthToSearchStr)
+			dayMax = maxDayMonth(year, month)
+			self.spinDay.SetRange(1, dayMax)
+			dayToSearch = '%02d' % self.spinDay.GetValue()
+			newTitle = dayToSearch+'/'+monthToSearch+'/'+yearToSearch
+			gregorianDate = persian.to_gregorian(int(yearToSearch), int(monthToSearch), int(dayToSearch))
+			yearToSearch = str(gregorianDate[0])
+			monthToSearch = str("%02d" % (gregorianDate[1]))
+			dayToSearch = str("%02d" % (gregorianDate[2]))
+			# Gets the week day
+			weekToSearch = weekDays[datetime.date (int(yearToSearch),int(monthToSearch),int(dayToSearch)) .weekday ()]
+			# Updates week day field
+			self.weekDay.SetValue(weekToSearch)
+
 		startDateToSearch = int(yearToSearch + monthToSearch + dayToSearch + '0000')
 		finalDateToSearch = int(yearToSearch + monthToSearch + dayToSearch + '2359')
-		newTitle = dayToSearch+'/'+monthToSearch+'/'+yearToSearch
-
-		#Gets the week day
-		weekToSearch = weekDays[datetime.date (int(yearToSearch),int(monthToSearch),int(dayToSearch)) .weekday ()]
-		# Updates week day field
-		self.weekDay.SetValue(weekToSearch)
 
 		# If date was changed, search by appointments in database
 		# Conecting to database
@@ -442,7 +485,7 @@ class MainWindow(wx.Dialog):
 				index = self.currentItemsList.InsertItem(i, dateRead[8:10] + ':' + dateRead[10:12] + " ")
 				self.currentItemsList.SetItem(index, 1, frequency[lineTable[10]]+', '+lineTable[3])
 				i+=1
-		self.label_4.SetLabel(_(str(self.currentItemsList .GetItemCount()) + " items found"))
+		self.label_4.SetLabel(_(str(self.currentItemsList .GetItemCount()) + _(" items found")))
 		if not self.flagRecordExists:
 			self.label_4.SetLabel(_("No items found"))
 			self.currentItemsList.InsertItem(0, '')
@@ -462,11 +505,17 @@ class MainWindow(wx.Dialog):
 		# Gets the date fields to make the search
 		yearToSearch = str(self.spinYear.GetValue())
 		monthToSearchStr = self.ComboMonth.GetValue()
-		monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+		if calendarToUse == _("Gregorian (Default)"):
+			monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+		elif calendarToUse == _("Persian"):
+			monthToSearch = '%02d' % (12-persianMonths.index(monthToSearchStr))
 		dayToSearch = '%02d' % self.spinDay.GetValue()
 
 		# The variable must have the date details
 		generalVars.itemToEdit = int(yearToSearch+monthToSearch+dayToSearch)
+		if calendarToUse == _("Persian"):
+			gregorianDate = persian.to_gregorian(int(yearToSearch), int(monthToSearch), int(dayToSearch))
+			generalVars.itemToEdit = str(gregorianDate[0]) + str('%02d' % (gregorianDate[1])) + str('%02d' % (gregorianDate[2]))
 
 		dialogAdd = DlgAddEdit(generalVars, self)
 		dialogAdd.ShowModal()
@@ -474,17 +523,6 @@ class MainWindow(wx.Dialog):
 		loadAlarms(0)
 		self.updateItems()
 		event.Skip()
-
-	def onKeyPress(self, event):
-		event.Skip()
-		# Sets enter key  to edit the appointment, if exist or to add if not exist, and delete to remove it.
-		keycode = event.GetKeyCode()
-		if keycode == wx.WXK_RETURN and self.label_4.Label == _("No items found"):
-			self.onAdd(event)
-		elif keycode == wx.WXK_RETURN and self.currentItemsList.GetItemCount():
-			self.onEdit(event)
-		elif keycode == wx.WXK_DELETE and self.currentItemsList.GetItemCount():
-			self.onRemove(event)
 
 	def onEdit(self, event):
 		global titleAddEd, itemToEdit
@@ -495,11 +533,17 @@ class MainWindow(wx.Dialog):
 			# Gets the date fields to create the complete date to search
 			year = str(self.spinYear.GetValue())
 			monthStr = self.ComboMonth.GetValue()
-			month = '%02d' % (12-months.index(monthStr))
+			if calendarToUse == _("Gregorian (Default)"):
+				month = '%02d' % (12-months.index(monthStr))
+			elif calendarToUse == _("Persian"):
+				month = '%02d' % (12-persianMonths.index(monthStr))
 			day = '%02d' % int(self.spinDay.GetValue())
 			strItemToEdit = self.currentItemsList.GetItemText(self.currentItemsList.GetFocusedItem(), 0)
 			hour = strItemToEdit[:2]+strItemToEdit[3:5]
 			generalVars.itemToEdit = int(year+month+day+hour)
+			if calendarToUse == _("Persian"):
+				gregorianDate = persian.to_gregorian(int(year), int(month), int(day))
+				generalVars.itemToEdit = int(str(gregorianDate[0]) + str('%02d' % (gregorianDate[1])) + str('%02d' % (gregorianDate[2])) + hour)
 			flagGoToEdit = True
 			for foundRepeatRegister  in self.periodicityRegisters:
 				if foundRepeatRegister[1]==generalVars.itemToEdit:
@@ -529,12 +573,18 @@ class MainWindow(wx.Dialog):
 			# Gets all data fields to compose the date
 			year = str(self.spinYear.GetValue())
 			monthStr = self.ComboMonth.GetValue()
-			month = '%02d' % (12-months.index(monthStr))
+			if calendarToUse == _("Gregorian (Default)"):
+				month = '%02d' % (12-months.index(monthStr))
+			elif calendarToUse == _("Persian"):
+				month = '%02d' % (12-persianMonths.index(monthStr))
 			day = '%02d' % int(self.spinDay.GetValue())
 			strItemToRemove = self.currentItemsList.GetItemText(self.currentItemsList.GetFocusedItem(), 0)
 			strItemToRemoveMsg = strItemToRemove  + " " + self.currentItemsList.GetItemText(self.currentItemsList.GetFocusedItem(), 1)
 			hour = strItemToRemove[:2]+strItemToRemove[3:5]
 			itemToRemove = int(year + month + day + hour)
+			if calendarToUse == _("Persian"):
+				gregorianDate = persian.to_gregorian(int(year), int(month), int(day))
+				itemToRemove = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + hour)
 			msgRemove = (_("Do you really want to remove the  item: ") + strItemToRemoveMsg + "?")
 			for foundRepeatRegister  in self.periodicityRegisters:
 				if foundRepeatRegister[1]==itemToRemove:
@@ -559,6 +609,17 @@ class MainWindow(wx.Dialog):
 			dlg = wx.MessageDialog( self, _("You have not selected any appointment to be removed."), _("Agenda"), wx.OK)
 			dlg.ShowModal()
 			dlg.Destroy()
+
+	def onKeyPress(self, event):
+		event.Skip()
+		# Sets enter key  to edit the appointment, if exist or to add if not exist, and delete to remove it.
+		keycode = event.GetKeyCode()
+		if keycode == wx.WXK_RETURN and self.label_4.Label == _("No items found"):
+			self.onAdd(event)
+		elif keycode == wx.WXK_RETURN and self.currentItemsList.GetItemCount():
+			self.onEdit(event)
+		elif keycode == wx.WXK_DELETE and self.currentItemsList.GetItemCount():
+			self.onRemove(event)
 
 	def onSearch(self, event):
 		# Loads the search window

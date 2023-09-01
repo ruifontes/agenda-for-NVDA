@@ -6,7 +6,9 @@
 # See the file COPYING for more details.
 
 # Import the necessary modules
+from . configPanel import *
 from .varsConfig import *
+from .convertdate import persian
 
 # To start the translation process
 addonHandler.initTranslation()
@@ -17,12 +19,25 @@ class dlgRepeat(wx.Dialog):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
 
-		from . varsConfig import months, weekDays, frequency
+		from . varsConfig import months, persianMonths, weekDays, frequency
+		from .configPanel import calendarToUse
 		self.eventInfo = eventInfo
 		self.register = self.eventInfo.register
 		self.currentYear = int(self.register/100000000)
 		self.currentMonth = int(self.register/1000000)-(self.currentYear*100)
 		self.currentDay = int(self.register/10000)-(self.currentYear*10000 + self.currentMonth*100)
+		if self.register < 150000000000:
+			gregorianDate = persian.to_gregorian(self.currentYear, self.currentMonth, self.currentDay)
+			self.currentYear1 = str(gregorianDate[0])
+			self.currentMonth1 = str("%02d" % gregorianDate[1])
+			self.currentDay1 = str("%02d" % gregorianDate[2])
+			self.hour = str(self.register)[8:]
+			self.register = int(self.currentYear1 + self.currentMonth1 + self.currentDay1 + self.hour)
+		if calendarToUse == _("Persian") and self.currentYear >1500:
+			persianDate = persian.from_gregorian(self.currentYear, self.currentMonth, self.currentDay)
+			self.currentYear = persianDate[0]
+			self.currentMonth = persianDate[1]
+			self.currentDay = persianDate[2]
 
 		# Search for existent registries
 		from .configPanel import dirDatabase
@@ -37,6 +52,13 @@ class dlgRepeat(wx.Dialog):
 				endYear = int(self.eventInfo.finalDate/100000000)
 				endMonth = int(self.eventInfo.finalDate/1000000)-(endYear*100)
 				endDay = int(self.eventInfo.finalDate/10000)-(endYear*10000 + endMonth*100)
+				# Change to persian date if necessary
+				if calendarToUse == _("Persian"):
+					persianDate = persian.from_gregorian(endYear, endMonth, endDay)
+					endYear = persianDate[0]
+					endMonth = persianDate[1]
+					endDay = persianDate[2]
+
 		else:
 			self.eventInfo.typeRepeat=-1
 			self.eventInfo.finalDate=0
@@ -90,8 +112,10 @@ class dlgRepeat(wx.Dialog):
 		# Translators: Group label to the end date
 		label_4 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_5.Add(label_4, 0, 0, 0)
-
-		self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months , style=wx.CB_DROPDOWN|wx.CB_READONLY)
+		if calendarToUse == _("Gregorian (Default)"):
+			self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months , style=wx.CB_DROPDOWN|wx.CB_READONLY)
+		elif calendarToUse == _("Persian"):
+			self.ComboMonth = wx.ComboBox(self, wx.ID_ANY, choices = persianMonths , style=wx.CB_DROPDOWN|wx.CB_READONLY)
 		self.ComboMonth.SetSelection(12-int(self.currentMonth))
 		sizer_5.Add(self.ComboMonth, 0, 0, 0)
 
@@ -99,7 +123,7 @@ class dlgRepeat(wx.Dialog):
 		label_5 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_5.Add(label_5, 0, 0, 0)
 
-		self.spin_ctrl_3 = wx.SpinCtrl(self, wx.ID_ANY, "1", min=2000, max=2070)
+		self.spin_ctrl_3 = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1300, max=2070)
 		self.spin_ctrl_3.SetValue(int(self.currentYear))
 		sizer_5.Add(self.spin_ctrl_3, 0, 0, 0)
 
@@ -123,7 +147,6 @@ class dlgRepeat(wx.Dialog):
 		self.SetSizer(sizer_1)
 		sizer_1.Fit(self)
 
-		# self.SetAffirmativeId(self.button_OK.GetId())
 		self.SetEscapeId(self.button_CANCEL.GetId())
 
 		self.Layout()
@@ -165,25 +188,44 @@ class dlgRepeat(wx.Dialog):
 		self.onChangedDate(self)
 
 	def onChangedDate (self, event):
-		from . varsConfig import months, weekDays, maxDayMonth
+		from . varsConfig import months, persianMonths, weekDays, maxDayMonth
+		from .configPanel import calendarToUse
 		# Gets the date fields to make the search
 		yearToSearch = str(self.spin_ctrl_3.GetValue())
 		monthToSearchStr = self.ComboMonth.GetValue()
-		monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+		if calendarToUse == _("Gregorian (Default)"):
+			if monthToSearchStr in months:
+				monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+			elif monthToSearchStr in persianMonths:
+				monthToSearch = '%02d' % (12 - persianMonths.index(monthToSearchStr))
+		elif calendarToUse == _("Persian"):
+			if monthToSearchStr in persianMonths:
+				monthToSearch = '%02d' % (12 - persianMonths.index(monthToSearchStr))
+			elif monthToSearchStr in months:
+				monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
 		# Gets the maximum days of the month
 		year = int(yearToSearch)
-		month = 12-months.index(monthToSearchStr)
+		month = int(monthToSearch)
 		dayMax = maxDayMonth(year, month)
 		self.spin_ctrl_2.SetRange(1, dayMax)
 
 		endYear = str(self.spin_ctrl_3.GetValue())
 		monthToSearchStr = self.ComboMonth.GetValue()
-		endMonth = '%02d' % (12-months.index(monthToSearchStr))
+		if calendarToUse == _("Gregorian (Default)"):
+			endMonth = '%02d' % (12-months.index(monthToSearchStr))
+		else:
+			endMonth = '%02d' % (12-persianMonths.index(monthToSearchStr))
 		endDay = str(self.spin_ctrl_2.GetValue())
 		endDate = datetime.datetime.strptime(endDay+'/'+endMonth+'/'+endYear, '%d/%m/%Y').date()
-
 		# Gets the week day
 		currentWeek = weekDays[datetime.date (int(endYear), int(endMonth), int(endDay)).weekday()]
+		if str(endDate).startswith("14"):
+			Date = str(endDate).split("-")
+			gregorianDate = persian.to_gregorian(int(Date[0]), int(Date[1]), int(Date[2]))
+			endDate = datetime.datetime.strptime(str("%02d" % (gregorianDate[2])) +'/'+ str("%02d" % (gregorianDate[1])) +'/'+ str(gregorianDate[0]), '%d/%m/%Y').date()
+
+			# Gets the week day
+			currentWeek = weekDays[datetime.date (int(endYear), int(endMonth), int(endDay)+1).weekday()]
 		# Update the weekDay field
 		self.text_ctrl_1.SetValue(currentWeek)
 
@@ -191,6 +233,10 @@ class dlgRepeat(wx.Dialog):
 		monthStr = '%02d' % self.currentMonth
 		dayStr = '%02d' % self.currentDay
 		startDate = datetime.datetime.strptime(dayStr+'/'+monthStr+'/'+yearStr, '%d/%m/%Y').date()
+		if str(startDate).startswith("14"):  
+			Date = str(startDate).split("-")
+			gregorianDate = persian.to_gregorian(int(Date[0]), int(Date[1]), int(Date[2]))
+			startDate = datetime.datetime.strptime(str("%02d" % (gregorianDate[2])) +'/'+ str("%02d" % (gregorianDate[1])) +'/'+ str(gregorianDate[0]), '%d/%m/%Y').date()
 
 		if endDate<startDate:
 			dlg = wx.MessageDialog(None, _("Your final date is oldest your inicial date."), _("Incorrect date interval"), wx.OK).ShowModal()
@@ -215,7 +261,8 @@ class dlgRepeat(wx.Dialog):
 			self.spin_ctrl_1.SetValue(occurs)
 
 	def onChangedQuantity(self, event):
-		from . varsConfig import months, weekDays
+		from . varsConfig import months, persianMonths, weekDays
+		from .configPanel import calendarToUse
 		typeRepeat = self.choice_1.GetSelection()
 		day = int(self.currentDay)
 		month = int(self.currentMonth)
@@ -237,7 +284,10 @@ class dlgRepeat(wx.Dialog):
 				monthQtt = month
 				yearAdd = occurs
 			# set combo month and spin year based on occurs value
-			self.ComboMonth.SetValue(months[12-monthQtt])
+			if calendarToUse == _("Gregorian (Default)"):
+				self.ComboMonth.SetValue(months[12-monthQtt])
+			elif calendarToUse == _("Persian"):
+				self.ComboMonth.SetValue(persianMonths[12 - monthQtt])
 			self.spin_ctrl_3.SetValue(year+yearAdd)
 			if "." in str(year+yearAdd):
 				yearStr = str(year+yearAdd).split(".")[0]
@@ -260,14 +310,25 @@ class dlgRepeat(wx.Dialog):
 				finalDate = initialDate + datetime.timedelta(days=+(occurs*14))
 			finalDateStr = str(finalDate)
 			self.spin_ctrl_2.SetValue(int(finalDateStr[8:10]))
-			self.ComboMonth.SetValue(months[12-int(finalDateStr[5:7])])
+			if calendarToUse == _("Gregorian (Default)"):
+				self.ComboMonth.SetValue(months[12-int(finalDateStr[5:7])])
+			elif calendarToUse == _("Persian"):
+				self.ComboMonth.SetValue(persianMonths[12-int(finalDateStr[5:7])])
 			self.spin_ctrl_3.SetValue(int(finalDateStr[0:4]))
-		# elif typeRepeat==0:
-			# pass
 		# Gets the week day
-		currentWeek = weekDays[datetime.date (int(finalDateStr[:4]), int(finalDateStr[5:7]), int(finalDateStr[8:10])).weekday()]
+		if int(finalDateStr[:4]) < 1500:
+			currentWeek = weekDays[datetime.date (int(finalDateStr[:4]), int(finalDateStr[5:7]), int(finalDateStr[8:10])+1).weekday()]
+		else:
+			currentWeek = weekDays[datetime.date (int(finalDateStr[:4]), int(finalDateStr[5:7]), int(finalDateStr[8:10])).weekday()]
 		# Update the weekDay field
 		self.text_ctrl_1.SetValue(currentWeek)
+		# Change persian date to gregorian date
+		Date = str(initialDate).split("-")
+		gregorianDate = persian.to_gregorian(int(Date[0]), int(Date[1]), int(Date[2]))
+		initialDate = datetime.datetime.strptime(str("%02d" % (gregorianDate[2])) +'/'+ str("%02d" % (gregorianDate[1])) +'/'+ str(gregorianDate[0]), '%d/%m/%Y').date()
+		Date = str(finalDate).split("-")
+		gregorianDate = persian.to_gregorian(int(Date[0]), int(Date[1]), int(Date[2]))
+		finalDate = datetime.datetime.strptime(str("%02d" % (gregorianDate[2])) +'/'+ str("%02d" % (gregorianDate[1])) +'/'+ str(gregorianDate[0]), '%d/%m/%Y').date()
 
 	def onChangedChoice (self, event):
 		if  self.choice_1.GetSelection()>0:
@@ -282,7 +343,6 @@ class dlgRepeat(wx.Dialog):
 			self.text_ctrl_1.Hide()
 
 	def onCheckboxUpdate (self, event):
-		from . varsConfig import months, weekDays
 		flagChecked = self.checkbox_1.GetValue()
 		if flagChecked:
 			self.spin_ctrl_1.Show()
@@ -298,17 +358,29 @@ class dlgRepeat(wx.Dialog):
 			self.text_ctrl_1.Hide()
 
 	def onOk (self,event):
-		from . varsConfig import months, weekDays
+		from . varsConfig import months, persianMonths, weekDays
+		from .configPanel import calendarToUse
 		checkEternal = self.checkbox_1.GetValue()
 		self.eventInfo.typeRepeat = self.choice_1.GetSelection()
 		if checkEternal:
 			year = str(self.spin_ctrl_3.GetValue())
 			monthToSearchStr = self.ComboMonth.GetValue()
-			month = '%02d' % (12-months.index(monthToSearchStr))
+			if calendarToUse == _("Gregorian (Default)"):
+				month = '%02d' % (12-months.index(monthToSearchStr))
+			elif calendarToUse == _("Persian"):
+				month = '%02d' % (12 - persianMonths.index(monthToSearchStr))
 			day  = '%02d' % self.spin_ctrl_2.GetValue()
 			hour = '%02d' % (int((self.register%10000)/100))
 			minutes = '%02d' % (int(self.register%100))
 			self.eventInfo.finalDate = int(year+month+day+hour+minutes)
+			if self.eventInfo.finalDate < 150000000000:
+				gregorianDate = persian.to_gregorian(int(year), int(month), int(day))
+				self.currentYear1 = str(gregorianDate[0])
+				self.currentMonth1 = str("%02d" % gregorianDate[1])
+				self.currentDay1 = str("%02d" % gregorianDate[2])
+				self.hour = str(self.register)[8:]
+				self.eventInfo.finalDate = int(self.currentYear1 + self.currentMonth1 + self.currentDay1 + self.hour)
+
 		else:
 			self.eventInfo.finalDate = 300000000000
 		event.Skip()

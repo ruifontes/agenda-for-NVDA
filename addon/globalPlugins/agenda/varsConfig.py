@@ -16,9 +16,12 @@ from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
 from gui import guiHelper
 import core
 import config
+import glob
 import addonHandler
 from .manageDatabase import *
 from .nextAppointments import nextAppointments
+from .convertdate import persian
+
 # To start translation process
 addonHandler.initTranslation()
 
@@ -31,6 +34,10 @@ def initConfiguration():
 	confspec = {
 		"show" : "boolean(default=True)",
 		"days" : "integer(1, 30, default=1)",
+		"alarmSoundToUse" : "string(default="")",
+		"playSound" : "boolean(default=False)",
+		"soundToUse" : "string(default="")",
+		"calendar" : "string(default="")",
 		"path" : "string(default="")",
 		"altPath" : "string(default="")",
 		"xx" : "string(default="")",
@@ -40,27 +47,54 @@ def initConfiguration():
 initConfiguration()
 
 # Global variables
+calendars = [_("Gregorian (Default)"), _("Persian")]
 months = [_("December"), _("November"), _("October"), _("September"), _("August"), _("July"), _("June"), _("May"), _("April"), _("March"), _("February"), _("January")]
+persianMonths = [_("Esfand"), _("Bahman"), _("Dey"), _("Azar"), _("Aban"), _("Mehr"), _("Shahrivar"), _("Mordad"), _("Tir"), _("Khordad"), _("Ordibehesht"), _("Farvardin")]
 weekDays = [_("Monday"), _("tuesday"), _("Wednesday"), _("Thursday"), _("Friday"), _("Saturday"), _("Sunday")]
 frequency = [_('None'), _("Daily"), _("Weekly"), _("Biweekly"), _("Monthly"), _("Twomonthly"), _("Threemontly"), _("Fourmontly"), _("Sixmonthly"), _("Anualy")]
 flagAlarmDayAfter = False if config.conf[ourAddon.name]["show"] else True
 flagPauseAlarm=False
 endAlarms = False
 dictNextAlarms={}
+PluginDir = os.path.join(addonHandler.getCodeAddon().path, "globalPlugins", "agenda")
+SoundsDir = os.path.join(PluginDir, "sounds")
+soundsList = [os.path.split(path)[-1] for path in glob.glob(os.path.join(SoundsDir, '*.wav'))]
 
 # Gets the maximum day of the month passed to the function
 def maxDayMonth(year, month):
+	from . configPanel import calendarToUse
 	dayMax =0
-	if month in [1, 3, 5, 7, 8, 10, 12]:
-		dayMax=31
-	elif month in [4, 6, 9, 11]:
-		dayMax=30
-	else:
-		if (year/4)==(year//4) and (year/100)!=(year//100):
-			dayMax=29
-		else:	 
-			dayMax=28
-	return dayMax
+	if calendarToUse == _("Gregorian (Default)"):
+		if month in [1, 3, 5, 7, 8, 10, 12]:
+			dayMax=31
+		elif month in [4, 6, 9, 11]:
+			dayMax=30
+		else:
+			if (year/4)==(year//4) and (year/100)!=(year//100):
+				dayMax=29
+			else:	 
+				dayMax=28
+		return dayMax
+	elif calendarToUse == _("Persian"):
+		if month in [1, 2, 3, 4, 5, 6]:
+			dayMax=31
+		elif month in [7, 8, 9, 10, 11]:
+			dayMax=30
+		else:
+			if persian.leap(year):
+				dayMax=30
+			else:	 
+				dayMax=29
+		return dayMax
+
+# Adjust the week day to be correct in persian calendar
+def gregorianWeekDayToPersian(day):
+				weekDay = day
+				persianWeekDay = weekDays.index(weekDay)+1
+				if persianWeekDay == 7:
+					persianWeekDay = 0
+				persianWeekDay = weekDays[persianWeekDay]
+				return persianWeekDay
 
 def threadAlarm ():
 	global dictNextAlarms
@@ -140,15 +174,17 @@ def threadAlarm ():
 
 					# If we have a title, we have an alarm, so show the message
 					if len(titleAlarm)>0:
-						print(titleAlarm)
-						ringFile = os.path.join(os.path.dirname(__file__), "ringin.wav")
+						from . configPanel import alarmSoundToUse
+						ringFile = os.path.join(os.path.dirname(__file__), "sounds", alarmSoundToUse)
 						winsound.PlaySound(ringFile, winsound.SND_FILENAME|winsound.SND_ASYNC)
+
 						dlg = wx.MessageDialog(None, msgAlarm + dictNextAlarms[dictLine][0], titleAlarm, wx.OK)
 						dlg.ShowModal() 
 						dlg.Destroy()
 			# if flagOneDay was set
 			if len(msgAlarm1) != 0:
-				ringFile = os.path.join(os.path.dirname(__file__), "ringin.wav")
+				from . configPanel import alarmSoundToUse
+				ringFile = os.path.join(os.path.dirname(__file__), "sounds", alarmSoundToUse)
 				winsound.PlaySound(ringFile, winsound.SND_FILENAME|winsound.SND_ASYNC)
 				dlg = wx.MessageDialog(None, msgAlarm1, _("Reminder!"), wx.OK)
 				dlg.ShowModal() 

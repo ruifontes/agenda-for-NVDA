@@ -10,6 +10,7 @@ from . configPanel import *
 from . varsConfig import *
 from .eventRepeat import dlgRepeat
 from .alarmsCheck import CheckAlarms
+from .convertdate import persian
 
 # To start the translation process
 addonHandler.initTranslation()
@@ -21,9 +22,9 @@ class DlgAddEdit(wx.Dialog):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
 
-		self.globalVars = generalVars
 		self.titleAddEd = generalVars.titleAddEd
 		self.itemToEdit = generalVars.itemToEdit
+
 		self.scrollDay = None
 
 		self.exitType="Normal"
@@ -44,17 +45,21 @@ class DlgAddEdit(wx.Dialog):
 		self.spinDay = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1, max=31)
 		sizer_3.Add(self.spinDay, 0, 0, 0)
 
-		from .varsConfig import months
+		from .varsConfig import months, persianMonths
+		from .configPanel import calendarToUse
 		# Translators: ComboBox name in the configuration dialog
 		label_5 = wx.StaticText(self, wx.ID_ANY, _("Month:"))
 		sizer_3.Add(label_5, 0, 0, 0)
-		self.comboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months, style=wx.CB_DROPDOWN|wx.CB_READONLY)
+		if calendarToUse == _("Gregorian (Default)"):
+			self.comboMonth = wx.ComboBox(self, wx.ID_ANY, choices = months, style=wx.CB_DROPDOWN|wx.CB_READONLY)
+		elif calendarToUse == _("Persian"):
+			self.comboMonth = wx.ComboBox(self, wx.ID_ANY, choices = persianMonths, style=wx.CB_DROPDOWN|wx.CB_READONLY)
 		sizer_3.Add(self.comboMonth, 0, 0, 0)
 
 		# Translators: EditComboBox name in the configuration dialog
 		label_6 = wx.StaticText(self, wx.ID_ANY, _("Year:"))
 		sizer_3.Add(label_6, 0, 0, 0)
-		self.spinYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1970, max=2050)
+		self.spinYear = wx.SpinCtrl(self, wx.ID_ANY, "1970", min=1300, max=2050)
 		sizer_3.Add(self.spinYear, 0, 0, 0)
 
 		# Translators: ReadOnly text field name in the configuration dialog
@@ -119,6 +124,11 @@ class DlgAddEdit(wx.Dialog):
 		self.currentMonth = str(self.itemToEdit)[4:6]
 		self.currentDay = str(self.itemToEdit)[6:8]
 		self.itemToEditStr = str(self.itemToEdit)
+		if calendarToUse == _("Persian"):
+			persianDate = persian.from_gregorian(int(self.itemToEditStr[:4]), int(self.itemToEditStr[4:6]), int(self.itemToEditStr[6:8]))
+			self.currentYear = str(persianDate[0])
+			self.currentMonth = str('%02d' % (persianDate[1]))
+			self.currentDay = str('%02d' % (persianDate[2]))
 
 		from . varsConfig import eventRepeatInfo
 		self.eventRepeatData = eventRepeatInfo()
@@ -129,7 +139,6 @@ class DlgAddEdit(wx.Dialog):
 			self.currentHour = self.now[11:13]
 			self.currentMinute = self.now[14:16]
 			# correct the variable with the received date from the class, if necessary
-			self.itemToEditStr = self.currentYear + self.currentMonth + self.currentDay + self.currentHour + self.currentMinute
 			self.itemToEdit = int(self.itemToEditStr)
 
 			# Store informations about description and alarms fields to check if they were changed
@@ -146,18 +155,28 @@ class DlgAddEdit(wx.Dialog):
 			self.currentMinute = self.itemToEditStr[10:12]
 			# correct the variable with the date received from class call, if necessary
 			self.itemToEditStr = self.currentYear + self.currentMonth + self.currentDay + self.currentHour + self.currentMinute
+			if calendarToUse == _("Persian"):
+				gregorianDate = persian.to_gregorian(int(self.currentYear), int(self.currentMonth), int(self.currentDay))
+				self.currentYear = str(gregorianDate[0])
+				self.currentMonth = str('%02d' % (gregorianDate[1]))
+				self.currentDay = str('%02d' % (gregorianDate[2]))
+				self.itemToEditStr = self.currentYear + self.currentMonth + self.currentDay + self.currentHour + self.currentMinute
 			self.itemToEdit = int(self.itemToEditStr)
-
 			# As we are Editing, loads from database the selected details of selected item
 			# Conecting to database
 			from .configPanel import dirDatabase
 			what = "*"
-			find = "data= " + str(self.itemToEdit)
+			find = "data= " + self.itemToEditStr
 			occurs = manageDatabase.findItem(what, find, dirDatabase, all=False)
 			self.eventRepeatData.register=self.itemToEdit
 			manageDatabase.findRepeat(self.eventRepeatData, dirDatabase)
-			self.currentDateStr = str(self.itemToEdit)
-			self.weekDay.SetValue(occurs[1])
+			self.currentDateStr = self.itemToEditStr
+			if calendarToUse == _("Gregorian (Default)"):
+				self.weekDay.SetValue(occurs[1])
+			elif calendarToUse == _("Persian"):
+				from .varsConfig import gregorianWeekDayToPersian
+				persianWeekDay = gregorianWeekDayToPersian(occurs[1])
+				self.weekDay.SetValue(persianWeekDay)
 			self.description.SetValue(occurs[2])
 			self.alarmValues.checkOneDay = (True if occurs[3] else False) 
 			self.alarmValues.checkOneHour = (True if occurs[4] else False)
@@ -181,6 +200,11 @@ class DlgAddEdit(wx.Dialog):
 		self.spinMinutes.SetValue(int(self.currentMinute))
 
 		# Records the current date in the database search format
+		if calendarToUse == _("Persian"):
+			gregorianDate = persian.to_gregorian(int(self.currentYear), int(self.currentMonth), int(self.currentDay))
+			self.currentYear = str(gregorianDate[0])
+			self.currentMonth = str('%02d' % (gregorianDate[1]))
+			self.currentDay = str('%02d' % (gregorianDate[2]))
 		self.currentDate = int(self.currentYear + self.currentMonth + self.currentDay+ self.currentHour + self.currentMinute)
 
 		# Create Ctrl+Enter keystroke
@@ -208,6 +232,10 @@ class DlgAddEdit(wx.Dialog):
 		# Update the weekDay field
 		self.weekDay.SetValue(self.currentWeek)
 		self.weekToSave = self.currentWeek
+		if calendarToUse == _("Persian"):
+			from .varsConfig import gregorianWeekDayToPersian
+			persianWeekDay = gregorianWeekDayToPersian(self.currentWeek)
+			self.weekDay.SetValue(persianWeekDay)
 
 	def update(self, event):
 		# Just to avoid the event
@@ -215,29 +243,48 @@ class DlgAddEdit(wx.Dialog):
 
 	def updateData(self):
 		# Gets the date fields to make the search
-		from . varsConfig import months, maxDayMonth, weekDays
+		from . varsConfig import months, persianMonths, maxDayMonth, weekDays
+		from .configPanel import calendarToUse
 		yearToSearch = str(self.spinYear.GetValue())
 		monthToSearchStr = self.comboMonth.GetValue()
-		monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+		if calendarToUse == _("Gregorian (Default)"):
+			monthToSearch = '%02d' % (12-months.index(monthToSearchStr))
+		elif calendarToUse == _("Persian"):
+			monthToSearch = '%02d' % (12-persianMonths.index(monthToSearchStr))
 		# Gets the maximum days of the month
 		year = self.spinYear.GetValue()
-		month = 12-months.index(monthToSearchStr)
+		if calendarToUse == _("Gregorian (Default)"):
+			month = 12-months.index(monthToSearchStr)
+		elif calendarToUse == _("Persian"):
+			month = 12-persianMonths.index(monthToSearchStr)
 		dayMax = maxDayMonth(year, month)
-
 		self.spinDay.SetRange(1, dayMax)
 		dayToSearch = '%02d' % self.spinDay.GetValue()
 		hourToSearch = '%02d' % self.spinHour.GetValue()
 		minuteToSearch = '%02d' % self.spinMinutes.GetValue()
-
 		dateToSearch = int(yearToSearch + monthToSearch + dayToSearch + hourToSearch + minuteToSearch)
-
-		#Gets the week day
-		# weekToSearch = weekDays[datetime.date (int(self.currentYear), int(self.currentMonth), int(self.currentDay)) .weekday ()]
-		weekToSearch = weekDays[datetime.date (int(yearToSearch), int(monthToSearch), int(dayToSearch)) .weekday ()]
-
-		# Update weekday field
+		# Gets the week day
+		weekToSearch = weekDays[datetime.date(int(yearToSearch), int(monthToSearch), int(dayToSearch)).weekday()]
+		if calendarToUse == _("Persian"):
+			from .varsConfig import gregorianWeekDayToPersian
+			persianWeekDay = gregorianWeekDayToPersian(weekToSearch)
+			weekToSearch = persianWeekDay
 		self.weekDay.SetValue(weekToSearch)
-		weekToSearch = weekDays[datetime.date (int(yearToSearch), int(monthToSearch), int(dayToSearch)) .weekday ()]
+
+		if calendarToUse == _("Persian") and (dateToSearch > 150000000000):
+			persianDate = persian.from_gregorian(int(yearToSearch), int(monthToSearch), int(dayToSearch))
+			yearToSearch = str(persianDate[0])
+			self.spinYear.SetValue(yearToSearch)
+			monthToSearch = persianDate[1]
+			monthToSearchStr = persianMonths[12-monthToSearch]
+			self.comboMonth.SetSelection(12-monthToSearch)
+			# Gets the maximum days of the month
+			year = persianDate[0]
+			month = int(monthToSearch)
+			dayMax = maxDayMonth(year, month)
+			self.spinDay.SetRange(1, dayMax)
+			dayToSearch = '%02d' % persianDate[2]
+			self.spinDay.SetValue(dayToSearch)
 
 		# If date was changed, search in database for items on this date, if the class be instanced as Add
 		if self.titleAddEd == _("Add"):
@@ -262,21 +309,36 @@ class DlgAddEdit(wx.Dialog):
 				self.alarmValues.checkExactTime = False
 
 	def OnPeriodicity (self, event):
-		from . varsConfig import months, weekDays
+		from . varsConfig import months, persianMonths
+		from .configPanel import calendarToUse
 		if self.titleAddEd == _("Edit"):
-			self.eventRepeatData.register= self.itemToEdit
+			self.eventRepeatData.register = self.itemToEdit
 			originalTypeRepeat = self.eventRepeatData.typeRepeat
 			originalFinalDate = self.eventRepeatData.finalDate
+			if 100000000000 < originalFinalDate < 150000000000:
+				gregorianDate = persian.to_gregorian(int(str(originalFinalDate)[:4]), int(str(originalFinalDate)[4:6]), int(str(originalFinalDate)[6:8]))
+				originalFinalDate = int(str(gregorianDate[0]) + str("%02d" % gregorianDate[1]) + str("%02d" % gregorianDate[2]) + str(originalFinalDate)[8:])
 		else:
 			originalTypeRepeat = -1
 			originalFinalDate = 0
 			yearStr = str(self.spinYear.GetValue())
 			monthToStr = self.comboMonth.GetValue()
-			monthStr = '%02d' % (12-months.index(monthToStr))
+			if calendarToUse == _("Gregorian (Default)"):
+				monthStr = '%02d' % (12-months.index(monthToStr))
+			elif calendarToUse == _("Persian"):
+				monthStr = '%02d' % (12-persianMonths.index(monthToStr))
 			dayStr = '%02d' % self.spinDay.GetValue()
 			hourStr = '%02d' % self.spinHour.GetValue()
 			minutesStr = '%02d' % self.spinMinutes.GetValue()
 			repeatToFind = int(yearStr+monthStr+dayStr+hourStr+minutesStr)
+			if repeatToFind < 150000000000:
+				gregorianDate = persian.to_gregorian(int(yearStr), int(monthStr), int(dayStr))
+				self.currentYear1 = str(gregorianDate[0])
+				self.currentMonth1 = str("%02d" % gregorianDate[1])
+				self.currentDay1 = str("%02d" % gregorianDate[2])
+				self.hour = str(repeatToFind )[8:]
+				repeatToFind  = int(self.currentYear1 + self.currentMonth1 + self.currentDay1 + self.hour)
+
 			self.eventRepeatData.register= repeatToFind
 		self.eventRepeatData.dirDatabase=dirDatabase
 
@@ -305,46 +367,53 @@ class DlgAddEdit(wx.Dialog):
 		self.changesEnd()
 
 	def changesEnd(self):
-		from . varsConfig import generalVars, months, maxDayMonth, weekDays
+		from . varsConfig import generalVars, months, persianMonths, maxDayMonth, weekDays
+		from .configPanel import calendarToUse
 		# signals wich exit type
 		self.exitType = "OK"
 		# Gets date and hour fields to add to database
 		self.yearToSave = str(self.spinYear.GetValue())
 		self.monthToSaveStr = self.comboMonth.GetValue()
-		self.monthToSave = '%02d' % (12-months.index(self.monthToSaveStr))
+		if calendarToUse == _("Gregorian (Default)"):
+			self.monthToSave = '%02d' % (12-months.index(self.monthToSaveStr))
+		elif calendarToUse == _("Persian"):
+			self.monthToSave = '%02d' % (12-persianMonths.index(self.monthToSaveStr))
 		self.dayToSave = '%02d' % self.spinDay.GetValue()
 		self.hourToSave = '%02d' % self.spinHour.GetValue()
 		self.minuteToSave = '%02d' % self.spinMinutes.GetValue()
-
 		# Stores date and hour in a single field
 		self.dateToSave = int(self.yearToSave + self.monthToSave + self.dayToSave + self.hourToSave + self.minuteToSave)
-
+		if self.dateToSave < 150000000000:
+				gregorianDate = persian.to_gregorian(int(self.yearToSave), int(self.monthToSave), int(self.dayToSave))
+				self.dateToSave = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + self.hourToSave + self.minuteToSave)
 		# Gets the weekday field
 		self.weekToSave = self.weekDay.GetValue()
-
 		# Gets the description field
 		self.descriptionToSave = self.description.GetValue()
 		if len(self.descriptionToSave) == 0 or self.descriptionToSave.isspace():
 			# If description field is blank and  option is Edit, means user deleted the appointement informations. Check if date keeps the same
-			if self.titleAddEd == _("Edit") and self.dateToSave == self.itemToEdit:
-				dlg = wx.MessageDialog( self, _("You have deleted the appointment description. Do you want to delete the appointment?"), _("Agenda"), wx.YES_NO)
-				if dlg.ShowModal()==wx.ID_YES: 
-					# Conecting to database
-					from .configPanel import dirDatabase
-					manageDatabase.removeItem(self.dateToSave, dirDatabase)
-					manageDatabase.removeRepeat(self.dateToSave, dirDatabase)
+			dlg = wx.MessageDialog( self, _("You have deleted the appointment description. Do you want to delete the appointment?"), _("Agenda"), wx.YES_NO)
+			if dlg.ShowModal()==wx.ID_YES: 
+				# Conecting to database
+				from .configPanel import dirDatabase
+				manageDatabase.removeItem(self.dateToSave, dirDatabase)
+				manageDatabase.removeRepeat(self.dateToSave, dirDatabase)
 
-					dlg2 = wx.MessageDialog( self, _("Appointment removed successfully!"), _("Agenda"), wx.OK)
-					dlg2.ShowModal()
-					dlg2.Destroy()
-					self.Close()
-					dlg.Destroy()
-					generalVars.loadAlarms = True
-					return
-				else:
-					dlg.Destroy()
-					return
+				dlg2 = wx.MessageDialog( self, _("Appointment removed successfully!"), _("Agenda"), wx.OK)
+				dlg2.ShowModal()
+				dlg2.Destroy()
+				self.Close()
+				dlg.Destroy()
+				generalVars.loadAlarms = True
+				return
+			else:
+				dlg.Destroy()
+				return
 			# If option is Edit and original date is different from present date fields avoid edition.
+			if self.dateToSave < 150000000000:
+				gregorianDate = persian.to_gregorian(int(self.yearToSave), int(self.monthToSave), int(self.dayToSave))
+				self.dateToSave = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + self.hourToSave + self.minutesToSave)
+
 			if self.titleAddEd == _("Edit") and self.dateToSave != self.itemToEdit:
 				dlg = wx.MessageDialog( self, _("You have deleted the description and changed the date.\nIf you want to add a new appointment, press the Add button on main or search windows\nIf you want to delete an appointment, go to main or search windows, select the appointment and choose the remove button"), _("Agenda"), wx.OK)
 				dlg.ShowModal() 
@@ -371,6 +440,9 @@ class DlgAddEdit(wx.Dialog):
 		if self.alarmOneDay or self.alarmOneHour or self.alarm30Minutes or self.alarm15Minutes:
 			self.alarmHourExact = True
 
+		if self.dateToSave < 150000000000:
+			gregorianDate = persian.to_gregorian(int(self.yearToSave), int(self.monthToSave), int(self.dayToSave))
+			self.dateToSave = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + self.hourToSave + self.minutesToSave)
 		# Check if exists any appointement for this date and hour. If exist ask if it is to update
 		# Conecting to database
 		from .configPanel import dirDatabase
@@ -415,6 +487,9 @@ class DlgAddEdit(wx.Dialog):
 			dlg.Destroy()
 			generalVars.loadAlarms = True
 		else:
+			if self.dateToSave < 150000000000:
+				gregorianDate = persian.to_gregorian(int(self.yearToSave), int(self.monthToSave), int(self.dayToSave))
+				self.dateToSave = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + self.hourToSave + self.minutesToSave)
 			# Conecting to database
 			from .configPanel import dirDatabase
 			dbAgenda = sqlite3.connect(dirDatabase)
@@ -437,6 +512,10 @@ class DlgAddEdit(wx.Dialog):
 			self.Destroy()
 			generalVars.loadAlarms = True
 			# If we are editing and the date or hour are different from saved, remove the old record
+			if self.dateToSave < 150000000000:
+				gregorianDate = persian.to_gregorian(int(self.yearToSave), int(self.monthToSave), int(self.dayToSave))
+				self.dateToSave = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + self.hourToSave + self.minutesToSave)
+
 			if self.titleAddEd == _("Edit") and self.dateToSave != self.itemToEdit: 
 				# Conecting to database
 				from .configPanel import dirDatabase
@@ -454,17 +533,23 @@ class DlgAddEdit(wx.Dialog):
 			return
 			event.Skip()
 		else:
-			from . varsConfig import months
+			from . varsConfig import months, persianMonths
+			from .configPanel import calendarToUse
 			# Get the date and hour fields to add to database
 			self.yearToSave = str(self.spinYear.GetValue())
 			self.monthToSaveStr = self.comboMonth.GetValue()
-			self.monthToSave = '%02d' % (12-months.index(self.monthToSaveStr))
+			if calendarToUse == _("Gregorian (Default)"):
+				self.monthToSave = '%02d' % (12-months.index(self.monthToSaveStr))
+			elif calendarToUse == _("Persian"):
+				self.monthToSave = '%02d' % (12 - persianMonths.index(self.monthToSaveStr))
 			self.dayToSave = '%02d' % self.spinDay.GetValue()
 			self.hourToSave = '%02d' % self.spinHour.GetValue()
 			self.minutesToSave = '%02d' % self.spinMinutes.GetValue()
-
 			# Stores date and hour in a single string field
 			self.dateToSave = int(self.yearToSave + self.monthToSave + self.dayToSave + self.hourToSave + self.minutesToSave)
+			if self.dateToSave < 150000000000:
+				gregorianDate = persian.to_gregorian(int(self.yearToSave), int(self.monthToSave), int(self.dayToSave))
+				self.dateToSave = int(str(gregorianDate[0]) + str('%02d' % gregorianDate[1]) + str('%02d' % gregorianDate[2]) + self.hourToSave + self.minutesToSave)
 
 			# Start checking for changes
 			flagIsChanged =(self.dateToSave !=self.itemToEdit) 

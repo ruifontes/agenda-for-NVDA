@@ -3,7 +3,7 @@
 
 ## bilgiler
 * Yazarlar: Abel Passos, Ângelo Abrantes ve Rui Fontes
-* Güncelleme: 10.08.2023
+* Güncelleme: 01.09.2023
 * [Kararlı sürümü indirin][1]
 * Uyumluluk: NVDA sürüm 2019.3 ve sonrası
 
@@ -81,4 +81,4 @@ Ayrıca, Düzenle işlevinde, seçilen randevu verileri değişiklik için pence
 * Tümünü kaldır (Alt+T): Görüntülenen tüm randevuları siler;
 * İptal düğmesi (Alt+L): arama penceresini kapatır ve ana pencereye döner.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.08.10/agenda-2023.08.10.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.02/agenda-2023.09.02.nvda-addon

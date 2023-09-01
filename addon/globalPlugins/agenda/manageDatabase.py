@@ -220,7 +220,6 @@ class manageDatabase():
 				# # logDebug('Data retornada: {0}'.format(date1))
 				return date1
 
-			print(str(occurs))
 			for register in occurs:
 				# calculate all occurrences for periodicity
 				qtt = occurrencesToDateInterval(register[0], endDateInt, register[1])
@@ -231,22 +230,18 @@ class manageDatabase():
 					for dateOccurs in range(1, qtt+1):
 						# calculate all dates on a periodic event
 						if register[1]==1:
-							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa diária.')
 							nextEvent  = startPeriodic + datetime.timedelta(days=+dateOccurs)
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]==2:
-							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa semanal.')
 							nextEvent  = startPeriodic+ datetime.timedelta(days=+(dateOccurs*7))
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]==3:
-							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa quinzenal.')
 							nextEvent  = startPeriodic + datetime.timedelta(days=+(dateOccurs*14))
 							periodicDate  = int(datetime.datetime.strftime(nextEvent, '%Y%m%d')+eventTimeStr)
 						elif register[1]>=4 and register[1]<=7:
-							print("nº ocorrências = " + str(dateOccurs))
 							sd = str(sDate)
 							dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
 							# logDebug('Data inicial: {0};\ndateOccurs: {1};\nregistro: {2}'.format(dateToExame, dateOccurs, register[1]))
@@ -255,11 +250,9 @@ class manageDatabase():
 							dateToExame = datetime.datetime.strptime(sd[6:8]+'/'+sd[4:6]+'/'+sd[:4]+' '+sd[8:10]+':'+sd[10:12], '%d/%m/%Y %H:%M')
 							# logDebug('Data processada: %s' % (dateToExame))
 						elif register[1]==8:
-							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa semestral.')
 							periodicDate = correctDate(sDate, (dateOccurs*6))
 						elif register[1]==9:
-							print("nº ocorrências = " + str(dateOccurs))
 							# logDebug('Pesquisa anual.')
 							periodicDate = correctDate(sDate, (dateOccurs*12))
 						# logDebug('periodicDate: {0}'.format(periodicDate))

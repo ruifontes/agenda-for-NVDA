@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ajanda 2023.05.13\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2023-08-10 02:14+0100\n"
-"PO-Revision-Date: 2023-08-10 02:26+0100\n"
+"POT-Creation-Date: 2023-08-29 18:21+0100\n"
+"PO-Revision-Date: 2023-08-29 20:07+0100\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
@@ -16,8 +16,8 @@ msgstr ""
 
 #. Translators: EditComboBox name in the configuration dialog
 #. Translators: Field to select the day
-#: addon\globalPlugins\agenda\DlgAddEdit.py:42
-#: addon\globalPlugins\agenda\__init__.py:117
+#: addon\globalPlugins\agenda\DlgAddEdit.py:43
+#: addon\globalPlugins\agenda\__init__.py:130
 msgid "Day:"
 msgstr "Gün:"
 
@@ -26,77 +26,145 @@ msgstr "Gün:"
 #. Translators: Group label to the end date
 #. Translators: month of initial date
 #. Translators: Month of final date
-#: addon\globalPlugins\agenda\DlgAddEdit.py:49
-#: addon\globalPlugins\agenda\__init__.py:124
-#: addon\globalPlugins\agenda\eventRepeat.py:91
+#: addon\globalPlugins\agenda\DlgAddEdit.py:51
+#: addon\globalPlugins\agenda\__init__.py:137
+#: addon\globalPlugins\agenda\eventRepeat.py:112
 #: addon\globalPlugins\agenda\searchWindow.py:67
 #: addon\globalPlugins\agenda\searchWindow.py:94
 msgid "Month:"
 msgstr "Ay:"
+
+#. set combo month and spin year based on occurs value
+#. Global variables
+#: addon\globalPlugins\agenda\DlgAddEdit.py:53
+#: addon\globalPlugins\agenda\DlgAddEdit.py:174
+#: addon\globalPlugins\agenda\DlgAddEdit.py:250
+#: addon\globalPlugins\agenda\DlgAddEdit.py:256
+#: addon\globalPlugins\agenda\DlgAddEdit.py:326
+#: addon\globalPlugins\agenda\DlgAddEdit.py:377
+#: addon\globalPlugins\agenda\DlgAddEdit.py:541
+#: addon\globalPlugins\agenda\__init__.py:139
+#: addon\globalPlugins\agenda\__init__.py:338
+#: addon\globalPlugins\agenda\__init__.py:405
+#: addon\globalPlugins\agenda\__init__.py:419
+#: addon\globalPlugins\agenda\__init__.py:508
+#: addon\globalPlugins\agenda\__init__.py:536
+#: addon\globalPlugins\agenda\__init__.py:576
+#: addon\globalPlugins\agenda\configPanel.py:82
+#: addon\globalPlugins\agenda\configPanel.py:241
+#: addon\globalPlugins\agenda\eventRepeat.py:114
+#: addon\globalPlugins\agenda\eventRepeat.py:194
+#: addon\globalPlugins\agenda\eventRepeat.py:212
+#: addon\globalPlugins\agenda\eventRepeat.py:284
+#: addon\globalPlugins\agenda\eventRepeat.py:310
+#: addon\globalPlugins\agenda\eventRepeat.py:364
+#: addon\globalPlugins\agenda\nextAppointments.py:126
+#: addon\globalPlugins\agenda\nextAppointments.py:147
+#: addon\globalPlugins\agenda\searchWindow.py:377
+#: addon\globalPlugins\agenda\searchWindow.py:414
+#: addon\globalPlugins\agenda\varsConfig.py:50
+#: addon\globalPlugins\agenda\varsConfig.py:67
+msgid "Gregorian (Default)"
+msgstr ""
+
+#. Records the current date in the database search format
+#. Change to persian date if necessary
+#: addon\globalPlugins\agenda\DlgAddEdit.py:55
+#: addon\globalPlugins\agenda\DlgAddEdit.py:127
+#: addon\globalPlugins\agenda\DlgAddEdit.py:158
+#: addon\globalPlugins\agenda\DlgAddEdit.py:176
+#: addon\globalPlugins\agenda\DlgAddEdit.py:203
+#: addon\globalPlugins\agenda\DlgAddEdit.py:235
+#: addon\globalPlugins\agenda\DlgAddEdit.py:252
+#: addon\globalPlugins\agenda\DlgAddEdit.py:258
+#: addon\globalPlugins\agenda\DlgAddEdit.py:268
+#: addon\globalPlugins\agenda\DlgAddEdit.py:274
+#: addon\globalPlugins\agenda\DlgAddEdit.py:328
+#: addon\globalPlugins\agenda\DlgAddEdit.py:379
+#: addon\globalPlugins\agenda\DlgAddEdit.py:543
+#: addon\globalPlugins\agenda\__init__.py:116
+#: addon\globalPlugins\agenda\__init__.py:141
+#: addon\globalPlugins\agenda\__init__.py:340
+#: addon\globalPlugins\agenda\__init__.py:436
+#: addon\globalPlugins\agenda\__init__.py:510
+#: addon\globalPlugins\agenda\__init__.py:516
+#: addon\globalPlugins\agenda\__init__.py:538
+#: addon\globalPlugins\agenda\__init__.py:544
+#: addon\globalPlugins\agenda\__init__.py:578
+#: addon\globalPlugins\agenda\__init__.py:585
+#: addon\globalPlugins\agenda\eventRepeat.py:35
+#: addon\globalPlugins\agenda\eventRepeat.py:55
+#: addon\globalPlugins\agenda\eventRepeat.py:116
+#: addon\globalPlugins\agenda\eventRepeat.py:199
+#: addon\globalPlugins\agenda\eventRepeat.py:286
+#: addon\globalPlugins\agenda\eventRepeat.py:312
+#: addon\globalPlugins\agenda\eventRepeat.py:366
+#: addon\globalPlugins\agenda\nextAppointments.py:193
+#: addon\globalPlugins\agenda\nextAppointments.py:238
+#: addon\globalPlugins\agenda\varsConfig.py:50
+#: addon\globalPlugins\agenda\varsConfig.py:78
+msgid "Persian"
+msgstr ""
 
 #. Translators: EditComboBox name in the configuration dialog
 #. Translators: Field to select the year
 #. Translators: Group label to the end date
 #. Translators: Year of initial date
 #. Translators: Year of final date
-#: addon\globalPlugins\agenda\DlgAddEdit.py:55
-#: addon\globalPlugins\agenda\__init__.py:131
-#: addon\globalPlugins\agenda\eventRepeat.py:99
+#: addon\globalPlugins\agenda\DlgAddEdit.py:60
+#: addon\globalPlugins\agenda\__init__.py:147
+#: addon\globalPlugins\agenda\eventRepeat.py:122
 #: addon\globalPlugins\agenda\searchWindow.py:75
 #: addon\globalPlugins\agenda\searchWindow.py:102
 msgid "Year:"
 msgstr "Yıl:"
 
 #. Translators: EditComboBox name in the configuration dialog
-#: addon\globalPlugins\agenda\DlgAddEdit.py:68
-#: addon\globalPlugins\agenda\__init__.py:426
+#: addon\globalPlugins\agenda\DlgAddEdit.py:73
+#: addon\globalPlugins\agenda\__init__.py:469
 msgid "Hour:"
 msgstr "Saat:"
 
 #. Translators: EditComboBox name in the configuration dialog
-#: addon\globalPlugins\agenda\DlgAddEdit.py:74
+#: addon\globalPlugins\agenda\DlgAddEdit.py:79
 msgid "Minutes:"
 msgstr "Dakika:"
 
 #. Translators: Multiline text field name in the configuration dialog
-#: addon\globalPlugins\agenda\DlgAddEdit.py:80
+#: addon\globalPlugins\agenda\DlgAddEdit.py:85
 msgid "Description:"
 msgstr "Tanım:"
 
 #. Translators: Button name in the configuration dialog
-#: addon\globalPlugins\agenda\DlgAddEdit.py:89
+#: addon\globalPlugins\agenda\DlgAddEdit.py:94
 msgid "&Repeat"
 msgstr "Tek&rarla"
 
 #. Translators: Button name in the configuration dialog
-#: addon\globalPlugins\agenda\DlgAddEdit.py:93
+#: addon\globalPlugins\agenda\DlgAddEdit.py:98
 msgid "&Alarms"
 msgstr "&Alarmlar"
 
 #. If date was changed, search in database for items on this date, if the class be instanced as Add
 #. If we are in the option Add and description field is empty, go back to the Add window
-#: addon\globalPlugins\agenda\DlgAddEdit.py:125
-#: addon\globalPlugins\agenda\DlgAddEdit.py:243
-#: addon\globalPlugins\agenda\DlgAddEdit.py:357
-#: addon\globalPlugins\agenda\__init__.py:461
-#: addon\globalPlugins\agenda\searchWindow.py:432
+#: addon\globalPlugins\agenda\DlgAddEdit.py:135
+#: addon\globalPlugins\agenda\DlgAddEdit.py:290
+#: addon\globalPlugins\agenda\DlgAddEdit.py:426
+#: addon\globalPlugins\agenda\__init__.py:504
+#: addon\globalPlugins\agenda\searchWindow.py:438
 msgid "Add"
 msgstr "Ekle"
 
-#. If description field is blank and  option is Edit, means user deleted the appointement informations. Check if date keeps the same
-#. If option is Edit and original date is different from present date fields avoid edition.
-#. If we are editing and the date or hour are different from saved, remove the old record
-#: addon\globalPlugins\agenda\DlgAddEdit.py:266
-#: addon\globalPlugins\agenda\DlgAddEdit.py:329
-#: addon\globalPlugins\agenda\DlgAddEdit.py:348
-#: addon\globalPlugins\agenda\DlgAddEdit.py:440
-#: addon\globalPlugins\agenda\__init__.py:491
-#: addon\globalPlugins\agenda\nextAppointments.py:158
-#: addon\globalPlugins\agenda\searchWindow.py:464
+#: addon\globalPlugins\agenda\DlgAddEdit.py:314
+#: addon\globalPlugins\agenda\DlgAddEdit.py:417
+#: addon\globalPlugins\agenda\DlgAddEdit.py:519
+#: addon\globalPlugins\agenda\__init__.py:529
+#: addon\globalPlugins\agenda\nextAppointments.py:176
+#: addon\globalPlugins\agenda\searchWindow.py:470
 msgid "Edit"
 msgstr "Düzenle"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:287
+#: addon\globalPlugins\agenda\DlgAddEdit.py:349
 msgid ""
 "You disabled the periodicity of this appointement. Do you really want remove "
 "its periodicity?"
@@ -104,11 +172,12 @@ msgstr ""
 "Bu randevunun periyodikliğini devre dışı bıraktınız. Periyodikliğini "
 "gerçekten kaldırmak istiyor musunuz?"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:287
+#: addon\globalPlugins\agenda\DlgAddEdit.py:349
 msgid "Remove periodic event"
 msgstr "Periyodik etkinliği kaldır"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:330
+#. If description field is blank and  option is Edit, means user deleted the appointement informations. Check if date keeps the same
+#: addon\globalPlugins\agenda\DlgAddEdit.py:395
 msgid ""
 "You have deleted the appointment description. Do you want to delete the "
 "appointment?"
@@ -117,44 +186,44 @@ msgstr "Randevu açıklamasını sildiniz. Randevuyu silmek istiyor musunuz?"
 #. Translators: Dialog title
 #. Translators: Name of the section in "Input gestures" dialog.
 #. Translators: Title of the Agenda settings dialog in the NVDA settings.
-#: addon\globalPlugins\agenda\DlgAddEdit.py:330
-#: addon\globalPlugins\agenda\DlgAddEdit.py:337
-#: addon\globalPlugins\agenda\DlgAddEdit.py:349
-#: addon\globalPlugins\agenda\DlgAddEdit.py:358
-#: addon\globalPlugins\agenda\DlgAddEdit.py:382
-#: addon\globalPlugins\agenda\DlgAddEdit.py:397
-#: addon\globalPlugins\agenda\DlgAddEdit.py:434
-#: addon\globalPlugins\agenda\DlgAddEdit.py:485
-#: addon\globalPlugins\agenda\__init__.py:40
-#: addon\globalPlugins\agenda\__init__.py:81
-#: addon\globalPlugins\agenda\__init__.py:109
-#: addon\globalPlugins\agenda\__init__.py:522
-#: addon\globalPlugins\agenda\__init__.py:552
-#: addon\globalPlugins\agenda\__init__.py:559
-#: addon\globalPlugins\agenda\configPanel.py:70
-#: addon\globalPlugins\agenda\nextAppointments.py:193
-#: addon\globalPlugins\agenda\nextAppointments.py:235
+#: addon\globalPlugins\agenda\DlgAddEdit.py:395
+#: addon\globalPlugins\agenda\DlgAddEdit.py:402
+#: addon\globalPlugins\agenda\DlgAddEdit.py:418
+#: addon\globalPlugins\agenda\DlgAddEdit.py:427
+#: addon\globalPlugins\agenda\DlgAddEdit.py:454
+#: addon\globalPlugins\agenda\DlgAddEdit.py:469
+#: addon\globalPlugins\agenda\DlgAddEdit.py:509
+#: addon\globalPlugins\agenda\DlgAddEdit.py:570
+#: addon\globalPlugins\agenda\__init__.py:45
+#: addon\globalPlugins\agenda\__init__.py:87
+#: addon\globalPlugins\agenda\__init__.py:122
+#: addon\globalPlugins\agenda\__init__.py:566
+#: addon\globalPlugins\agenda\__init__.py:602
+#: addon\globalPlugins\agenda\__init__.py:609
+#: addon\globalPlugins\agenda\configPanel.py:113
+#: addon\globalPlugins\agenda\nextAppointments.py:214
+#: addon\globalPlugins\agenda\nextAppointments.py:260
 #: addon\globalPlugins\agenda\searchWindow.py:285
 #: addon\globalPlugins\agenda\searchWindow.py:334
-#: addon\globalPlugins\agenda\searchWindow.py:501
-#: addon\globalPlugins\agenda\searchWindow.py:546
-#: addon\globalPlugins\agenda\searchWindow.py:553
-#: addon\globalPlugins\agenda\searchWindow.py:561
+#: addon\globalPlugins\agenda\searchWindow.py:507
+#: addon\globalPlugins\agenda\searchWindow.py:551
+#: addon\globalPlugins\agenda\searchWindow.py:558
 #: addon\globalPlugins\agenda\searchWindow.py:566
-#: addon\globalPlugins\agenda\searchWindow.py:573
+#: addon\globalPlugins\agenda\searchWindow.py:571
+#: addon\globalPlugins\agenda\searchWindow.py:578
 msgid "Agenda"
 msgstr "Ajanda"
 
 #. Translators: Informative about event deletion
 #. Translators: Informing success of remotion
-#: addon\globalPlugins\agenda\DlgAddEdit.py:337
-#: addon\globalPlugins\agenda\__init__.py:552
-#: addon\globalPlugins\agenda\nextAppointments.py:235
-#: addon\globalPlugins\agenda\searchWindow.py:546
+#: addon\globalPlugins\agenda\DlgAddEdit.py:402
+#: addon\globalPlugins\agenda\__init__.py:602
+#: addon\globalPlugins\agenda\nextAppointments.py:260
+#: addon\globalPlugins\agenda\searchWindow.py:551
 msgid "Appointment removed successfully!"
 msgstr "Randevu başarıyla kaldırıldı!"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:349
+#: addon\globalPlugins\agenda\DlgAddEdit.py:418
 msgid ""
 "You have deleted the description and changed the date.\n"
 "If you want to add a new appointment, press the Add button on main or search "
@@ -168,12 +237,12 @@ msgstr ""
 "Bir randevuyu silmek istiyorsanız, ana veya arama penceresine gidin, "
 "randevuyu seçin ve kaldır düğmesine basın"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:358
+#: addon\globalPlugins\agenda\DlgAddEdit.py:427
 msgid "No description to the appointment"
 msgstr "Randevu açıklaması yok"
 
 #. If database returns some records, so exist appointment for this date/hour
-#: addon\globalPlugins\agenda\DlgAddEdit.py:382
+#: addon\globalPlugins\agenda\DlgAddEdit.py:454
 msgid ""
 "Informations for this date and hour already exists on agenda. Do you want to "
 "replace original informations?"
@@ -181,38 +250,38 @@ msgstr ""
 "Bu tarih ve saate ait bilgiler zaten ajandada mevcut. Var olan bilgileri "
 "değiştirmek istiyor musunuz?"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:397
+#: addon\globalPlugins\agenda\DlgAddEdit.py:469
 msgid "Record updated successfully!"
 msgstr "Kayıt başarıyla güncellendi!"
 
-#: addon\globalPlugins\agenda\DlgAddEdit.py:434
+#: addon\globalPlugins\agenda\DlgAddEdit.py:509
 msgid "Record saved successfully!"
 msgstr "Kayıt başarıyla eklendi!"
 
 #. Confirms with user if he wants to discard changes
-#: addon\globalPlugins\agenda\DlgAddEdit.py:485
+#: addon\globalPlugins\agenda\DlgAddEdit.py:570
 msgid "Do you really want to discard the changes on appointment?"
 msgstr "Randevudaki değişiklikleri gerçekten iptal etmek istiyor musunuz?"
 
 #. Translators: Message to be announced during Keyboard Help
-#: addon\globalPlugins\agenda\__init__.py:79
+#: addon\globalPlugins\agenda\__init__.py:85
 msgid "Main window to access an accessible agenda"
 msgstr "Erişilebilir ajanda ana penceresini gösterir"
 
 #. Translators: Name of the list with the events
-#: addon\globalPlugins\agenda\__init__.py:141
+#: addon\globalPlugins\agenda\__init__.py:157
 msgid "items found:"
 msgstr "bulunan öğeler:"
 
-#: addon\globalPlugins\agenda\__init__.py:145
+#: addon\globalPlugins\agenda\__init__.py:161
 msgid "Hour"
 msgstr "Saat"
 
 #. Translators: Column title
-#: addon\globalPlugins\agenda\__init__.py:146
-#: addon\globalPlugins\agenda\__init__.py:427
-#: addon\globalPlugins\agenda\nextAppointments.py:38
-#: addon\globalPlugins\agenda\nextAppointments.py:96
+#: addon\globalPlugins\agenda\__init__.py:162
+#: addon\globalPlugins\agenda\__init__.py:470
+#: addon\globalPlugins\agenda\nextAppointments.py:40
+#: addon\globalPlugins\agenda\nextAppointments.py:100
 #: addon\globalPlugins\agenda\searchWindow.py:352
 msgid "Appointment"
 msgstr "Randevu"
@@ -220,52 +289,52 @@ msgstr "Randevu"
 #. Translators: Button to add an event
 #.
 #. Translators: Add button label
-#: addon\globalPlugins\agenda\__init__.py:153
+#: addon\globalPlugins\agenda\__init__.py:169
 #: addon\globalPlugins\agenda\searchWindow.py:129
 msgid "&Add"
 msgstr "&Ekle"
 
 #. Translators: Button to edit an event
 #. Translators: Edit button label
-#: addon\globalPlugins\agenda\__init__.py:157
+#: addon\globalPlugins\agenda\__init__.py:173
 #: addon\globalPlugins\agenda\searchWindow.py:133
 msgid "&Edit"
 msgstr "&Düzenle"
 
 #. Translators: Button to remove an event
 #. Translators: Remove button label
-#: addon\globalPlugins\agenda\__init__.py:161
+#: addon\globalPlugins\agenda\__init__.py:177
 #: addon\globalPlugins\agenda\searchWindow.py:137
 msgid "&Remove"
 msgstr "&Kaldır"
 
 #. Translators: Button to start a search
 #. Translators: Label of button to execute the search
-#: addon\globalPlugins\agenda\__init__.py:165
+#: addon\globalPlugins\agenda\__init__.py:181
 #: addon\globalPlugins\agenda\searchWindow.py:110
 msgid "&Search"
 msgstr "&Ara"
 
 #. Translators: Button to close the add-on
-#: addon\globalPlugins\agenda\__init__.py:169
+#: addon\globalPlugins\agenda\__init__.py:185
 msgid "E&xit"
 msgstr "&çık"
 
-#: addon\globalPlugins\agenda\__init__.py:445
+#: addon\globalPlugins\agenda\__init__.py:488
 msgid " items found"
 msgstr " öğe bulundu"
 
-#: addon\globalPlugins\agenda\__init__.py:447
-#: addon\globalPlugins\agenda\__init__.py:482
+#: addon\globalPlugins\agenda\__init__.py:490
+#: addon\globalPlugins\agenda\__init__.py:617
 msgid "No items found"
 msgstr "Hiç bir öğe bulunamadı"
 
-#: addon\globalPlugins\agenda\__init__.py:449
+#: addon\globalPlugins\agenda\__init__.py:492
 msgid "No appointments"
 msgstr "Randevu yok"
 
-#: addon\globalPlugins\agenda\__init__.py:506
-#: addon\globalPlugins\agenda\searchWindow.py:487
+#: addon\globalPlugins\agenda\__init__.py:550
+#: addon\globalPlugins\agenda\searchWindow.py:493
 msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic "
 "event.\n"
@@ -275,26 +344,26 @@ msgstr ""
 "Bunun yerine, orijinal kaydı düzenlemeniz gerekir. Düzenlemek istiyor "
 "musunuz?"
 
-#: addon\globalPlugins\agenda\__init__.py:506
-#: addon\globalPlugins\agenda\nextAppointments.py:181
-#: addon\globalPlugins\agenda\searchWindow.py:487
+#: addon\globalPlugins\agenda\__init__.py:550
+#: addon\globalPlugins\agenda\nextAppointments.py:202
+#: addon\globalPlugins\agenda\searchWindow.py:493
 msgid "Edit periodic event"
 msgstr "Periyodik etkinliği düzenle"
 
-#: addon\globalPlugins\agenda\__init__.py:522
+#: addon\globalPlugins\agenda\__init__.py:566
 msgid "You have not selected any appointment to edit."
 msgstr "Düzenlenecek herhangi bir randevu seçmediniz."
 
 #. Translators: To confirm remotion of the event
-#: addon\globalPlugins\agenda\__init__.py:538
-#: addon\globalPlugins\agenda\nextAppointments.py:218
-#: addon\globalPlugins\agenda\searchWindow.py:528
+#: addon\globalPlugins\agenda\__init__.py:588
+#: addon\globalPlugins\agenda\nextAppointments.py:243
+#: addon\globalPlugins\agenda\searchWindow.py:533
 msgid "Do you really want to remove the  item: "
 msgstr "Öğeyi kaldırmak istediğinizden emin misiniz: "
 
 #. Translators: Inform that is necessary to remove the original event
-#: addon\globalPlugins\agenda\__init__.py:543
-#: addon\globalPlugins\agenda\searchWindow.py:535
+#: addon\globalPlugins\agenda\__init__.py:593
+#: addon\globalPlugins\agenda\searchWindow.py:540
 msgid ""
 "You can't remove just one periodic event. Instead of, you need remove the "
 "original register. If you make this, alldates on this periodic event will be "
@@ -309,11 +378,11 @@ msgstr ""
 "{} etkinliğinin orijinal kaydını ve tüm tarihlerini silmek istiyor musunuz:\n"
 "{}?"
 
-#: addon\globalPlugins\agenda\__init__.py:546
+#: addon\globalPlugins\agenda\__init__.py:596
 msgid "Remove item"
 msgstr "Öğeyi kaldır"
 
-#: addon\globalPlugins\agenda\__init__.py:559
+#: addon\globalPlugins\agenda\__init__.py:609
 msgid "You have not selected any appointment to be removed."
 msgstr "Kaldırılacak herhangi bir randevu seçmediniz."
 
@@ -353,182 +422,199 @@ msgid "Set alarm to the exact hour"
 msgstr "Alarmı aynı saate ayarla"
 
 #. Translators: Checkbox name in the configuration dialog
-#: addon\globalPlugins\agenda\configPanel.py:76
+#: addon\globalPlugins\agenda\configPanel.py:120
 msgid "Show next appointments at startup"
 msgstr "Başlangıçta sonraki randevuları göster"
 
-#: addon\globalPlugins\agenda\configPanel.py:80
+#: addon\globalPlugins\agenda\configPanel.py:124
 msgid "Number of days in next events:"
 msgstr "Sonraki etkinliklerdeki gün sayısı:"
 
+#: addon\globalPlugins\agenda\configPanel.py:133
+msgid "&Sound for alarm"
+msgstr ""
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\agenda\configPanel.py:140
+msgid "Play a sound if appointments today or tomorrow"
+msgstr "Randevular bugün veya yarınsa bir ses çalın"
+
+#: addon\globalPlugins\agenda\configPanel.py:146
+msgid "&Sound to use"
+msgstr ""
+
+#: addon\globalPlugins\agenda\configPanel.py:156
+msgid "&Calendar:"
+msgstr ""
+
 #. Translators: Name of combobox with the agenda files path
-#: addon\globalPlugins\agenda\configPanel.py:88
+#: addon\globalPlugins\agenda\configPanel.py:162
 msgid "Path of agenda files:"
 msgstr "Ajanda dosyalarının yolu:"
 
 #. Translators: This is the label for the button used to add or change a agenda.db location
-#: addon\globalPlugins\agenda\configPanel.py:101
+#: addon\globalPlugins\agenda\configPanel.py:175
 msgid "&Select or add a directory"
 msgstr "Bir dizin &seçin veya ekleyin"
 
-#: addon\globalPlugins\agenda\configPanel.py:112
+#: addon\globalPlugins\agenda\configPanel.py:193
 msgid "Choose where to save the agenda file"
 msgstr "Ajanda dosyasının nereye kaydedileceğini seçin"
 
-#: addon\globalPlugins\agenda\configPanel.py:113
+#: addon\globalPlugins\agenda\configPanel.py:194
 msgid "Database files (*.db)"
 msgstr "Veritabanı dosyaları (*.db)"
 
 #. Translators: Dialog title
-#: addon\globalPlugins\agenda\eventRepeat.py:46
+#: addon\globalPlugins\agenda\eventRepeat.py:67
 msgid "Set repetitions"
 msgstr "Tekrarları ayarla"
 
 #. Translators: Group label of ocurrences
-#: addon\globalPlugins\agenda\eventRepeat.py:54
+#: addon\globalPlugins\agenda\eventRepeat.py:75
 msgid "Choose your event repeat:"
 msgstr "Etkinliğinizin tekrarını seçin:"
 
 #. Translators: Check box to define if repetitions have a fixed end
-#: addon\globalPlugins\agenda\eventRepeat.py:66
+#: addon\globalPlugins\agenda\eventRepeat.py:87
 msgid "Mark to set when repeat finish"
 msgstr "Tekrar bittiğinde ayarlamak için işaretleyin"
 
 #. Translators: Group label to number of repetitions
-#: addon\globalPlugins\agenda\eventRepeat.py:73
+#: addon\globalPlugins\agenda\eventRepeat.py:94
 msgid "Quantity of repeations:"
 msgstr "Tekrar sayısı:"
 
 #. Translators: Group label to the end date
-#: addon\globalPlugins\agenda\eventRepeat.py:83
+#: addon\globalPlugins\agenda\eventRepeat.py:104
 msgid "End\t date: Day:"
 msgstr "Bitiş tarihi: Gün:"
 
-#: addon\globalPlugins\agenda\eventRepeat.py:196
-#: addon\globalPlugins\agenda\manageDatabase.py:289
+#: addon\globalPlugins\agenda\eventRepeat.py:240
+#: addon\globalPlugins\agenda\manageDatabase.py:282
 msgid "Your final date is oldest your inicial date."
 msgstr "Son randevunuz, ilk randevunuzdan daha eskidir."
 
-#: addon\globalPlugins\agenda\eventRepeat.py:196
-#: addon\globalPlugins\agenda\manageDatabase.py:289
+#: addon\globalPlugins\agenda\eventRepeat.py:240
+#: addon\globalPlugins\agenda\manageDatabase.py:282
 msgid "Incorrect date interval"
 msgstr "Yanlış tarih aralığı"
 
 #. Global variables
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "None"
 msgstr "Hiçbiri"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Daily"
 msgstr "Günlük"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Weekly"
 msgstr "Haftalık"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Biweekly"
 msgstr "İki haftada bir"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Monthly"
 msgstr "Aylık"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Twomonthly"
 msgstr "İki ayda bir"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Threemontly"
 msgstr "Üç ayda bir"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Fourmontly"
 msgstr "Dört ayda bir"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Sixmonthly"
 msgstr "Altı ayda bir"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:17
-#: addon\globalPlugins\agenda\varsConfig.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:19
+#: addon\globalPlugins\agenda\varsConfig.py:54
 msgid "Anualy"
 msgstr "Her yıl"
 
 #. Translators: Dialog title
-#: addon\globalPlugins\agenda\nextAppointments.py:26
+#: addon\globalPlugins\agenda\nextAppointments.py:28
 msgid "Appointments for the next days"
 msgstr "Önümüzdeki günler için randevular"
 
 #. Translators: List label
 #. Translators: Label of the list were the itens found will land
-#: addon\globalPlugins\agenda\nextAppointments.py:31
-#: addon\globalPlugins\agenda\nextAppointments.py:150
+#: addon\globalPlugins\agenda\nextAppointments.py:33
+#: addon\globalPlugins\agenda\nextAppointments.py:164
 #: addon\globalPlugins\agenda\searchWindow.py:115
-#: addon\globalPlugins\agenda\searchWindow.py:426
+#: addon\globalPlugins\agenda\searchWindow.py:432
 msgid "Items found:"
 msgstr "Bulunan öğeler:"
 
 #. Translators: Column title
-#: addon\globalPlugins\agenda\nextAppointments.py:36
-#: addon\globalPlugins\agenda\nextAppointments.py:95
+#: addon\globalPlugins\agenda\nextAppointments.py:38
+#: addon\globalPlugins\agenda\nextAppointments.py:99
 #: addon\globalPlugins\agenda\searchWindow.py:119
 #: addon\globalPlugins\agenda\searchWindow.py:351
 msgid "Date/Hour"
 msgstr "Tarih/Saat"
 
 #. Translators: Button name to open the main dialog
-#: addon\globalPlugins\agenda\nextAppointments.py:45
+#: addon\globalPlugins\agenda\nextAppointments.py:47
 msgid "&Open"
 msgstr "&Aç"
 
 #. check for periodic event to this appointement
-#: addon\globalPlugins\agenda\nextAppointments.py:112
+#: addon\globalPlugins\agenda\nextAppointments.py:114
 #: addon\globalPlugins\agenda\searchWindow.py:368
 msgid "No repeat"
 msgstr "Tekrar yok"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:116
-#: addon\globalPlugins\agenda\nextAppointments.py:131
-#: addon\globalPlugins\agenda\nextAppointments.py:165
-#: addon\globalPlugins\agenda\nextAppointments.py:206
+#: addon\globalPlugins\agenda\nextAppointments.py:118
+#: addon\globalPlugins\agenda\nextAppointments.py:139
+#: addon\globalPlugins\agenda\nextAppointments.py:183
+#: addon\globalPlugins\agenda\nextAppointments.py:227
 #: addon\globalPlugins\agenda\searchWindow.py:372
-#: addon\globalPlugins\agenda\searchWindow.py:406
-#: addon\globalPlugins\agenda\searchWindow.py:438
-#: addon\globalPlugins\agenda\searchWindow.py:471
-#: addon\globalPlugins\agenda\searchWindow.py:515
+#: addon\globalPlugins\agenda\searchWindow.py:409
+#: addon\globalPlugins\agenda\searchWindow.py:444
+#: addon\globalPlugins\agenda\searchWindow.py:477
+#: addon\globalPlugins\agenda\searchWindow.py:521
 msgid "Today"
 msgstr "Bugün"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:118
-#: addon\globalPlugins\agenda\nextAppointments.py:133
-#: addon\globalPlugins\agenda\nextAppointments.py:168
-#: addon\globalPlugins\agenda\nextAppointments.py:209
+#: addon\globalPlugins\agenda\nextAppointments.py:121
+#: addon\globalPlugins\agenda\nextAppointments.py:142
+#: addon\globalPlugins\agenda\nextAppointments.py:186
+#: addon\globalPlugins\agenda\nextAppointments.py:230
 #: addon\globalPlugins\agenda\searchWindow.py:374
-#: addon\globalPlugins\agenda\searchWindow.py:408
-#: addon\globalPlugins\agenda\searchWindow.py:441
-#: addon\globalPlugins\agenda\searchWindow.py:474
-#: addon\globalPlugins\agenda\searchWindow.py:518
+#: addon\globalPlugins\agenda\searchWindow.py:411
+#: addon\globalPlugins\agenda\searchWindow.py:447
+#: addon\globalPlugins\agenda\searchWindow.py:480
+#: addon\globalPlugins\agenda\searchWindow.py:524
 msgid "Tomorrow"
 msgstr "Yarın"
 
-#: addon\globalPlugins\agenda\nextAppointments.py:141
-#: addon\globalPlugins\agenda\searchWindow.py:417
+#: addon\globalPlugins\agenda\nextAppointments.py:155
+#: addon\globalPlugins\agenda\searchWindow.py:423
 msgid "No items found:"
 msgstr "Hiç bir öğe bulunamadı:"
 
 #. Translators: Dialog to ask if it is to edit the first registry.
-#: addon\globalPlugins\agenda\nextAppointments.py:181
+#: addon\globalPlugins\agenda\nextAppointments.py:202
 msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic "
 "event.\n"
@@ -540,13 +626,13 @@ msgstr ""
 
 #. Translators: Inform that no event was selected...
 #. Translators: Informing no event selected.
-#: addon\globalPlugins\agenda\nextAppointments.py:193
-#: addon\globalPlugins\agenda\searchWindow.py:501
+#: addon\globalPlugins\agenda\nextAppointments.py:214
+#: addon\globalPlugins\agenda\searchWindow.py:507
 msgid "No appointment selected to edit..."
 msgstr "Düzenlenecek herhangi bir randevu seçilmedi..."
 
 #. Translators: Asking to delete the original registry and not one single event...
-#: addon\globalPlugins\agenda\nextAppointments.py:224
+#: addon\globalPlugins\agenda\nextAppointments.py:249
 msgid ""
 "You can't remove just one periodic event. Instead of, you need remove the "
 "original registry. If you make this, alldates on this periodic event will be "
@@ -563,8 +649,8 @@ msgstr ""
 
 #. Translators: Confirm deletion
 #. Translators: Asking confirmation to delete
-#: addon\globalPlugins\agenda\nextAppointments.py:228
-#: addon\globalPlugins\agenda\searchWindow.py:539
+#: addon\globalPlugins\agenda\nextAppointments.py:253
+#: addon\globalPlugins\agenda\searchWindow.py:544
 msgid "Remove event"
 msgstr "Etkinliği kaldır"
 
@@ -582,9 +668,9 @@ msgstr "Arama türü:"
 #: addon\globalPlugins\agenda\searchWindow.py:44
 #: addon\globalPlugins\agenda\searchWindow.py:219
 #: addon\globalPlugins\agenda\searchWindow.py:281
-#: addon\globalPlugins\agenda\searchWindow.py:386
-#: addon\globalPlugins\agenda\searchWindow.py:484
-#: addon\globalPlugins\agenda\searchWindow.py:529
+#: addon\globalPlugins\agenda\searchWindow.py:390
+#: addon\globalPlugins\agenda\searchWindow.py:490
+#: addon\globalPlugins\agenda\searchWindow.py:534
 msgid "Search by text"
 msgstr "Metne göre ara"
 
@@ -640,129 +726,176 @@ msgid "The end date must be equal or after the start date."
 msgstr "Bitiş tarihi, başlangıç ​​tarihine eşit veya sonrası olmalıdır."
 
 #. Translators: Informing no event selected.
-#: addon\globalPlugins\agenda\searchWindow.py:553
+#: addon\globalPlugins\agenda\searchWindow.py:558
 msgid "No appointment selected to delete"
 msgstr "Silinecek randevu seçilmedi"
 
 #. Translators: Informing no event selected.
-#: addon\globalPlugins\agenda\searchWindow.py:561
+#: addon\globalPlugins\agenda\searchWindow.py:566
 msgid ""
 "No itens to delete. Please, you need search something to delete all itens."
 msgstr ""
 "Silinecek öğe yok. Tüm içeriği silebilmek için lütfen önce arama yapın."
 
 #. Translators: Confirmation to delete all selected events
-#: addon\globalPlugins\agenda\searchWindow.py:566
+#: addon\globalPlugins\agenda\searchWindow.py:571
 msgid "Do you really want to delete all itens found?"
 msgstr "Bulunan tüm öğeleri gerçekten silmek istiyor musunuz?"
 
 #. Translators: Informing success of all events deleted
-#: addon\globalPlugins\agenda\searchWindow.py:573
+#: addon\globalPlugins\agenda\searchWindow.py:578
 msgid "All appointments deleted successfully!"
 msgstr "Tüm randevular başarıyla silindi!"
 
-#. Global variables
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "December"
 msgstr "Aralık"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "November"
 msgstr "Kasım"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "October"
 msgstr "Ekim"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "September"
 msgstr "Eylül"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "August"
 msgstr "Ağustos"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "July"
 msgstr "Temmuz"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "June"
 msgstr "Haziran"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "May"
 msgstr "Mayıs"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "April"
 msgstr "Nisan"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "March"
 msgstr "Mart"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "February"
 msgstr "Şubat"
 
-#: addon\globalPlugins\agenda\varsConfig.py:43
+#: addon\globalPlugins\agenda\varsConfig.py:51
 msgid "January"
 msgstr "Ocak"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Esfand"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Bahman"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Dey"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Azar"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Aban"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Mehr"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Shahrivar"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Mordad"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Tir"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Khordad"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Ordibehesht"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:52
+msgid "Farvardin"
+msgstr ""
+
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Monday"
 msgstr "Pazartesi"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "tuesday"
 msgstr "salı"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Wednesday"
 msgstr "Çarşamba"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Thursday"
 msgstr "Perşembe"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Friday"
 msgstr "Cuma"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Saturday"
 msgstr "Cumartesi"
 
-#: addon\globalPlugins\agenda\varsConfig.py:44
+#: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Sunday"
 msgstr "Pazar"
 
-#: addon\globalPlugins\agenda\varsConfig.py:108
+#: addon\globalPlugins\agenda\varsConfig.py:143
 msgid "You have the following appointment tomorrow:\n"
 msgstr "Yarın aşağıdaki randevunuz var:\n"
 
-#: addon\globalPlugins\agenda\varsConfig.py:117
-#: addon\globalPlugins\agenda\varsConfig.py:124
-#: addon\globalPlugins\agenda\varsConfig.py:131
-#: addon\globalPlugins\agenda\varsConfig.py:138
-#: addon\globalPlugins\agenda\varsConfig.py:153
+#: addon\globalPlugins\agenda\varsConfig.py:152
+#: addon\globalPlugins\agenda\varsConfig.py:159
+#: addon\globalPlugins\agenda\varsConfig.py:166
+#: addon\globalPlugins\agenda\varsConfig.py:173
+#: addon\globalPlugins\agenda\varsConfig.py:188
 msgid "Reminder!"
 msgstr "Hatırlatma!"
 
-#: addon\globalPlugins\agenda\varsConfig.py:118
+#: addon\globalPlugins\agenda\varsConfig.py:153
 msgid "You have the following appointment in one hour:\n"
 msgstr "Bir saat sonra aşağıdaki randevunuz var:\n"
 
-#: addon\globalPlugins\agenda\varsConfig.py:125
+#: addon\globalPlugins\agenda\varsConfig.py:160
 msgid "You have the following appointment in 30 minutes:\n"
 msgstr "30 dakika sonra aşağıdaki randevunuz var:\n"
 
-#: addon\globalPlugins\agenda\varsConfig.py:132
+#: addon\globalPlugins\agenda\varsConfig.py:167
 msgid "You have the following appointment in 15 minutes:\n"
 msgstr "15 dakika sonra şu randevunuz var:\n"
 
-#: addon\globalPlugins\agenda\varsConfig.py:139
+#: addon\globalPlugins\agenda\varsConfig.py:174
 msgid "You have now the following appointment:\n"
 msgstr "Şu anda aşağıdaki randevunuz var:\n"
 
@@ -799,6 +932,3 @@ msgstr "Erişilebilir bir ajandaya erişim sağlar"
 #~ msgstr ""
 #~ "Bu eklentinin yeni sürümü, NVDA sürümünüzle uyumlu değil.\n"
 #~ " Güncelleme işlemi sonlandırılacaktır."
-
-#~ msgid "You do not have any appointments for today and tomorrow!"
-#~ msgstr "Bugün ve yarın için randevunuz yok!"

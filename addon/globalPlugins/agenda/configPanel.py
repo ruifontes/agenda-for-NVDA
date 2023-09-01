@@ -14,6 +14,8 @@ import wx
 import globalVars
 import config
 from configobj import ConfigObj
+import winsound
+from .varsConfig import *
 import addonHandler
 
 # To start the translation process
@@ -21,17 +23,24 @@ addonHandler.initTranslation()
 
 # Constants
 dirDatabase = os.path.join(os.path.dirname(__file__), "agenda.db")
+alarmSoundToUse = ""
+soundToUse = ""
 
+"""
 def initConfiguration():
 	confspec = {
 		"show" : "boolean(default=True)",
 		"days" : "integer(1, 30, default=1)",
+		"alarmSoundToUse" : "string(default="")",
+		"playSound" : "boolean(default=False)",
+		"soundToUse" : "string(default="")",
+		"calendar" : "string(default="")",
 		"path" : "string(default="")",
 		"altPath" : "string(default="")",
 		"xx" : "string(default="")",
 	}
 	config.conf.spec["agenda"] = confspec
-
+"""
 initConfiguration()
 
 # Read configuration on INI file to know how many days to include in next events
@@ -41,6 +50,42 @@ try:
 	if config.conf["agenda"]["days"]:
 		# Number of days to include in next events
 		nDays = int(config.conf["agenda"]["days"])
+except:
+	pass
+
+# Read configuration on INI file to know wich sound to use for alarm
+#global alarmSoundToUse
+try:
+	if config.conf["agenda"]["alarmSoundToUse"]:
+		# Sound to use for alarm
+		alarmSoundToUse = config.conf["agenda"]["alarmSoundToUse"]
+except:
+	alarmSoundToUse = "ringing.wav"
+
+# Read configuration on INI file to know if should play sound on nextEvents dialog
+try:
+	if config.conf["agenda"]["playSound"]:
+		playSound = config.conf["agenda"]["playSound"]
+except KeyError:
+	playSound = False
+
+# Read configuration on INI file to know wich sound to use
+#global soundToUse
+try:
+	if config.conf["agenda"]["soundToUse"]:
+		# Sound to use
+		soundToUse = config.conf["agenda"]["soundToUse"]
+except:
+	soundToUse = "isrtime.wav"
+
+# Read configuration on INI file to know wich calendar to use
+from .varsConfig import calendars
+global calendarToUse
+calendarToUse = _("Gregorian (Default)")
+try:
+	if config.conf["agenda"]["calendar"]:
+		# Calendar to use
+		calendarToUse = calendars[int(config.conf["agenda"]["calendar"])]
 except:
 	pass
 
@@ -71,6 +116,7 @@ class AgendaSettingsPanel(gui.settingsDialogs.SettingsPanel):
 
 	def makeSettings(self, settingsSizer):
 		settingsSizerHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer = settingsSizer)
 
 		# Translators: Checkbox name in the configuration dialog
 		self.showNextAppointmentsWnd = wx.CheckBox(self, label = _("Show next appointments at startup"))
@@ -83,6 +129,37 @@ class AgendaSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		self.days = wx.SpinCtrl(self, wx.ID_ANY, "1", min=1, max=30)
 		self.days .SetValue(config.conf["agenda"]["days"])
 		settingsSizerHelper.addItem(self.days)
+
+		# Translators: Label of a  combobox used to choose the sound to use for alarm
+		from . varsConfig import soundsList
+		alarmSoundToUseLabel = _("&Sound for alarm")
+		self.alarmSoundCB = sHelper.addLabeledControl(alarmSoundToUseLabel, wx.Choice, choices = soundsList, style = 0)
+		# Set selection to the item set in configurations
+		self.alarmSoundCB.SetSelection(soundsList.index(alarmSoundToUse))
+		self.alarmSoundCB.Bind(wx.EVT_CHOICE, self.onSelectAlarmSound)
+
+		# Translators: Checkbox name in the configuration dialog
+		self.playSoundCB = wx.CheckBox(self, label = _("Play a sound if appointments today or tomorrow"))
+		self.playSoundCB.SetValue(bool(config.conf["agenda"]["playSound"]))
+		settingsSizerHelper.addItem(self.playSoundCB)
+		self.playSoundCB.Bind(wx.EVT_CHECKBOX, self.updateFields)
+
+		# Translators: Label of a  combobox used to choose the sound to use
+		from . varsConfig import soundsList
+		soundToUseLabel = _("&Sound to use")
+		self.soundCB = sHelper.addLabeledControl(soundToUseLabel, wx.Choice, choices = soundsList, style = 0)
+		# Set selection to the item set in configurations
+		self.soundCB.SetSelection(soundsList.index(soundToUse))
+		self.soundCB.Bind(wx.EVT_CHOICE, self.onSelectSound)
+		if not self.playSoundCB.GetValue():
+			self.soundCB.Hide()
+
+		# Translators: Label of a  combobox used to choose the calendar to use
+		from . varsConfig import calendars
+		calendarLabel = _("&Calendar:")
+		self.calendarCB = sHelper.addLabeledControl(calendarLabel, wx.Choice, choices = calendars, style = 0)
+		# Set selection to the item set in configurations
+		self.calendarCB.SetSelection(calendars.index(calendarToUse))
 
 		# Translators: Name of combobox with the agenda files path
 		pathBoxSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label = _("Path of agenda files:"))
@@ -100,6 +177,12 @@ class AgendaSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		# Translators: This is the label for the button used to add or change a agenda.db location
 		changePathBtn = wx.Button(pathBox, label = _("&Select or add a directory"))
 		changePathBtn.Bind(wx.EVT_BUTTON,self.OnDirectory)
+
+	def updateFields(self, evt):
+		if self.playSoundCB.IsChecked():
+			self.soundCB.Show()
+		else:
+			self.soundCB.Hide()
 
 	def OnDirectory(self, event):
 		self.Freeze()
@@ -138,15 +221,40 @@ class AgendaSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		self.Thaw()
 		event.Skip()
 
+	def onSelectAlarmSound(self, evt):
+		soundToUse = self.alarmSoundCB.GetStringSelection()
+		ringFile = os.path.join(os.path.dirname(__file__), "sounds", soundToUse)
+		winsound.PlaySound(ringFile, winsound.SND_FILENAME|winsound.SND_ASYNC)
+
+	def onSelectSound(self, evt):
+		soundToUse = self.soundCB.GetStringSelection()
+		ringFile = os.path.join(os.path.dirname(__file__), "sounds", soundToUse)
+		winsound.PlaySound(ringFile, winsound.SND_FILENAME|winsound.SND_ASYNC)
+
 	def onSave (self):
-		global dirDatabase, indexDB, days
+		from . varsConfig import calendars
+		global dirDatabase, indexDB, days, calendarToUse, soundToUse, alarmSoundToUse
 		config.conf["agenda"]["show"] = self.showNextAppointmentsWnd.GetValue()
 		config.conf["agenda"]["days"] = self.days.GetValue()
+		config.conf["agenda"]["alarmSoundToUse"] = self.alarmSoundCB.GetStringSelection()
+		config.conf["agenda"]["playSound"] = self.playSoundCB.GetValue()
+		config.conf["agenda"]["soundToUse"] = self.soundCB.GetStringSelection()
+		calendarToSave = self.calendarCB.GetStringSelection()
+		if calendarToSave == pgettext("calendars", _("Gregorian (Default)")):
+			calendarToSave = 0
+		else:
+			calendarToSave = 1
+		config.conf["agenda"]["calendar"] = str(calendarToSave)
 		config.conf["agenda"]["path"] = firstDatabase
 		config.conf["agenda"]["altPath"] = altDatabase
 		config.conf["agenda"]["xx"] = str(self.pathList.index(self.pathNameCB.GetStringSelection()))
 		indexDB = self.pathNameCB.GetSelection()
 		dirDatabase = self.pathList[indexDB]
+		alarmSoundToUse = self.alarmSoundCB.GetStringSelection()
+		soundToUse = self.soundCB.GetStringSelection()
+		# Reactivate profiles triggers
+		config.conf.enableProfileTriggers()
+		#self.Hide()
 
 	def onPanelActivated(self):
 		# Deactivate all profile triggers and active profiles
@@ -160,5 +268,5 @@ class AgendaSettingsPanel(gui.settingsDialogs.SettingsPanel):
 
 	def terminate(self):
 		super(AgendaSettingsPanel, self).terminate()
-		pass
+		self.onPanelDeactivated()
 

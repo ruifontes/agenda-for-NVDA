@@ -3,7 +3,7 @@
 
 ## Information
 * Authors: Abel Passos, Ângelo Abrantes and Rui Fontes
-* Updated: 10.08.2023
+* Updated: 01.09.2023
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
@@ -16,6 +16,7 @@ If the second line is empty, use the \"Select or add a directory\" button to cre
 If you use this button with a path selected, the agenda 	will be moved to the new path, if there is no agenda in it. If it does, only the path will be changed, and both agendas will be preserved, with the new path being used.
 At NVDA startup you will be reminded of the appointments for the next days This reminder can be a window with a list of all appointments or a reminder with a dialog and an audible alarm for appointments with a set alarm.
 This option can be configured in the add-on's settings.
+Now, also in the add-on category of the NVDA settings, you can select the sounds to use and between Gregorian and Iranian calendar.
 
 
 ## Command
@@ -84,4 +85,4 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * Remove all (Alt+L): Deletes all displayed appointments;
 * Cancel button (Alt+C): closes the search window and returns to the main window.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.08.10/agenda-2023.08.10.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.02/agenda-2023.09.02.nvda-addon

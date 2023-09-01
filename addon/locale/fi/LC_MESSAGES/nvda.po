@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'tesseractOCR' '2023.04.08'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-08-10 02:14+0100\n"
-"PO-Revision-Date: 2023-08-10 02:23+0100\n"
+"PO-Revision-Date: 2023-08-29 20:21+0100\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -512,7 +512,7 @@ msgstr ""
 #: addon\globalPlugins\agenda\nextAppointments.py:141
 #: addon\globalPlugins\agenda\searchWindow.py:417
 msgid "No items found:"
-msgstr "Skanneria ei löytynyt"
+msgstr "Skanneria ei löytynyt:"
 
 #. Translators: Dialog to ask if it is to edit the first registry.
 #: addon\globalPlugins\agenda\nextAppointments.py:181
@@ -646,27 +646,27 @@ msgstr "Joulukuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "November"
-msgstr "marraskuu"
+msgstr "Marraskuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "October"
-msgstr "lokakuu"
+msgstr "Lokakuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "September"
-msgstr "syyskuu"
+msgstr "Syyskuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "August"
-msgstr "elokuu"
+msgstr "Elokuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "July"
-msgstr "heinäkuu"
+msgstr "Heinäkuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "June"
-msgstr "kesäkuu"
+msgstr "Kesäkuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "May"
@@ -674,47 +674,47 @@ msgstr "Touko"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "April"
-msgstr "huhtikuu"
+msgstr "Huhtikuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "March"
-msgstr "maaliskuu"
+msgstr "Maaliskuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "February"
-msgstr "helmikuu"
+msgstr "Helmikuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:43
 msgid "January"
-msgstr "tammikuu"
+msgstr "Tammikuu"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "Monday"
-msgstr "maanantaina"
+msgstr "Maanantaina"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "tuesday"
-msgstr ""
+msgstr "tiistai"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "Wednesday"
-msgstr "keskiviikko"
+msgstr "Keskiviikko"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "Thursday"
-msgstr "torstai"
+msgstr "Torstai"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "Friday"
-msgstr "perjantai"
+msgstr "Perjantai"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "Saturday"
-msgstr "lauantai"
+msgstr "Lauantai"
 
 #: addon\globalPlugins\agenda\varsConfig.py:44
 msgid "Sunday"
-msgstr "sunda"
+msgstr "Sunda"
 
 #: addon\globalPlugins\agenda\varsConfig.py:108
 msgid "You have the following appointment tomorrow:\n"
@@ -749,13 +749,13 @@ msgstr ""
 #. to be shown on installation and add-on information found in Add-ons Manager.
 #: buildVars.py:24
 msgid "Accessible agenda"
-msgstr ""
+msgstr "Esteetön asialista"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:27
 msgid "Allows access to an accesible agenda"
-msgstr ""
+msgstr "Mahdollistaa pääsyn esteettömään esityslistaan"
 
 #~ msgid "It is not a true PDF file!"
 #~ msgstr "Tämä ei ole todellinen PDF-tiedosto."
