@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'agenda' '2023.05.13'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-08-29 18:21+0100\n"
-"PO-Revision-Date: 2023-08-29 20:10+0100\n"
+"PO-Revision-Date: 2023-09-02 13:51+0300\n"
 "Last-Translator: Heorhii <nvda.translation.uk@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk_UA\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.3.2\n"
+"X-Poedit-Bookmarks: -1,52,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #. Translators: EditComboBox name in the configuration dialog
 #. Translators: Field to select the day
@@ -68,7 +69,7 @@ msgstr "Місяць:"
 #: addon\globalPlugins\agenda\varsConfig.py:50
 #: addon\globalPlugins\agenda\varsConfig.py:67
 msgid "Gregorian (Default)"
-msgstr ""
+msgstr "Григоріанський (стандартно)"
 
 #. Records the current date in the database search format
 #. Change to persian date if necessary
@@ -107,7 +108,7 @@ msgstr ""
 #: addon\globalPlugins\agenda\varsConfig.py:50
 #: addon\globalPlugins\agenda\varsConfig.py:78
 msgid "Persian"
-msgstr ""
+msgstr "Перський"
 
 #. Translators: EditComboBox name in the configuration dialog
 #. Translators: Field to select the year
@@ -436,20 +437,20 @@ msgstr "Кількість днів у наступних подіях:"
 
 #: addon\globalPlugins\agenda\configPanel.py:133
 msgid "&Sound for alarm"
-msgstr ""
+msgstr "&Звук для нагадування"
 
 #. Translators: Checkbox name in the configuration dialog
 #: addon\globalPlugins\agenda\configPanel.py:140
 msgid "Play a sound if appointments today or tomorrow"
-msgstr ""
+msgstr "Відтворювати звук, якщо зустрічі сьогодні або завтра"
 
 #: addon\globalPlugins\agenda\configPanel.py:146
 msgid "&Sound to use"
-msgstr ""
+msgstr "&Використати звук"
 
 #: addon\globalPlugins\agenda\configPanel.py:156
 msgid "&Calendar:"
-msgstr ""
+msgstr "&Календар:"
 
 #. Translators: Name of combobox with the agenda files path
 #: addon\globalPlugins\agenda\configPanel.py:162
@@ -803,51 +804,51 @@ msgstr "Січень"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Esfand"
-msgstr ""
+msgstr "Есфанд"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Bahman"
-msgstr ""
+msgstr "Бахман"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Dey"
-msgstr ""
+msgstr "Дей"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Azar"
-msgstr ""
+msgstr "Азар"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Aban"
-msgstr ""
+msgstr "Абан"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Mehr"
-msgstr ""
+msgstr "Мехр"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Shahrivar"
-msgstr ""
+msgstr "Шахривар"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Mordad"
-msgstr ""
+msgstr "Мордад"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Tir"
-msgstr ""
+msgstr "Тир"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Khordad"
-msgstr ""
+msgstr "Хордад"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Ordibehesht"
-msgstr ""
+msgstr "Ордибехешт"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Farvardin"
-msgstr ""
+msgstr "Фарвардин"
 
 #: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Monday"
