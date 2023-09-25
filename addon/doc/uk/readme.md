@@ -84,4 +84,4 @@
 * Видалити все (Alt+L): Видаляє всі показані зустрічі;
 * Кнопка "Скасувати" (Alt+C): закриває вікно пошуку і повертає до головного діалогу.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.02/agenda-2023.09.02.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.25/agenda-2023.09.25.nvda-addon

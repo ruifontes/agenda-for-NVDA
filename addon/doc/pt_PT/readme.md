@@ -87,4 +87,4 @@ Além disto, na função Editar, os dados do compromisso seleccionado são apres
 * Remover tudo (Alt+T): apaga todos os compromissos apresentados;
 * Botão Cancelar  (Alt+C): fecha a janela de pesquisa e retorna à janela principal.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.02/agenda-2023.09.02.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.09.25/agenda-2023.09.25.nvda-addon
