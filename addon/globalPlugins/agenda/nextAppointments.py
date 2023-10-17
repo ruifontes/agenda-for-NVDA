@@ -108,7 +108,7 @@ class nextAppointments(wx.Dialog):
 		self.dayOfTomorrow = datetime.datetime.strftime(tomorrow, '%Y%m%d')
 		if len(occurs) != 0:
 			self.flagRecordExists=True
-			# Items were found, so fill the listbox with them
+			# Items were found, so look for repetitions
 			for tableLine in occurs:
 				# check for periodic event to this appointement
 				checkRepeat = _("No repeat")

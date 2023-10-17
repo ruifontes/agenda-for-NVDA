@@ -7,7 +7,11 @@
 
 # Import the necessary modules
 from .logDebug import logDebug
-from . import sqlite3
+import versionInfo
+if versionInfo.version_year < 2024:
+	from . import sqlite3
+else:
+	from . import sqlite311 as sqlite3
 import time
 import	datetime
 

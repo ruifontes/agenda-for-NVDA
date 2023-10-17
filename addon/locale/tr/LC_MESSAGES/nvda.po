@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ajanda 2023.05.13\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-08-29 18:21+0100\n"
-"PO-Revision-Date: 2023-08-29 20:07+0100\n"
+"PO-Revision-Date: 2023-09-01 13:12+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
@@ -65,7 +65,7 @@ msgstr "Ay:"
 #: addon\globalPlugins\agenda\varsConfig.py:50
 #: addon\globalPlugins\agenda\varsConfig.py:67
 msgid "Gregorian (Default)"
-msgstr ""
+msgstr "Gregoryen (Varsayılan)"
 
 #. Records the current date in the database search format
 #. Change to persian date if necessary
@@ -104,7 +104,7 @@ msgstr ""
 #: addon\globalPlugins\agenda\varsConfig.py:50
 #: addon\globalPlugins\agenda\varsConfig.py:78
 msgid "Persian"
-msgstr ""
+msgstr "Farsça"
 
 #. Translators: EditComboBox name in the configuration dialog
 #. Translators: Field to select the year
@@ -432,20 +432,21 @@ msgstr "Sonraki etkinliklerdeki gün sayısı:"
 
 #: addon\globalPlugins\agenda\configPanel.py:133
 msgid "&Sound for alarm"
-msgstr ""
+msgstr "Alarm için &ses"
 
 #. Translators: Checkbox name in the configuration dialog
 #: addon\globalPlugins\agenda\configPanel.py:140
+#| msgid "You do not have any appointments for today and tomorrow!"
 msgid "Play a sound if appointments today or tomorrow"
-msgstr "Randevular bugün veya yarınsa bir ses çalın"
+msgstr "Bugün veya yarın randevu varsa ses çal"
 
 #: addon\globalPlugins\agenda\configPanel.py:146
 msgid "&Sound to use"
-msgstr ""
+msgstr "&Kullanılacak ses"
 
 #: addon\globalPlugins\agenda\configPanel.py:156
 msgid "&Calendar:"
-msgstr ""
+msgstr "&Takvim:"
 
 #. Translators: Name of combobox with the agenda files path
 #: addon\globalPlugins\agenda\configPanel.py:162
@@ -472,8 +473,9 @@ msgstr "Tekrarları ayarla"
 
 #. Translators: Group label of ocurrences
 #: addon\globalPlugins\agenda\eventRepeat.py:75
+#| msgid "Choice your event repeat:"
 msgid "Choose your event repeat:"
-msgstr "Etkinliğinizin tekrarını seçin:"
+msgstr "Etkinlik tekrarını seçin:"
 
 #. Translators: Check box to define if repetitions have a fixed end
 #: addon\globalPlugins\agenda\eventRepeat.py:87
@@ -620,7 +622,8 @@ msgid ""
 "event.\n"
 "Instead of, you need edit the original registry. Do you want to edit It?"
 msgstr ""
-"Periyodik bir olay seçtiniz. Periyodik olayda bir tarihi düzenleyemezsiniz.\n"
+"Periyodik bir olay seçtiniz. Periyodik olayın içindeki bir tarihi "
+"düzenleyemezsiniz.\n"
 "Bunun yerine, orijinal kaydı düzenlemeniz gerekir. Düzenlemek istiyor "
 "musunuz?"
 
@@ -642,9 +645,10 @@ msgid ""
 "{}?"
 msgstr ""
 "Yalnızca bir periyodik olayı kaldıramazsınız. Bunun yerine, orijinal kaydı "
-"kaldırmanız gerekir. Bunu yaparsanız, periyodik olaydaki tüm tarihler "
+"kaldırmanız gerekir. Bunu yaparsanız, bu periyodik olaydaki tüm tarihler "
 "silinecektir.\n"
-"{} etkinliğinin orijinal kaydını ve tüm tarihlerini silmek istiyor musunuz:\n"
+"Orijinal kaydı ve bu {} etkinliğinin tüm tarihlerini silmek istiyor "
+"musunuz:\n"
 "{}?"
 
 #. Translators: Confirm deletion
@@ -797,51 +801,51 @@ msgstr "Ocak"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Esfand"
-msgstr ""
+msgstr "Esfand"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Bahman"
-msgstr ""
+msgstr "Bahman"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Dey"
-msgstr ""
+msgstr "Dey"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Azar"
-msgstr ""
+msgstr "Azar"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Aban"
-msgstr ""
+msgstr "Aban"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Mehr"
-msgstr ""
+msgstr "Mehr"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Shahrivar"
-msgstr ""
+msgstr "Şehrivar"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Mordad"
-msgstr ""
+msgstr "Mordad"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Tir"
-msgstr ""
+msgstr "Tir"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Khordad"
-msgstr ""
+msgstr "Khordad"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Ordibehesht"
-msgstr ""
+msgstr "Ordibehesht"
 
 #: addon\globalPlugins\agenda\varsConfig.py:52
 msgid "Farvardin"
-msgstr ""
+msgstr "Farvardin"
 
 #: addon\globalPlugins\agenda\varsConfig.py:53
 msgid "Monday"

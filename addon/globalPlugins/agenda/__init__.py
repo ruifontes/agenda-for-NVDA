@@ -15,6 +15,7 @@ from .varsConfig import *
 from .DlgAddEdit import DlgAddEdit
 from .alarmsCheck import CheckAlarms
 from .searchWindow import searchWindow
+from . nextAppointments import nextAppointments
 import sys
 sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__))))
 from . import convertdate
@@ -91,6 +92,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if not dialog0.IsShown():
 			gui.mainFrame.prePopup()
 			dialog0.Show()
+			gui.mainFrame.postPopup()
+
+	#defining a script with decorator:
+	@script(
+		gesture="kb:NVDA+Shift+f4",
+		# Translators: Message to be announced during Keyboard Help	 
+		description= _("Calling next appointments dialog"),
+		# Translators: Name of the section in "Input gestures" dialog.	
+		category= _("Agenda"))
+	def script_callNextAppointments(self, event):
+		#Calling the agenda next appointments dialog
+		dialog1 = nextAppointments(gui.mainFrame)
+		if not dialog1.IsShown():
+			gui.mainFrame.prePopup()
+			dialog1.Show()
 			gui.mainFrame.postPopup()
 
 
