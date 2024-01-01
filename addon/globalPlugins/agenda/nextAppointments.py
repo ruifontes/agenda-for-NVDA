@@ -172,6 +172,7 @@ class nextAppointments(wx.Dialog):
 
 	def executeEdit(self, event):
 		global itemToEdit
+		from .configPanel import calendarToUse
 		from . varsConfig import generalVars
 		generalVars.titleAddEd = _("Edit")
 		flagGoToEdit = False
@@ -218,6 +219,7 @@ class nextAppointments(wx.Dialog):
 		self.update()
 
 	def executeRemove(self, event):
+		from .configPanel import calendarToUse
 		# The variable should contain the details of appointment to remove
 		if self.flagRecordExists and self.appointmentsList.GetSelectedItemCount() > 0:
 			# Get appointments fields to create the date
