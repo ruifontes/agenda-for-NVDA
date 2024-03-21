@@ -3,7 +3,7 @@
 
 ## Інформація
 * Автори: Abel Passos, Ângelo Abrantes і Rui Fontes
-* Оновлено: 01.01.2024
+* Оновлено: 21.03.2024
 * Завантажити [стабільну версію][1]
 * Сумісність: NVDA версії 2019.3 і вище
 
@@ -84,4 +84,4 @@
 * Видалити все (Alt+L): Видаляє всі показані зустрічі;
 * Кнопка "Скасувати" (Alt+C): закриває вікно пошуку і повертає до головного діалогу.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2024.01.01/agenda-2024.01.01.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2024.03.21/agenda-2024.03.21.nvda-addon
