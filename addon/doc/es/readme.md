@@ -84,4 +84,4 @@ Además, se muestra la información de la cita para modificarla. Al añadir una 
 * Botón Eliminar todo (Alt+T): elimina todas las citas mostradas;
 * Botón Cancelar (Alt+C): cierra la ventana de búsqueda y regresa a la ventana principal.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2024.03.21/agenda-2024.03.21.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2025.06.11/agenda-2025.06.11.nvda-addon

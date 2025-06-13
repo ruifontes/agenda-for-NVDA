@@ -81,4 +81,4 @@ Ayrıca, Düzenle işlevinde, seçilen randevu verileri değişiklik için pence
 * Tümünü kaldır (Alt+T): Görüntülenen tüm randevuları siler;
 * İptal düğmesi (Alt+L): arama penceresini kapatır ve ana pencereye döner.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2024.03.21/agenda-2024.03.21.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2025.06.11/agenda-2025.06.11.nvda-addon

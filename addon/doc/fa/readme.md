@@ -84,4 +84,4 @@
 * دکمه‌ی حذف همه (Alt+ه): همه‌ی قرارهای نمایش داده‌شده را حذف می‌کند.
 * دکمه‌ی لغو (Alt+ل): پنجره‌ی جستجو را می‌بندد و به پنجره‌ی اصلی برمی‌گردد.
 
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2024.03.21/agenda-2024.03.21.nvda-addon
+[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2025.06.11/agenda-2025.06.11.nvda-addon
