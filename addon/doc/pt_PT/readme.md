@@ -3,8 +3,6 @@
 
 ## Informações
 * Autores: Abel Passos, Ângelo Abrantes  e Rui Fontes
-* Actualizado em: 21.03.2024
-* Descarregar [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
 
@@ -86,5 +84,3 @@ Além disto, na função Editar, os dados do compromisso seleccionado são apres
 * Remover (Alt+R): apaga o compromisso seleccionado;
 * Remover tudo (Alt+T): apaga todos os compromissos apresentados;
 * Botão Cancelar  (Alt+C): fecha a janela de pesquisa e retorna à janela principal.
-
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2025.06.11/agenda-2025.06.11.nvda-addon

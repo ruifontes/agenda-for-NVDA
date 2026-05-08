@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: 'agenda' '2023.07.17'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-08-29 18:21+0100\n"
-"PO-Revision-Date: 2023-08-29 19:38+0100\n"
+"PO-Revision-Date: 2025-06-15 01:59+0100\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -174,8 +174,8 @@ msgid ""
 "You disabled the periodicity of this appointement. Do you really want remove its "
 "periodicity?"
 msgstr ""
-"شما حالتِ دوره‌ایِ این قرار را غیرفعال کرده‌اید. آیا واقعا میخواهید این حالت دوره‌ای "
-"را حذف کنید؟"
+"شما حالتِ دوره‌ایِ این قرار را غیرفعال کرده‌اید. آیا واقعا میخواهید این حالت دوره‌ای را "
+"حذف کنید؟"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:349
 msgid "Remove periodic event"
@@ -184,8 +184,7 @@ msgstr "حذفِ رویدادِ دوره‌ای"
 #. If description field is blank and  option is Edit, means user deleted the appointement informations. Check if date keeps the same
 #: addon\globalPlugins\agenda\DlgAddEdit.py:395
 msgid ""
-"You have deleted the appointment description. Do you want to delete the "
-"appointment?"
+"You have deleted the appointment description. Do you want to delete the appointment?"
 msgstr "شما توضیحِ قرار را حذف کرده‌اید. آیا میخواهید خودِ قرار را هم حذف کنید؟"
 
 #. Translators: Dialog title
@@ -199,8 +198,7 @@ msgstr "شما توضیحِ قرار را حذف کرده‌اید. آیا می�
 #: addon\globalPlugins\agenda\DlgAddEdit.py:469
 #: addon\globalPlugins\agenda\DlgAddEdit.py:509
 #: addon\globalPlugins\agenda\DlgAddEdit.py:570
-#: addon\globalPlugins\agenda\__init__.py:45
-#: addon\globalPlugins\agenda\__init__.py:87
+#: addon\globalPlugins\agenda\__init__.py:45 addon\globalPlugins\agenda\__init__.py:87
 #: addon\globalPlugins\agenda\__init__.py:122
 #: addon\globalPlugins\agenda\__init__.py:566
 #: addon\globalPlugins\agenda\__init__.py:602
@@ -226,7 +224,7 @@ msgstr "سررسید"
 #: addon\globalPlugins\agenda\nextAppointments.py:260
 #: addon\globalPlugins\agenda\searchWindow.py:551
 msgid "Appointment removed successfully!"
-msgstr "قرار با موفقیت حذف شد."
+msgstr "قرار با موفقیت حذف شد!"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:418
 msgid ""
@@ -237,23 +235,23 @@ msgid ""
 "appointment and choose the remove button"
 msgstr ""
 "شما توضیح را پاک کردید و تاریخ را تغییر دادید.\n"
-"اگر میخواهید قرارِ جدید ایجاد کنید، دکمه‌ی «افزودن» را در پنجره‌های اصلی یا جستجو "
-"فشار دهید.\n"
-"چنانچه میخواهید قراری را حذف کنید، در پنجره‌های اصلی یا جستجو قراری را انتخاب "
-"کنید و دکمه‌ی «حذف» را بفشارید."
+"اگر میخواهید قرارِ جدید ایجاد کنید، دکمه‌ی «افزودن» را در پنجره‌های اصلی یا جستجو فشار "
+"دهید.\n"
+"چنانچه میخواهید قراری را حذف کنید، در پنجره‌های اصلی یا جستجو قراری را انتخاب کنید و "
+"دکمه‌ی «حذف» را بفشارید"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:427
 msgid "No description to the appointment"
-msgstr "این قرار توضیحی ندارد."
+msgstr "این قرار توضیحی ندارد"
 
 #. If database returns some records, so exist appointment for this date/hour
 #: addon\globalPlugins\agenda\DlgAddEdit.py:454
 msgid ""
-"Informations for this date and hour already exists on agenda. Do you want to "
-"replace original informations?"
+"Informations for this date and hour already exists on agenda. Do you want to replace "
+"original informations?"
 msgstr ""
-"اطلاعاتی برای این تاریخ و ساعت در سررسید موجود است. آیا میخواهید آن را با "
-"اطلاعاتِ اصلی جایگزین کنید؟"
+"اطلاعاتی برای این تاریخ و ساعت در سررسید موجود است. آیا میخواهید آن را با اطلاعاتِ "
+"اصلی جایگزین کنید؟"
 
 #: addon\globalPlugins\agenda\DlgAddEdit.py:469
 msgid "Record updated successfully!"
@@ -276,7 +274,7 @@ msgstr "پنجره‌ی اصلی برای دسترسی به یک سررسیدِ 
 #. Translators: Name of the list with the events
 #: addon\globalPlugins\agenda\__init__.py:157
 msgid "items found:"
-msgstr " مورد پیدا شده:"
+msgstr "مورد پیدا شده:"
 
 #: addon\globalPlugins\agenda\__init__.py:161
 msgid "Hour"
@@ -344,8 +342,8 @@ msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic event.\n"
 "Instead of, you need edit the original register. Do you want edit It?"
 msgstr ""
-"شما یک رویدادِ دوره‌ای را انتخاب کردید. نمیتوانید یک تاریخ را در رویدادِ دوره‌ای "
-"ویرایش کنید.\n"
+"شما یک رویدادِ دوره‌ای را انتخاب کردید. نمیتوانید یک تاریخ را در رویدادِ دوره‌ای ویرایش "
+"کنید.\n"
 "در عوض، باید ورودیِ اصلی را ویرایش کنید. میخواهید حالا ویرایشش کنید؟"
 
 #: addon\globalPlugins\agenda\__init__.py:550
@@ -363,15 +361,14 @@ msgstr "شما هیچ قراری را برای ویرایش انتخاب نکر�
 #: addon\globalPlugins\agenda\nextAppointments.py:243
 #: addon\globalPlugins\agenda\searchWindow.py:533
 msgid "Do you really want to remove the  item: "
-msgstr "آیا واقعا میخواهید مورد را حذف کنید؟"
+msgstr "آیا واقعا میخواهید مورد را حذف کنید؟ "
 
 #. Translators: Inform that is necessary to remove the original event
 #: addon\globalPlugins\agenda\__init__.py:593
 #: addon\globalPlugins\agenda\searchWindow.py:540
 msgid ""
-"You can't remove just one periodic event. Instead of, you need remove the "
-"original register. If you make this, alldates on this periodic event will be "
-"deleted.\n"
+"You can't remove just one periodic event. Instead of, you need remove the original "
+"register. If you make this, alldates on this periodic event will be deleted.\n"
 "Do you want to delete the original register and all   dates of this {} event:\n"
 "{}?"
 msgstr ""
@@ -447,7 +444,7 @@ msgstr "&صدایی که استفاده شود"
 
 #: addon\globalPlugins\agenda\configPanel.py:156
 msgid "&Calendar:"
-msgstr "&تقویم"
+msgstr "&تقویم:"
 
 #. Translators: Name of combobox with the agenda files path
 #: addon\globalPlugins\agenda\configPanel.py:162
@@ -485,7 +482,7 @@ msgstr "تعیینِ پایانِ تکرارها"
 #. Translators: Group label to number of repetitions
 #: addon\globalPlugins\agenda\eventRepeat.py:94
 msgid "Quantity of repeations:"
-msgstr "تعدادِ تکرارها"
+msgstr "تعدادِ تکراره:ا"
 
 #. Translators: Group label to the end date
 #: addon\globalPlugins\agenda\eventRepeat.py:104
@@ -565,7 +562,7 @@ msgstr "قرارهای روزهای بعدی"
 #: addon\globalPlugins\agenda\searchWindow.py:115
 #: addon\globalPlugins\agenda\searchWindow.py:432
 msgid "Items found:"
-msgstr " مورد پیدا شده:"
+msgstr "مورد پیدا شده:"
 
 #. Translators: Column title
 #: addon\globalPlugins\agenda\nextAppointments.py:38
@@ -621,8 +618,8 @@ msgid ""
 "You selected a periodic event. You can't edit a date inside on periodic event.\n"
 "Instead of, you need edit the original registry. Do you want to edit It?"
 msgstr ""
-"شما یک رویدادِ دوره‌ای را انتخاب کردید. نمیتوانید یک تاریخ را در رویدادِ دوره‌ای "
-"ویرایش کنید.\n"
+"شما یک رویدادِ دوره‌ای را انتخاب کردید. نمیتوانید یک تاریخ را در رویدادِ دوره‌ای ویرایش "
+"کنید.\n"
 "در عوض، باید ورودیِ اصلی را ویرایش کنید. میخواهید حالا ویرایشش کنید؟"
 
 #. Translators: Inform that no event was selected...
@@ -635,9 +632,8 @@ msgstr "قراری برای ویرایش انتخاب نشده است."
 #. Translators: Asking to delete the original registry and not one single event...
 #: addon\globalPlugins\agenda\nextAppointments.py:249
 msgid ""
-"You can't remove just one periodic event. Instead of, you need remove the "
-"original registry. If you make this, alldates on this periodic event will be "
-"deleted.\n"
+"You can't remove just one periodic event. Instead of, you need remove the original "
+"registry. If you make this, alldates on this periodic event will be deleted.\n"
 "Do you want to delete the original register and all   dates of this {} event:\n"
 "{}?"
 msgstr ""
@@ -661,7 +657,7 @@ msgstr "جستجوی سررسید"
 #. Translators: The search type
 #: addon\globalPlugins\agenda\searchWindow.py:40
 msgid "Type of search:"
-msgstr "نوعِ جستجو"
+msgstr "نوعِ جستجو:"
 
 #. Translators: The various search types
 #: addon\globalPlugins\agenda\searchWindow.py:44
@@ -727,14 +723,13 @@ msgstr "روزِ پایانی باید مساوی یا بعد از روز آغا
 #. Translators: Informing no event selected.
 #: addon\globalPlugins\agenda\searchWindow.py:558
 msgid "No appointment selected to delete"
-msgstr "قراری برای حذف کردن انتخاب نشده است."
+msgstr "قراری برای حذف کردن انتخاب نشده است"
 
 #. Translators: Informing no event selected.
 #: addon\globalPlugins\agenda\searchWindow.py:566
 msgid "No itens to delete. Please, you need search something to delete all itens."
 msgstr ""
-"موردی برای حذف کردن نیست. لازم است چیزی را جستجو کنید تا مواردِ پیداشده را حذف "
-"کنید."
+"موردی برای حذف کردن نیست. لازم است چیزی را جستجو کنید تا مواردِ پیداشده را حذف کنید."
 
 #. Translators: Confirmation to delete all selected events
 #: addon\globalPlugins\agenda\searchWindow.py:571
@@ -909,4 +904,4 @@ msgstr "سررسیدِ دسترسپذیر"
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:27
 msgid "Allows access to an accesible agenda"
-msgstr "اجازه میدهد به یک سررسیدِ دسترسپذیر دست یابید."
+msgstr "اجازه میدهد به یک سررسیدِ دسترسپذیر دست یابید"
