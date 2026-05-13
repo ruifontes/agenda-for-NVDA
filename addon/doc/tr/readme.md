@@ -1,10 +1,7 @@
 #Ajanda
 
-
 ## bilgiler
 * Yazarlar: Abel Passos, Ângelo Abrantes ve Rui Fontes
-* Güncelleme: 21.03.2024
-* [Kararlı sürümü indirin][1]
 * Uyumluluk: NVDA sürüm 2019.3 ve sonrası
 
 <br>
@@ -80,5 +77,3 @@ Ayrıca, Düzenle işlevinde, seçilen randevu verileri değişiklik için pence
 * Kaldır düğmesi (Alt+K): Seçili randevuyu Siler;
 * Tümünü kaldır (Alt+T): Görüntülenen tüm randevuları siler;
 * İptal düğmesi (Alt+L): arama penceresini kapatır ve ana pencereye döner.
-
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2025.06.11/agenda-2025.06.11.nvda-addon

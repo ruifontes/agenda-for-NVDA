@@ -1,10 +1,7 @@
 #Agenda
 
-
 ## Información
 * Autores: Abel Passos, Ângelo Abrantes y Rui Fontes
-* Actualizado: 21.03.2024
-* Descargar [versión estable][1]
 * Compatibilidad: NVDA versión 2019.3 en adelante
 
 
@@ -83,5 +80,3 @@ Además, se muestra la información de la cita para modificarla. Al añadir una 
 * Botón Eliminar (Alt+R): elimina la cita seleccionada;
 * Botón Eliminar todo (Alt+T): elimina todas las citas mostradas;
 * Botón Cancelar (Alt+C): cierra la ventana de búsqueda y regresa a la ventana principal.
-
-[1]: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2025.06.11/agenda-2025.06.11.nvda-addon

@@ -1,16 +1,10 @@
-\#Agenda
+#Agenda
 
-
-
-## Information
-
+##Information
 * Authors: Abel Passos, Ângelo Abrantes and Rui Fontes
 * Compatibility: NVDA version 2019.3 and beyond
 
-
-
-## \##Presentation
-
+##Presentation
 This add-on allows you to write down appointments and activities with or without alarms and with or without recursevity.
 You can use two different agendas.
 To switch between them, go to the NVDA menu, Preferences, Settings, agenda section and choose from the combobox the agenda you want to use.
@@ -20,27 +14,16 @@ At NVDA startup you will be reminded of the appointments for the next days This 
 This option can be configured in the add-on's settings.
 Now, also in the add-on category of the NVDA settings, you can select the sounds to use and between Gregorian and Iranian calendar.
 
-
-
-## ""Command
-
+##Command
 The command to invoke the add-on is NVDA+F4.
 You can change it in the Input gestures dialog, in the agenda section.
 
-
-
-## \##How it works:
-
+##How it works:
 * When you open the program, the current day's appointments will be displayed.
 * In the main window there are the fields to change the date, the appointments for the selected date, and some program control buttons that will be described later.
 The date fields can be changed using the vertical arrows or by typing the desired value. When changing the date, the day's appointments will be automatically displayed.
 
-
-
-### \###Hotkeys for the main window:
-
-
-
+###Hotkeys for the main window:
 * Alt + 1-9: Advances the number of days for the value pressed;
 * Alt+0: Returns to the current date;
 * Alt+left arrow: Goes back one day in the date;
@@ -53,27 +36,18 @@ The date fields can be changed using the vertical arrows or by typing the desire
 * Delete: Deletes the selected record. Same function as the Remove button;
 * Control+f: Opens the "Search" window. Equal to activate the "Search" button.
 
-
-
-### \###Functions of the buttons in the main window and their respective accelerator keys:
-
+###Functions of the buttons in the main window and their respective accelerator keys:
 * Add (Alt+A): Opens a window for registering appointments on the selected date;
 * Edit (Alt+E): Opens a window for editing the selected appointment;
 * Remove (Alt+R): Deletes the selected appointment;
 * Search (Alt+S): Opens a window for searching for information in the agenda
 * exit (Alt+S): Closes the window.
 
-
-
-### The adding and editing functions are quite similar, and for this reason the window that will be described serves both functions.
-
+###The adding and editing functions are quite similar, and for this reason the window that will be described serves both functions.
 The main difference is that in order to edit, you need to have previously selected an appointment to be changed.
 Also, in the Edit function, the selected appointment data is displayed in the window for modification. In the Add option, the window opens with the selected date and the other fields blank
 
-
-
-### \###Add and Edit window fields
-
+####Add and Edit window fields
 * day/month/year: date fields that can be changed with the vertical arrows or by typing the desired value
 * hour/minutes: time fields that can be changed with the vertical arrows or by typing the desired value
 * Description: field to fill in the information about the commitment ;
@@ -83,12 +57,8 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * Cancel button (Alt+C): does not save the information filled in this window
 * The Add/Edit window has the shortcut keystroke Ctrl+Enter to save the filled in information. This is equivalent to the function of the OK button
 
-
-
-### \###Search window fields
-
+###Search window fields
 * Search type: you must select from the following options:
-
   * text search: an edit field will open for you to type what you want to search for. It is not necessary to type the entire phrase, the search can be done with parts of words;
   * Next 7 days: displays the appointments for the next 7 days, not including the current day;
   * Next 30 days: displays the appointments for the next 30 days, not including the current day;
@@ -99,4 +69,3 @@ Also, in the Edit function, the selected appointment data is displayed in the wi
 * Remove button (Alt+R): Remove the selected appointment;
 * Remove all (Alt+L): Deletes all displayed appointments;
 * Cancel button (Alt+C): closes the search window and returns to the main window.
-

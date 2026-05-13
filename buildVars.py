@@ -23,10 +23,10 @@ addon_info = AddonInfo(
 	# Translators: Long description to be shown for this add-on on add-on information from add-on store
 	addon_description = _("""Allows access to an accesible agenda"""),
 	# version
-	addon_version = "2026.05.08",
+	addon_version = "2026.05.14",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
-	addon_changelog = _("""Set compatibility to NVDA 2026.1"""),
+	addon_changelog = _("""Corrected a bug preventing to open the main window in certain cases."""),
 	# Author(s)
 	addon_author = "Abel Passos do Nascimento Jr <abel.passos@gmail.com>, Ângelo Abrantes <ampa4374@gmail.com> and Rui Fontes <rui.fontes@tiflotecnia.com>",
 	# URL for the add-on documentation support

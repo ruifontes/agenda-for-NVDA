@@ -522,13 +522,11 @@ class DlgAddEdit(wx.Dialog):
 				manageDatabase.removeItem(self.itemToEdit, dirDatabase)
 				manageDatabase.removeRepeat(self.itemToEdit, dirDatabase)
 
-			self.Close()
 			self.Destroy()
 			generalVars.loadAlarms
 
 	def OnCancel(self, event):
 		if self.exitType== "OK" or self.exitConfirm:
-			self.Close()
 			self.Destroy()
 			return
 			event.Skip()
@@ -578,7 +576,6 @@ class DlgAddEdit(wx.Dialog):
 					dlg.Destroy()
 					self.exitConfirm=True
 
-			self.Close()
 			event.Skip()
 			self.Destroy()
 			return
